@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../pages/images/logo.png";
+import logo from "../../pages/images/3.png";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
@@ -9,10 +9,10 @@ const Footer = () => {
       <div className="w-full h-px bg-gray-300"></div>
 
       {/* Footer Content */}
-      <div className="flex flex-col lg:flex-row justify-between items-start px-6 lg:px-40 py-12 w-full max-w-screen-xl mx-auto">
+      <div className="flex flex-col lg:flex-row justify-between items-start px-6 lg:px-40 py-12 w-[60%] max-w-screen-xl mx-auto">
         {/* Logo Section */}
         <div className="flex items-start mb-8 lg:mb-0 ml-0">
-          <img src={logo} alt="Logo" className="w-[70%] lg:w-[90%] h-auto" />
+          <img src={logo} alt="Logo" className="w-[50%] lg:w-[50%] h-auto" />
         </div>
 
         {/* Links Section */}
@@ -49,22 +49,22 @@ const Footer = () => {
     </li>
     <li>
       {/* Social Media Icons */}
-      <div className="flex justify-center sm:justify-start space-x-6 lg:space-x-8 mt-4">
+      <div className="flex justify-center sm:justify-start space-x-6 lg:space-x-2 mt-4">
         <FaFacebook
           className="text-blue-600 cursor-pointer hover:scale-110 transition-transform duration-200"
-          size={24}
+          size={30}
         />
         <FaLinkedin
           className="text-blue-800 cursor-pointer hover:scale-110 transition-transform duration-200"
-          size={24}
+          size={30}
         />
         <FaTwitter
           className="text-blue-400 cursor-pointer hover:scale-110 transition-transform duration-200"
-          size={24}
+          size={30}
         />
         <FaInstagram
           className="text-pink-500 cursor-pointer hover:scale-110 transition-transform duration-200"
-          size={24}
+          size={30}
         />
       </div>
     </li>

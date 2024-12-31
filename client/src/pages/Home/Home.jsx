@@ -18,7 +18,7 @@ import four from "../images/4th.png";
 import fiv from "../images/5th.png";
 import six from "../images/6th.png";
 import right from "../images/Home_right.png";
-import bg from "../images/social.png";
+import bg from "../images/bg.png";
 import { useNavigate } from "react-router-dom";
 import Testimonial from "../../component/testimonial/Testimonial";
 const Home = () => {
@@ -254,7 +254,7 @@ const Home = () => {
         </div>
 
         {/* Events Section */}
-        <div className="flex justify-center flex-col items-center">
+        <div className="flex justify-center flex-col items-center overflow-x-hidden">
           {/* Header Section */}
           <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
             <h2 className="text-3xl font-medium text-black font-montserrat">
@@ -262,7 +262,7 @@ const Home = () => {
             </h2>
           </div>
 
-          <StickyStackedCards />
+          <StickyStackedCards/>
 
           <div className="flex justify-center flex-col items-center">
             {/* Header Section */}

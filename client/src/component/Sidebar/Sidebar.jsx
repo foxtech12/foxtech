@@ -5,10 +5,12 @@ import contact from "../../assetss/icons/contact-list.png";
 import AddUser from "../../assetss/icons/add-user.png";
 import user from "../../assetss/icons/user.png";
 import logo from "../../assetss/images/logo.png"; // Path for the logo image
+import smallLogo from "../../pages/images/3.png";
 import logoout from "../../assetss/icons/logout.png"; // Path for the logo image
 import event from "../../assetss/icons/calendar.png"; // Path for the logo image
 import test from "../../assetss/icons/faqs.png"; // Path for the logo image
 import faq from "../../assetss/icons/review.png"; // Path for the logo image
+
 
 const AdminNav = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -40,6 +42,31 @@ const AdminNav = () => {
   }, []);
   const firstName = userName ? userName.split(" ")[0] : "User"; // Split the name by space and get the first part
 
+
+  /// for logo change in small screen:
+
+  const [currentLogo, setCurrentLogo] = useState(logo);
+
+  useEffect(() => {
+    const updateLogo = () => {
+      if (window.innerWidth <= 768) {
+        setCurrentLogo(smallLogo);
+      } else {
+        setCurrentLogo(logo);
+      }
+    };
+  
+    updateLogo();
+    window.addEventListener("resize", updateLogo);
+  
+    return () => {
+      window.removeEventListener("resize", updateLogo);
+    };
+  }, []);
+  
+
+
+
   return (
     <div>
       {/* Navbar */}
@@ -68,9 +95,9 @@ const AdminNav = () => {
               </button>
               <Link to="/admin" className="flex items-center ms-2 md:me-24">
                 <img
-                  src={logo}
+                  src={currentLogo}
                   alt="FoxTech Logo"
-                  className="w-18 h-8 mr-2" // Adjust the size of the logo as needed
+                  className="w-13 h-14 mr-2"
                 />
               </Link>
             </div>
