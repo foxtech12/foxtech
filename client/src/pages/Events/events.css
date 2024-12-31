@@ -1,0 +1,49 @@
+.no-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Edge */
+  }
+  
+  [data-aos="custom-scale"] {
+    transform: scale(1); /* Initial size */
+    transition: transform 0.5s ease-in-out, font-size 0.5s ease-in-out;
+  }
+
+  [data-aos="custom-scale"].aos-animate {
+    transform: scale(1.1); /* Increase size on scroll into view */
+  }
+
+  [data-aos="custom-scale"]:not(.aos-animate) {
+    transform: scale(1); /* Reset size when scrolled out */
+  }
+
+
+
+
+
+
+
+
+
+  .aos-animate {
+    transform: scale(1.2);  /* Scaling the text size */
+    padding-left: 20px;      /* Retaining consistent left padding */
+    padding-right: 20px;     /* Retaining consistent right padding */
+    transition: transform 1.2s ease-in-out; /* Smooth scale transition */
+  }
+  
+  /* For mobile or smaller screens, ensure good scaling */
+  @media (max-width: 640px) {
+    .aos-animate {
+      transform: scale(1.1);
+    }
+  }
+
+
+
+
+
+  
