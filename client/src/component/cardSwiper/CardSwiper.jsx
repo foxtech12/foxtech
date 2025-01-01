@@ -58,8 +58,7 @@ const CardSwiper = () => {
                     slide.image.contentType
                   )}
                   alt={slide.name}
-                  className="w-[100%] h-[300px] object-cover rounded-t-2xl" // Same height and width for all images
-                  style={{ objectFit: "cover" }}
+                  className="w-[400px] h-[300px] md:h-[300px] lg:h-[300px] object-cover rounded-t-2xl" // Consistent height for all images across large and medium screens
                 />
                 <div className="p-4 bg-[#E7FFE7] rounded-b-2xl">
                   <h3 className="font-bold text-md">{slide.name}</h3>

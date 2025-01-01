@@ -288,6 +288,9 @@ const Events = () => {
                       <p className="text-black text-sm">{item.location}</p>
                       <button
                         className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-200"
+                        style={{
+                          background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
+                        }}
                         onClick={() => navigate(`/contact?name=${item.name}`)}
                       >
                         Register Now
@@ -327,6 +330,9 @@ const Events = () => {
                     <button
                       className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
                       onClick={() => navigate(`/contact?name=${item.name}`)}
+                      style={{
+                        background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
+                      }}
                     >
                       Register Now
                     </button>
@@ -364,6 +370,9 @@ const Events = () => {
                     <button
                       className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
                       onClick={() => navigate(`/contact?name=${item.name}`)}
+                      style={{
+                        background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
+                      }}
                     >
                       Register Now
                     </button>
