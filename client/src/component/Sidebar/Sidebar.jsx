@@ -4,7 +4,7 @@ import dashboard from "../../assetss/icons/Dashboard.png";
 import contact from "../../assetss/icons/contact-list.png";
 import AddUser from "../../assetss/icons/add-user.png";
 import user from "../../assetss/icons/user.png";
-import logo from "../../assetss/images/logo.png"; // Path for the logo image
+import logo from "../../pages/images/3.png"; // Path for the logo image
 import smallLogo from "../../pages/images/3.png";
 import logoout from "../../assetss/icons/logout.png"; // Path for the logo image
 import event from "../../assetss/icons/calendar.png"; // Path for the logo image
@@ -70,7 +70,7 @@ const AdminNav = () => {
   return (
     <div>
       {/* Navbar */}
-      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-black dark:border-gray-900">
+      <nav className="fixed top-0 z-50 w-full bg-white  dark:bg-black dark:border-gray-900">
         <div className="px-3 py-3 lg:px-5 lg:pl-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start">
@@ -93,11 +93,11 @@ const AdminNav = () => {
                   />
                 </svg>
               </button>
-              <Link to="/admin" className="flex items-center ms-2 md:me-24">
+              <Link to="/admin" className="flex items-center ms-2 md:me-24 ">
                 <img
                   src={currentLogo}
                   alt="FoxTech Logo"
-                  className="w-13 h-14 mr-2"
+                  className="w-[90%] h-16 mr-2 "
                 />
               </Link>
             </div>
@@ -149,7 +149,7 @@ const AdminNav = () => {
       {/* Sidebar */}
       <aside
         id="logo-sidebar"
-        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform bg-white border-r border-gray-200 dark:bg-black dark:border-gray-700 ${
+        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 mt-5 transition-transform bg-white border-r border-gray-200 dark:bg-black dark:border-gray-700 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } sm:translate-x-0`}
         aria-label="Sidebar"
