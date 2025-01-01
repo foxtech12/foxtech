@@ -18,6 +18,7 @@ const PORT = process.env.PORT || 5000;
 
 // Serve static files from the "sample" directory
 app.use(express.static(path.join(__dirname, "./sample")));
+app.use('/static', express.static(path.join(__dirname, 'images')));
 
 // Middleware to parse JSON requests
 app.use(express.json());

@@ -10,12 +10,10 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "arijitghosh1203@gmail.com", 
-    pass: "sbkz nlun jawd ykki", 
+    user: "arijitghosh1203@gmail.com",
+    pass: "sbkz nlun jawd ykki",
   },
 });
-
-
 
 const login = async (req, res) => {
   try {
@@ -64,12 +62,10 @@ const signup = async (req, res) => {
     const { email, name, password } = req.body;
 
     if (!email || !name || !password) {
-      return res
-        .status(400)
-        .send({
-          message: "Email, Name, and Password are required.",
-          success: false,
-        });
+      return res.status(400).send({
+        message: "Email, Name, and Password are required.",
+        success: false,
+      });
     }
 
     const userExist = await userModel.findOne({ email });
@@ -86,10 +82,7 @@ const signup = async (req, res) => {
     const newUser = new userModel({ ...req.body, password: hashPassword });
 
     const resetToken = crypto.randomBytes(32).toString("hex");
-
-    //const resetLink = `http://localhost:3000/add-new-password?token=${resetToken}&email=${email}`;
-    const resetLink = `https://foxtech-tau.vercel.app/add-new-password?token=${resetToken}&email=${email}`;
-    console.log(resetLink);
+    const resetLink = `https://www.foxteach.org/add-new-password?token=${resetToken}&email=${email}`;
 
     newUser.resetToken = resetToken;
     newUser.tokenExpiry = Date.now() + 3600000;
@@ -107,14 +100,14 @@ const signup = async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: '"FoxTech" <arijitghosh1203@gmail.com>',
+      from: '"FoxTeach" <arijitghosh1203@gmail.com>',
       to: email,
-      subject: "FoxTEch Reset Password",
+      subject: "FoxTeach Reset Password",
       html: `
         <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
           <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
             <h1 style="text-align: center; color:rgb(93, 216, 101);">Welcome, ${req.body.name}!</h1>
-            <img src="https://img.freepik.com/free-photo/online-message-blog-chat-communication-envelop-graphic-icon-concept_53876-139717.jpg" alt="Coffee Cup" style="display: block; margin: 0 auto; width: 120px; height: 120px;" />
+            <img src="https://foxtech-x0qv.onrender.com/static/3.png" alt="Coffee Cup" style="display: block; margin: 0 auto; width: 120px; height: 120px;" />
             <p style="font-size: 16px; line-height: 1.5; text-align: center; color: #333;">Your account has been successfully created.</p>
             <p style="text-align: center; margin-top: 20px;">
               <a href="${resetLink}" style="background-color:rgb(93, 216, 109); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Set Your Password</a>
@@ -175,14 +168,14 @@ const resetPassword = async (req, res) => {
     });
 
     await transporter.sendMail({
-      from: '"FoxTech" <arijitghosh1203@gmail.com>',
+      from: '"FoxTeach" <arijitghosh1203@gmail.com>',
       to: user.email,
       subject: "Password Updated",
       html: `
       <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
         <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
           <h1 style="text-align: center; color:rgb(93, 216, 95);">Password Updated Successfully</h1>
-          <img src="https://img.freepik.com/free-photo/online-message-blog-chat-communication-envelop-graphic-icon-concept_53876-139717.jpg" alt="Coffee Cup" style="display: block; margin: 0 auto; width: 120px; height: 120px;" />
+          <img src="https://foxtech-x0qv.onrender.com/static/3.png" alt="Coffee Cup" style="display: block; margin: 0 auto; width: 120px; height: 120px;" />
           <p style="font-size: 16px; line-height: 1.5; text-align: center; color: #333;">Hello ${req.body.name},</p>
           <p style="font-size: 16px; line-height: 1.5; text-align: center; color: #333;">Your password has been successfully updated.</p>
           <p style="font-size: 14px; text-align: center; color: #999;">If you didn't initiate this change, please contact us immediately.</p>
@@ -203,29 +196,28 @@ const resetPassword = async (req, res) => {
   }
 };
 
-
-
-
 const forgotPassword = async (req, res) => {
   const { email } = req.body;
   try {
     const user = await userModel.findOne({ email });
     if (!user) {
-      return res.status(404).json({ success: false, message: "User not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
 
     const token = crypto.randomBytes(32).toString("hex");
     user.resetToken = token;
-    user.tokenExpiry = Date.now() + 3600000;  
+    user.tokenExpiry = Date.now() + 3600000;
     await user.save();
 
-    const resetLink = `https://foxtech-tau.vercel.app/reset-password/${token}`;
-   
+    const resetLink = `https://www.foxteach.org/reset-password/${token}`;
+
     const html = `
       <div style="font-family: 'Arial', sans-serif; background-color: #f9f9f9; padding: 30px;">
         <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <h1 style="text-align: center; color: #4CAF50; font-family: 'Bank Gothic', Arial, sans-serif;">Welcome to FOXTECH, ${user.name}!</h1>
-          <img src="https://img.freepik.com/free-photo/online-message-blog-chat-communication-envelop-graphic-icon-concept_53876-139717.jpg" alt="Coffee Cup" style="display: block; margin: 0 auto; width: 140px; height: 120px; border-radius: 5px;" />
+          <h1 style="text-align: center; color: #4CAF50; font-family: 'Bank Gothic', Arial, sans-serif;">Welcome to FoxTeach, ${user.name}!</h1>
+          <img src="https://foxtech-x0qv.onrender.com/static/3.png" alt="Coffee Cup" style="display: block; margin: 0 auto; width: 140px; height: 120px; border-radius: 5px;" />
           <p style="font-size: 16px; line-height: 1.8; text-align: center; color: #555;">Hello ${user.name},</p>
           <p style="font-size: 16px; line-height: 1.8; text-align: center; color: #555;">You requested a password reset. Click the link below to reset your password:</p>
           <p style="text-align: center; margin-top: 20px;">
@@ -233,13 +225,13 @@ const forgotPassword = async (req, res) => {
           </p>
           <p style="font-size: 14px; text-align: center; color: #999;">If you did not request a password reset, please ignore this email.</p>
           <hr style="margin: 20px 0; border: 0.5px solid #ddd;">
-          <p style="font-size: 14px; text-align: center; color: #999;">FOXTECH Team, Bringing the best brewing stories to life.</p>
+          <p style="font-size: 14px; text-align: center; color: #999;">FoxTeach Team, Bringing the best brewing stories to life.</p>
         </div>
       </div>
     `;
-    
+
     await transporter.sendMail({
-      from: '"FoxTech" <arijitghosh1203@gmail.com>',
+      from: '"FoxTeach" <arijitghosh1203@gmail.com>',
       to: email,
       subject: "Password Reset",
       html: html,
@@ -252,8 +244,6 @@ const forgotPassword = async (req, res) => {
   }
 };
 
-
-
 const resetPasswordInLoginTime = async (req, res) => {
   const { token } = req.params;
   const { password } = req.body;
@@ -261,11 +251,13 @@ const resetPasswordInLoginTime = async (req, res) => {
   try {
     const user = await userModel.findOne({
       resetToken: token,
-      tokenExpiry: { $gt: Date.now() },  
+      tokenExpiry: { $gt: Date.now() },
     });
 
     if (!user) {
-      return res.status(400).json({ success: false, message: "Invalid or expired token." });
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid or expired token." });
     }
 
     user.password = await bcrypt.hash(password, 10);
@@ -277,16 +269,16 @@ const resetPasswordInLoginTime = async (req, res) => {
       <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
         <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
           <h1 style="text-align: center; color:rgb(93, 216, 105);">Password Reset Successful</h1>
-          <img src="https://www.shutterstock.com/image-photo/coffee-mug-grinded-beans-concept-600nw-2500190129.jpg" alt="Coffee Cup" style="display: block; margin: 0 auto; width: 140px; height: 120px;" />
+          <img src="https://foxtech-x0qv.onrender.com/static/3.png" alt="Coffee Cup" style="display: block; margin: 0 auto; width: 140px; height: 120px;" />
           <p style="font-size: 16px; line-height: 1.5; text-align: center; color: #333;">Hello ${user.name},</p>
           <p style="font-size: 16px; line-height: 1.5; text-align: center; color: #333;">Your password has been successfully reset!</p>
           <p style="font-size: 14px; text-align: center; color: #999;">If you didn't initiate this change, please contact us immediately.</p>
         </div>
       </div>
     `;
-    
+
     await transporter.sendMail({
-      from: '"FoxTech" <arijitghosh1203@gmail.com>',
+      from: '"FoxTeach" <arijitghosh1203@gmail.com>',
       to: user.email,
       subject: "Password Reset Successful",
       html: confirmationHtml,
@@ -298,10 +290,6 @@ const resetPasswordInLoginTime = async (req, res) => {
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
-
-
-
-
 
 const deleteUser = async (req, res) => {
   try {
@@ -350,8 +338,6 @@ const validateToken = (req, res) => {
   });
 };
 
-
-
 const getProfile = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(" ")[1];
@@ -363,7 +349,9 @@ const getProfile = async (req, res) => {
     const user = await userModel.findById(decoded.userId).select("-password");
 
     if (!user) {
-      return res.status(404).send({ message: "User not found", success: false });
+      return res
+        .status(404)
+        .send({ message: "User not found", success: false });
     }
 
     res.status(200).send(user);
@@ -372,7 +360,6 @@ const getProfile = async (req, res) => {
     res.status(500).send({ message: "Server Error", success: false });
   }
 };
-
 
 const updateProfile = async (req, res) => {
   try {
@@ -384,11 +371,13 @@ const updateProfile = async (req, res) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const userId = decoded.userId;
 
-    const { field,value } = req.body;
+    const { field, value } = req.body;
 
     let user = await userModel.findById(userId);
     if (!user) {
-      return res.status(400).json({ message: "User not found", success: false });
+      return res
+        .status(400)
+        .json({ message: "User not found", success: false });
     }
 
     if (field === "name") user.name = value;
