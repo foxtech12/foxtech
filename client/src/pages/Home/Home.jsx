@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import { useLocation } from "react-router-dom";
-
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "swiper/css";
 import "swiper/css/effect-cards";
-
 import Footer from "../../component/Footer/Footer";
 import Navbar from "../../component/Navbar/Navbar";
 import StickyStackedCards from "../Test";
@@ -17,7 +14,7 @@ import third from "../images/3rd.png";
 import four from "../images/4th.png";
 import fiv from "../images/5th.png";
 import six from "../images/6th.png";
-import right from "../images/Home_right.png";
+import right from "../images/3.png";
 import bg from "../images/bg.png";
 import { useNavigate } from "react-router-dom";
 import Testimonial from "../../component/testimonial/Testimonial";
@@ -105,7 +102,7 @@ const Home = () => {
               animationName: "background-grow-up",
               animationDuration: "0.8s",
               animationTimingFunction: "ease-out",
-              animationFillMode: "forwards"
+              animationFillMode: "forwards",
             }}
           ></div>
 
@@ -128,8 +125,8 @@ const Home = () => {
 
             <div className="relative z-10">
               <p
-                  className="text-lg text-black font-bankGothic text-justify"
-                  data-aos="zoom-out" // "zoom-in" effect for gradual scaling
+                className="text-lg text-black font-bankGothic text-justify"
+                data-aos="zoom-out" // "zoom-in" effect for gradual scaling
               >
                 Our mission is to unravel the intricacies of our genetic code,
                 providing you with the most detailed marketing insights.
@@ -138,14 +135,14 @@ const Home = () => {
           </div>
 
           <div className="left-content absolute right-0 top-0 w-[45%] h-[85%] flex items-center justify-end rounded-bl-[222px] overflow-hidden opacity-0 hidden lg:flex">
-  <div className="w-full h-full">
-    <img
-      src={right}
-      alt="Experts Illustration"
-      className="w-auto h-auto object-contain -mt-20"
-    />
-  </div>
-</div>
+            <div className="w-full h-full relative">
+              <img
+                src={right}
+                alt="Experts Illustration"
+                className="w-auto h-auto object-contain mt-10 rounded-full animate-top-down" // Apply the custom animation class here
+              />
+            </div>
+          </div>
         </div>
 
         {/* Services Section */}
@@ -262,33 +259,29 @@ const Home = () => {
             </h2>
           </div>
 
-          <StickyStackedCards/>
+          <StickyStackedCards />
 
           <div className="flex justify-center flex-col items-center">
             {/* Header Section */}
             <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
-              <h2 className="text-2xl font-bold text-black font-montserrat" >
+              <h2 className="text-2xl font-bold text-black font-montserrat">
                 WHAT WE DO
               </h2>
             </div>
           </div>
 
-          <div
-          className="flex justify-center flex-col px-5 sm:px-[10%] items-center"
-          
-        >
-          <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
-            <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-normal leading-normal whitespace-normal m-0 p-0">
-              At Foxtech, we specialize in delivering comprehensive social
-              marketing solutions tailored to elevate your brand's online
-              presence and drive measurable results. Our services encompass
-              every aspect of social media management, from crafting impactful
-              strategies to executing engaging content and providing
-              insightful analytics.
-            </p>
+          <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
+            <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
+              <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-normal leading-normal whitespace-normal m-0 p-0">
+                At Foxtech, we specialize in delivering comprehensive social
+                marketing solutions tailored to elevate your brand's online
+                presence and drive measurable results. Our services encompass
+                every aspect of social media management, from crafting impactful
+                strategies to executing engaging content and providing
+                insightful analytics.
+              </p>
+            </div>
           </div>
-        </div>
-
 
           {/* About us */}
           <div className="flex justify-center flex-col items-center">
@@ -322,7 +315,7 @@ const Home = () => {
               </h2>
             </div>
           </div>
-          <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center" >
+          <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
             <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
               <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-normal leading-normal">
                 Choosing our social marketing company means partnering with a
