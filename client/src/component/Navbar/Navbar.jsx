@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Nav.css";
 import "swiper/css";
 import "swiper/css/effect-cards";
-import logo from "../../pages/images/logo.png";
+import logo from "../../pages/images/4.png";
 import logoSmallScreen from "../../pages/images/3.png";
 
 const Navbar = () => {
