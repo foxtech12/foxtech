@@ -97,7 +97,7 @@ const AdminNav = () => {
                 <img
                   src={currentLogo}
                   alt="FoxTech Logo"
-                  className="w-[90%] h-16 mr-2 "
+                  className="w-[80%] h-14 mr-2 "
                 />
               </Link>
             </div>
@@ -149,7 +149,7 @@ const AdminNav = () => {
       {/* Sidebar */}
       <aside
         id="logo-sidebar"
-        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 mt-5 transition-transform bg-white border-r border-gray-200 dark:bg-black dark:border-gray-700 ${
+        className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform bg-white border-r border-gray-200 dark:bg-black dark:border-gray-700 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } sm:translate-x-0`}
         aria-label="Sidebar"
