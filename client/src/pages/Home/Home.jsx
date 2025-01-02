@@ -84,6 +84,108 @@ const Home = () => {
   }, [location]);
 
   const navigate = useNavigate();
+  const cards = [
+    {
+      name: "Content Creation",
+      role: "Exceptional Content Creation Captivate, Engage, and Convert Elevate your brand’s voice with our innovative content creation services.",
+      gradientFrom: "from-sky-200",
+      gradientVia: "via-orange-200",
+      gradientTo: "to-orange-700",
+      nameNavi: "content",
+      image: first,
+    },
+    {
+      name: "Social Media Marketing",
+      role: "Harness the power of social media to connect with your audience and drive real results.",
+      gradientFrom: "from-sky-200",
+      gradientVia: "via-orange-200",
+      gradientTo: "to-orange-700",
+      nameNavi: "social",
+      image: sec,
+    },
+    {
+      name: "Web Development Service",
+      role: "At Foxtech, we specialize in creating stunning, functional, and user-friendly websites that drive engagement and conversions. ",
+      gradientFrom: "from-sky-200",
+      gradientVia: "via-orange-200",
+      gradientTo: "to-orange-700",
+      nameNavi: "web",
+      image: third,
+    },
+    {
+      name: "Application development Services",
+      role: "At Foxtech, we specialize in developing custom applications that deliver exceptional user experiences and drive business success.",
+      gradientFrom: "from-sky-200",
+      gradientVia: "via-orange-200",
+      gradientTo: "to-orange-700",
+      nameNavi: "application",
+      image: four,
+    },
+    {
+      name: "SEO Handling services",
+      role: "At foxtech, we specialize in SEO strategies that enhance your websites visibility, drive organic traffic, and improve search engine rankings.",
+      gradientFrom: "from-sky-200",
+      gradientVia: "via-orange-200",
+      gradientTo: "to-orange-700",
+      nameNavi: "seo",
+      image: fiv,
+    },
+    {
+      name: "Personal Branding Service",
+      role: "At Foxteach, we help individuals create powerful personal brands that stand out in a crowded market.",
+      gradientFrom: "from-sky-200",
+      gradientVia: "via-orange-200",
+      gradientTo: "to-orange-700",
+      nameNavi: "personal",
+      image: six,
+    },
+    // Add more cards as needed
+  ];
+
+  const Card = ({
+    name,
+    role,
+    gradientFrom,
+    gradientVia,
+    gradientTo,
+    nameNavi,
+    image,
+  }) => {
+    return (
+      <div className="group relative bg-slate-50 w-80 min-h-[20rem] rounded-2xl overflow-hidden flex flex-col items-center text-center">
+        {/* Background Overlay */}
+        <div
+          className={`absolute inset-0  group-hover:scale-95 transition-all duration-500 rounded-2xl`}
+          style={{
+            background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
+          }}
+        ></div>
+
+        {/* Profile Image */}
+        <div className="w-28 h-28 bg-white rounded-full border-4 border-gray-200 z-10 mt-6 group-hover:scale-200 group-hover:-translate-x-24 group-hover:-translate-y-20 transition-all duration-500 flex items-center justify-center overflow-hidden">
+          <div className="marquee-container">
+            <img src={image} alt="" className="w-full h-full object-cover p-2" />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="z-10 mt-4 px-4">
+          <span className="text-2xl font-semibold block mb-2">{name}</span>
+          <p className="text-sm sm:text-base text-gray-800">{role}</p>
+        </div>
+
+        {/* Follow Button */}
+        <div className="mt-auto mb-4 z-10">
+          <button
+            onClick={() => navigate(`/${nameNavi}`)}
+            className="bg-green-100 px-4 py-2 text-black rounded-md hover:scale-105 transition-all duration-500 hover:bg-green-700"
+          >
+            view more
+          </button>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -96,7 +198,7 @@ const Home = () => {
         <div className="relative flex items-center h-screen bg-white">
           {/* Background Overlay */}
           <div
-            className="background-overlay absolute top-0 right-[15%] w-[80%] h-[90%] bg-cover bg-center opacity-0"
+            className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
             style={{
               backgroundImage: `url(${bg})`,
               animationName: "background-grow-up",
@@ -105,7 +207,6 @@ const Home = () => {
               animationFillMode: "forwards",
             }}
           ></div>
-
           {/* Left Side Content */}
           <div className="left-content relative flex flex-col px-8 sm:px-24 max-w-3xl bg-opacity-40 opacity-0">
             <div className="relative z-10 opacity-100 mb-10">
@@ -147,105 +248,33 @@ const Home = () => {
 
         {/* Services Section */}
         <div id="services" className="py-20 bg-white">
-          {/* Section title */}
+          {/* Section Title */}
           <div className="flex justify-center">
             <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
-              <p className="text-3xl font-medium  text-black font-montserrat">
+              <p className="text-lg sm:text-xl font-semibold text-black">
                 Our Services
               </p>
             </div>
           </div>
 
-          {/* Service cards with hover effect */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 px-8 sm:px-24">
-            {/* Service Card 1 */}
-            <div
-              className="flex flex-col items-center p-8 transform transition-all duration-300 hover:scale-105 hover:z-10 hover:translate-y-[-10px]"
-              data-aos="grow-right-bottom-left-top"
-              onClick={() => navigate("/content")}
-            >
-              <div className="w-40 h-40 mb-4 transform transition-all duration-300 hover:scale-110">
-                <img
-                  src={first}
-                  alt="Service Icon"
-                  className="w-full h-full object-contain"
+          {/* Cards Container */}
+          <div
+            className="container mx-auto px-8 py-8 flex justify-center items-center"
+            data-aos="fade-up"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
+              {cards.map((card, index) => (
+                <Card
+                  key={index}
+                  name={card.name}
+                  role={card.role}
+                  gradientFrom={card.gradientFrom}
+                  gradientVia={card.gradientVia}
+                  gradientTo={card.gradientTo}
+                  nameNavi={card.nameNavi}
+                  image={card.image}
                 />
-              </div>
-            </div>
-
-            {/* Service Card 2 */}
-            <div
-              className="flex flex-col items-center p-8 transform transition-all duration-300 hover:scale-105 hover:z-10 hover:translate-y-[-10px]"
-              data-aos="grow-bottom-top"
-              onClick={() => navigate("/social")}
-            >
-              <div className="w-40 h-40 mb-4 transform transition-all duration-300 hover:scale-110">
-                <img
-                  src={sec}
-                  alt="Service Icon"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-
-            {/* Service Card 3 */}
-            <div
-              className="flex flex-col items-center p-8 transform transition-all duration-300 hover:scale-105 hover:z-10 hover:translate-y-[-10px]"
-              data-aos="grow-left-bottom-right-top"
-              onClick={() => navigate("/web")}
-            >
-              <div className="w-40 h-40 mb-4 transform transition-all duration-300 hover:scale-110">
-                <img
-                  src={third}
-                  alt="Service Icon"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-
-            {/* Service Card 4 */}
-            <div
-              data-aos="grow-right-bottom-left-top"
-              className="flex flex-col items-center p-8 transform transition-all duration-300 hover:scale-105 hover:z-10 hover:translate-y-[-10px]"
-              onClick={() => navigate("/application")}
-            >
-              <div className="w-40 h-40 mb-4 transform transition-all duration-300 hover:scale-110">
-                <img
-                  src={four}
-                  alt="Service Icon"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-
-            {/* Service Card 5 */}
-            <div
-              data-aos="grow-bottom-top"
-              className="flex flex-col items-center p-8 transform transition-all duration-300 hover:scale-105 hover:z-10 hover:translate-y-[-10px]"
-              onClick={() => navigate("/seo")}
-            >
-              <div className="w-40 h-40 mb-4 transform transition-all duration-300 hover:scale-110">
-                <img
-                  src={fiv}
-                  alt="Service Icon"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-
-            {/* Service Card 6 */}
-            <div
-              data-aos="grow-left-bottom-right-top"
-              className="flex flex-col items-center p-8 transform transition-all duration-300 hover:scale-105 hover:z-10 hover:translate-y-[-10px]"
-              onClick={() => navigate("/personal")}
-            >
-              <div className="w-40 h-40 mb-4 transform transition-all duration-300 hover:scale-110">
-                <img
-                  src={six}
-                  alt="Service Icon"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              ))}
             </div>
           </div>
         </div>

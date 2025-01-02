@@ -140,17 +140,18 @@ const Team = () => {
 
         {/* Client Reviews */}
         <div className="flex justify-center flex-col items-center">
-        <div
-          className="text-center  mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl  mt-10 m-1"
-          style={{
-            background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
-          }}
-        >
-          <h2 className="text-2xl font-bold text-black font-montserrat">
-          Meet the Visionary Behind Our Success
-          </h2>
+          <div
+            className="text-center  mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl  mt-10 m-1"
+            style={{
+              background:
+                "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
+            }}
+          >
+            <h2 className="text-2xl font-bold text-black font-montserrat">
+              Meet the Visionary Behind Our Success
+            </h2>
+          </div>
         </div>
-      </div>
         <section className="py-10 px-5">
           {/* Horizontal Scroll for Small Screens */}
           <div className="sm:hidden overflow-x-auto">
@@ -175,11 +176,11 @@ const Team = () => {
                           className="h-full w-full object-cover"
                         />
                       </div>
-                      <div className="absolute bg-gray-50 -bottom-10 w-full p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
-                        <span className="text-lime-400 font-bold text-xs">
+                      <div className="absolute bg-gray-50 -bottom-8 w-full p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
+                        <p className="text-green-400 font-bold text-sm sm:text-4xl uppercase">
                           {item.name}
-                        </span>
-                        <p className="text-neutral-800 text-sm">
+                        </p>
+                        <p className="text-neutral-800 text-base sm:text-lg">
                           {item.description}
                         </p>
                       </div>
@@ -250,21 +251,21 @@ const Team = () => {
           </div>
         </section>
         <div className="flex justify-center flex-col items-center">
-        <div
-          className="text-center  mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl  mt-10 m-1"
-          style={{
-            background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
-          }}
-        >
-          <h2 className="text-2xl font-bold text-black font-montserrat">
-            Our Team Member's
-          </h2>
+          <div
+            className="text-center  mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl  mt-10 m-1"
+            style={{
+              background:
+                "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
+            }}
+          >
+            <h2 className="text-2xl font-bold text-black font-montserrat">
+              Our Team Member's
+            </h2>
+          </div>
         </div>
-      </div>
         <section className="py-10 px-5">
-
-            {/* Horizontal Scroll for Small Screens */}
-            <div className="sm:hidden overflow-x-auto">
+          {/* Horizontal Scroll for Small Screens */}
+          <div className="sm:hidden overflow-x-auto">
             <div className="flex space-x-6">
               {teamMembers.map((item, index) => (
                 <div
@@ -287,10 +288,10 @@ const Team = () => {
                         />
                       </div>
                       <div className="absolute bg-gray-50 -bottom-10 w-full p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
-                        <span className="text-lime-400 font-bold text-xs">
+                      <p className="text-green-400 font-bold text-sm sm:text-4xl uppercase">
                           {item.name}
-                        </span>
-                        <p className="text-neutral-800 text-sm">
+                        </p>
+                        <p className="text-neutral-800 text-base sm:text-lg">
                           {item.description}
                         </p>
                       </div>
