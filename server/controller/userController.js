@@ -10,8 +10,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "arijitghosh1203@gmail.com",
-    pass: "sbkz nlun jawd ykki",
+    user: "offical.foxteach@gmail.com",
+    pass: "ernq sbxn tvqz hrut",
   },
 });
 
@@ -94,13 +94,13 @@ const signup = async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: "arijitghosh1203@gmail.com",
-        pass: "sbkz nlun jawd ykki",
+        user: "offical.foxteach@gmail.com",
+        pass: "ernq sbxn tvqz hrut",
       },
     });
 
     await transporter.sendMail({
-      from: '"FoxTeach" <arijitghosh1203@gmail.com>',
+      from: '"FoxTeach" <offical.foxteach@gmail.com>',
       to: email,
       subject: "FoxTeach Reset Password",
       html: `
@@ -162,13 +162,13 @@ const resetPassword = async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: "arijitghosh1203@gmail.com",
-        pass: "sbkz nlun jawd ykki",
+        user: "offical.foxteach@gmail.com",
+        pass: "ernq sbxn tvqz hrut",
       },
     });
 
     await transporter.sendMail({
-      from: '"FoxTeach" <arijitghosh1203@gmail.com>',
+      from: '"FoxTeach" <offical.foxteach@gmail.com>',
       to: user.email,
       subject: "Password Updated",
       html: `
@@ -277,8 +277,9 @@ const resetPasswordInLoginTime = async (req, res) => {
       </div>
     `;
 
+
     await transporter.sendMail({
-      from: '"FoxTeach" <arijitghosh1203@gmail.com>',
+      from: '"FoxTeach" <offical.foxteach@gmail.com>',
       to: user.email,
       subject: "Password Reset Successful",
       html: confirmationHtml,
