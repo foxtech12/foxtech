@@ -152,7 +152,7 @@ const Home = () => {
     image,
   }) => {
     return (
-      <div className="group relative bg-slate-50 w-80 min-h-[20rem] rounded-2xl overflow-hidden flex flex-col items-center text-center">
+      <div className="group relative  w-80 min-h-[20rem] rounded-2xl overflow-hidden flex flex-col items-center text-center">
         {/* Background Overlay */}
         <div
           className={`absolute inset-0  group-hover:scale-95 transition-all duration-500 rounded-2xl`}
@@ -162,14 +162,13 @@ const Home = () => {
         ></div>
 
         {/* Profile Image */}
-      <div className="w-28 h-28 bg-white rounded-full border-4 border-gray-200 z-10 mt-6 group-hover:scale-200 group-hover:-translate-x-24 group-hover:-translate-y-20 transition-all duration-500 flex items-center justify-center overflow-hidden">
-  <img
-    src={image}
-    alt=""
-    className="w-full h-full object-cover p-4 slide-animation"
-  />
-</div>
-
+        <div className="w-28 h-28 bg-white rounded-full border-4 border-gray-200 z-10 mt-6 group-hover:scale-200 group-hover:-translate-x-24 group-hover:-translate-y-20 transition-all duration-500 flex items-center justify-center overflow-hidden">
+          <img
+            src={image}
+            alt=""
+            className="w-full h-full object-cover p-4 slide-animation"
+          />
+        </div>
 
         {/* Content */}
         <div className="z-10 mt-4 px-4">
