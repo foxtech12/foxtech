@@ -200,7 +200,7 @@ const Home = () => {
         <div className="relative flex flex-col lg:flex-row items-center h-screen bg-white">
           {/* Background Overlay */}
           <div
-            className="absolute top-0 left-0 w-full h-full bg-cover bg-center lg:h-screen h-[85vh]" // Adjust height for small screens
+            className="absolute top-0 left-0 w-full h-full bg-cover bg-center lg:h-screen h-[90vh]" // Adjust height for small screens
             style={{
               backgroundImage: `url(${bg})`,
               animationName: "background-grow-up",
