@@ -104,10 +104,7 @@ const Content = () => {
       <div className="max-w-7xl mx-auto mt-4 animate-slide-right">
         <div className="flex flex-col items-center space-y-10">
           {/* Step Component */}
-          <div
-            className="w-full md:w-2/3 bg-green-50 p-6 rounded-lg shadow-md"
-        
-          >
+          <div className="w-full md:w-2/3 bg-green-50 p-6 rounded-lg shadow-md">
             <div className="text-center text-black text-4xl uppercase tracking-wide">
               <p className="text-3xl"> Exceptional Content Creation</p>
               <p className="text-4xl font-semibold">
@@ -131,7 +128,7 @@ const Content = () => {
         </div>
       </div>
 
-      <div className="bg-white min-h-screen mt-8">
+      <div className="bg-white  mt-8">
         <div className="max-w-7xl mx-auto px-4">
           {/* Title */}
           <div className="flex justify-center">
@@ -149,12 +146,16 @@ const Content = () => {
                 {solutions.map((solution, index) => (
                   <div
                     key={index}
-                    className="inline-block bg-[#E7FFE7] shadow-lg rounded-lg p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition duration-300 w-full max-w-[95%] mx-auto sm:mx-2 flex flex-col justify-between"
+                    className="inline-block bg-[#E7FFE7] shadow-lg rounded-lg p-6 sm:p-8 md:p-10 text-center hover:shadow-2xl transition duration-300 w-full max-w-[90%] sm:max-w-[80%] md:max-w-[75%] mx-auto sm:mx-2 flex flex-col justify-between"
+                    style={{
+                      minHeight: "200px", // Adjust this value for taller boxes
+                      minWidth: "250px", // Adjust this value for wider boxes
+                    }}
                   >
-                    <h2 className="text-base sm:text-lg md:text-xl font-medium text-black mb-2 sm:mb-4 md:mb-6 text-left">
+                    <h2 className="text-base sm:text-lg md:text-xl font-medium text-black mb-4 sm:mb-6 md:mb-8 text-left">
                       {solution.title}
                     </h2>
-                    <p className="text-sm sm:text-base md:text-lg font-light text-gray-600 text-left mt-2 sm:mt-4 md:mt-6">
+                    <p className="text-sm sm:text-base md:text-lg font-light text-gray-600 text-left mt-4 sm:mt-6 md:mt-8">
                       {solution.description}
                     </p>
                   </div>

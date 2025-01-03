@@ -287,7 +287,7 @@ const Team = () => {
                           className="h-full w-full object-cover"
                         />
                       </div>
-                      <div className="absolute bg-gray-50 -bottom-10 w-full p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
+                      <div className="absolute bg-gray-50 -bottom-8 w-full p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
                       <p className="text-green-400 font-bold text-sm sm:text-4xl uppercase">
                           {item.name}
                         </p>

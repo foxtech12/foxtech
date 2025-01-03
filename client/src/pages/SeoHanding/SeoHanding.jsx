@@ -150,7 +150,7 @@ const SeoHandling = () => {
         </div>
       </div>
 
-      <div className="bg-white min-h-screen mt-8">
+      <div className="bg-white  mt-8">
         <div className="max-w-7xl mx-auto px-4">
           {/* Title */}
           <div className="flex justify-center">
@@ -166,10 +166,14 @@ const SeoHandling = () => {
             <div className="overflow-x-auto px-4">
               <div className="flex space-x-4">
                 {solutions.map((solution, index) => (
-                  <div
-                    key={index}
-                    className="inline-block bg-[#E7FFE7] shadow-lg rounded-lg p-4 sm:p-6 md:p-8 text-center hover:shadow-2xl transition duration-300 w-full max-w-[95%] mx-auto sm:mx-2 flex flex-col justify-between"
-                  >
+                 <div
+                 key={index}
+                 className="inline-block bg-[#E7FFE7] shadow-lg rounded-lg p-6 sm:p-8 md:p-10 text-center hover:shadow-2xl transition duration-300 w-full max-w-[90%] sm:max-w-[80%] md:max-w-[75%] mx-auto sm:mx-2 flex flex-col justify-between"
+                 style={{
+                   minHeight: "200px", // Adjust this value for taller boxes
+                   minWidth: "250px", // Adjust this value for wider boxes
+                 }}
+               >
                     <h2 className="text-base sm:text-lg md:text-xl font-medium text-black mb-2 sm:mb-4 md:mb-6 text-left">
                       {solution.title}
                     </h2>
