@@ -197,10 +197,10 @@ const Home = () => {
         <Navbar />
 
         {/* Hero Section */}
-        <div className="relative flex flex-col lg:flex-row items-center h-screen bg-white">
+        <div className="relative flex flex-col lg:flex-row items-center lg:h-screen h-[75vh] bg-white">
           {/* Background Overlay */}
           <div
-            className="absolute top-0 left-0 w-full h-full bg-cover bg-center lg:h-screen h-[90vh]" // Adjust height for small screens
+            className="absolute top-0 left-0 w-full h-full bg-cover bg-center lg:h-screen h-[70vh]" // Adjust height for small screens
             style={{
               backgroundImage: `url(${bg})`,
               animationName: "background-grow-up",
@@ -248,7 +248,7 @@ const Home = () => {
           </div>
 
           {/* Right Side Image for Larger Screens */}
-          <div className="left-content absolute right-0 top-0 w-[45%] h-[85%] flex items-center justify-end rounded-bl-[222px] overflow-hidden opacity-0 hidden lg:flex">
+          <div className="left-content absolute right-0 top-0 w-[45%] h-[85%] flex items-center justify-end rounded-bl-[222px] overflow-hidden opacity-0 hidden lg:flex ">
             <div className="w-full h-full relative">
               <img
                 src={right}
@@ -260,7 +260,7 @@ const Home = () => {
         </div>
 
         {/* Services Section */}
-        <div id="services" className="py-20 bg-white">
+        <div id="services" className="py-20 bg-white mt-5">
           {/* Section Title */}
           <div className="flex justify-center">
             <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
