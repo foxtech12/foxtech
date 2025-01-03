@@ -77,19 +77,15 @@
     display: none; /* Hide background image */
   }
 
-  .right-image {
-    display: none; /* Hide right-side image */
-  }
+
 }
 /* Responsive styles */
 @media (max-width: 640px) {
-  .right-image {
-    display: none;
-  }
+
   .left-content {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    align-items: flex-start;
+    /* align-items: flex-start; */
   }
 
   

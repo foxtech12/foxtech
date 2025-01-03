@@ -191,16 +191,16 @@ const Home = () => {
 
   return (
     <>
-      <div className="relative w-full bg-white ">
+      <div className="relative w-full bg-white overflow-x-hidden">
         {/* Top Navbar */}
 
         <Navbar />
 
         {/* Hero Section */}
-        <div className="relative flex items-center h-screen bg-white">
+        <div className="relative flex flex-col lg:flex-row items-center h-screen bg-white">
           {/* Background Overlay */}
           <div
-            className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+            className="absolute top-0 left-0 w-full h-full bg-cover bg-center lg:h-screen h-[90vh]" // Adjust height for small screens
             style={{
               backgroundImage: `url(${bg})`,
               animationName: "background-grow-up",
@@ -209,8 +209,18 @@ const Home = () => {
               animationFillMode: "forwards",
             }}
           ></div>
+
           {/* Left Side Content */}
           <div className="left-content relative flex flex-col px-8 sm:px-24 max-w-3xl bg-opacity-40 opacity-0">
+            {/* Small Screen Image */}
+            <div className="lg:hidden mb-6 flex justify-center ">
+              <img
+                src={right}
+                alt="Experts Illustration"
+                className="w-40 h-40 object-contain mt-4 rounded-full animate-top-down items-center" // Adjust size as needed
+              />
+            </div>
+
             <div className="relative z-10 opacity-100 mb-10">
               <h1 className="text-5xl font-bold text-black leading-tight font-poppins">
                 We Are Experts In Carving
@@ -237,12 +247,13 @@ const Home = () => {
             </div>
           </div>
 
+          {/* Right Side Image for Larger Screens */}
           <div className="left-content absolute right-0 top-0 w-[45%] h-[85%] flex items-center justify-end rounded-bl-[222px] overflow-hidden opacity-0 hidden lg:flex">
             <div className="w-full h-full relative">
               <img
                 src={right}
                 alt="Experts Illustration"
-                className="w-auto h-auto object-contain mt-10 rounded-full animate-top-down" // Apply the custom animation class here
+                className="w-auto h-auto object-contain mt-10 rounded-full animate-top-down"
               />
             </div>
           </div>
