@@ -271,7 +271,7 @@ const SocialMedia = () => {
         <div className="flex justify-center">
           <div className="text-center bg-[#12fc2d] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
             <h2 className="text-2xl font-bold text-black font-montserrat">
-              WHY FOXTECH
+              WHY FOXTEACH
             </h2>
           </div>
         </div>

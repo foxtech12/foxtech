@@ -141,7 +141,7 @@ const SeoHandling = () => {
 
           <div className="max-w-5xl mx-auto mt-4">
             <p className="uppercase sm:ml-5 md:ml-5 text-center">
-              At foxtech, we specialize in SEO strategies that enhance your
+              At foxteach, we specialize in SEO strategies that enhance your
               websites visibility, drive organic traffic, and improve search
               engine rankings. Our comprehensive approach ensures your business
               stands out in the competitive digital landscape.
@@ -271,7 +271,7 @@ const SeoHandling = () => {
         <div className="flex justify-center">
           <div className="text-center bg-[#12fc2d] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
             <h2 className="text-2xl font-bold text-black font-montserrat">
-              WHY FOXTECH
+              WHY FOXTEACH
             </h2>
           </div>
         </div>

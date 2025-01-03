@@ -105,7 +105,7 @@ const Home = () => {
     },
     {
       name: "Web Development Service",
-      role: "At Foxtech, we specialize in creating stunning, functional, and user-friendly websites that drive engagement and conversions. ",
+      role: "At Foxteach, we specialize in creating stunning, functional, and user-friendly websites that drive engagement and conversions. ",
       gradientFrom: "from-sky-200",
       gradientVia: "via-orange-200",
       gradientTo: "to-orange-700",
@@ -114,7 +114,7 @@ const Home = () => {
     },
     {
       name: "Application development Services",
-      role: "At Foxtech, we specialize in developing custom applications that deliver exceptional user experiences and drive business success.",
+      role: "At Foxteach, we specialize in developing custom applications that deliver exceptional user experiences and drive business success.",
       gradientFrom: "from-sky-200",
       gradientVia: "via-orange-200",
       gradientTo: "to-orange-700",
@@ -123,7 +123,7 @@ const Home = () => {
     },
     {
       name: "SEO Handling services",
-      role: "At foxtech, we specialize in SEO strategies that enhance your websites visibility, drive organic traffic, and improve search engine rankings.",
+      role: "At foxteach, we specialize in SEO strategies that enhance your websites visibility, drive organic traffic, and improve search engine rankings.",
       gradientFrom: "from-sky-200",
       gradientVia: "via-orange-200",
       gradientTo: "to-orange-700",
@@ -253,9 +253,9 @@ const Home = () => {
           {/* Section Title */}
           <div className="flex justify-center">
             <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
-              <p className="text-lg sm:text-xl font-semibold text-black">
+              <h2 className="text-lg sm:text-xl font-semibold text-black">
                 Our Services
-              </p>
+              </h2>
             </div>
           </div>
 
@@ -304,7 +304,7 @@ const Home = () => {
           <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
             <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
               <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-normal leading-normal whitespace-normal m-0 p-0">
-                At Foxtech, we specialize in delivering comprehensive social
+                At Foxteach, we specialize in delivering comprehensive social
                 marketing solutions tailored to elevate your brand's online
                 presence and drive measurable results. Our services encompass
                 every aspect of social media management, from crafting impactful
@@ -326,7 +326,7 @@ const Home = () => {
           <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
             <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
               <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-normal leading-normal">
-                At Foxtech, we are passionate about helping brands navigate the
+                At Foxteach, we are passionate about helping brands navigate the
                 ever-evolving landscape of social media marketing. Our mission
                 is to empower businesses to connect with their audience in
                 meaningful ways, driving engagement, growth, and success. With a
@@ -342,7 +342,7 @@ const Home = () => {
             {/* Header Section */}
             <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl  mt-10">
               <h2 className="text-2xl font-bold text-black font-montserrat">
-                WHY FOXTECH
+                WHY FOXTEACH
               </h2>
             </div>
           </div>

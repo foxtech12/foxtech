@@ -141,7 +141,7 @@ const Application = () => {
 
           <div className="max-w-5xl mx-auto mt-4">
             <p className="uppercase sm:ml-5 md:ml-5 text-center">
-              At Foxtech, we specialize in developing custom applications that
+              At Foxteach, we specialize in developing custom applications that
               deliver exceptional user experiences and drive business success.
               Whether you need a mobile app, a web application, or an enterprise
               software solution, our team of skilled developers and designers is
@@ -284,7 +284,7 @@ const Application = () => {
         <div className="flex justify-center">
           <div className="text-center bg-[#12fc2d] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
             <h2 className="text-2xl font-bold text-black font-montserrat">
-              WHY FOXTECH
+              WHY FOXTEACH
             </h2>
           </div>
         </div>

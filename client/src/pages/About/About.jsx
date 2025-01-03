@@ -156,7 +156,7 @@ const About = () => {
 
           <div className="mt-8 bg-white text-center  px-6 py-4  w-full md:w-3/4 lg:w-1/2 slide-left-animation">
             <p className="text-md md:text-lg text-gray-700 leading-relaxed">
-              At Foxtech, we are dedicated to delivering top-notch
+              At Foxteach, we are dedicated to delivering top-notch
               (industry-specific) solutions that help our clients achieve their
               goals. Our team of passionate professionals works tirelessly to
               innovate, inspire, and deliver exceptional results. Learn more

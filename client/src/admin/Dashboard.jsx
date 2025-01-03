@@ -233,7 +233,7 @@ const Dashboard = () => {
                           Hello, {userName}
                         </h1>
                         <p className="text-sm font-semibold text-black">
-                          Welcome to FoxTech
+                          Welcome to FoxTeach
                         </p>
                       </div>
                     </div>

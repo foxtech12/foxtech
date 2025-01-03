@@ -145,7 +145,7 @@ const Webdev = () => {
             className="max-w-5xl mx-auto mt-4 px-4 sm:px-6 md:px-8"
           >
             <p className="uppercase text-xs sm:text-sm md:text-base lg:text-lg leading-tight sm:leading-normal md:leading-relaxed break-words overflow-wrap-normal text-justify">
-              At Foxtech, we specialize in creating stunning, functional, and
+              At Foxteach, we specialize in creating stunning, functional, and
               user-friendly websites that drive engagement and conversions.
               Whether you need a simple landing page or a complex e-commerce
               platform, our team of experienced developers and designers will
@@ -285,7 +285,7 @@ const Webdev = () => {
         <div className="flex justify-center">
           <div className="text-center bg-[#12fc2d] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
             <h2 className="text-2xl font-bold text-black font-montserrat">
-              WHY FOXTECH
+              WHY FOXTEACH
             </h2>
           </div>
         </div>

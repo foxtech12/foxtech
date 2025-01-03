@@ -59,7 +59,7 @@ const PasswordReset = () => {
       <section className="bg-gray-50 dark:bg-white-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <p className="flex items-center mb-6 text-2xl font-semibold text-black-900 dark:text-black">
-          FOXTECH
+          FOXTEACH
           </p>
           <div className="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-white-800 dark:border-white-700 sm:p-8">
             <h2 className="mb-1 text-xl font-bold leading-tight tracking-tight text-black-900 md:text-2xl dark:text-black">
