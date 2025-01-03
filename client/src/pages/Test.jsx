@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./test.css";
@@ -7,7 +7,6 @@ const StickyStackedCards = () => {
   const [cards, setCards] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const navigate = useNavigate();
-  const upcomingEventsRef = useRef(null);
 
   const fetchSuggestions = async () => {
     try {
@@ -62,7 +61,7 @@ const StickyStackedCards = () => {
     <div>
       {/* Desktop Layout for Large Screens */}
       <div className="hidden sm:block lg:flex justify-center items-start mt-12 mb-40 gap-[30%] animate-slide-up">
-        {displayedEvents.length > 0 &&
+        {displayedEvents.length > 0 ?
           displayedEvents.map((event, index) => (
             <div
               key={event._id}
@@ -105,7 +104,8 @@ const StickyStackedCards = () => {
                 </button>
               </div>
             </div>
-          ))}
+          )):
+          <div>Loading...</div>}
       </div>
 
       {/* For Medium and Small Screens (Horizontal Scrolling) */}
