@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../pages/images/4.png";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-white text-gray-700 w-full">
@@ -64,10 +64,12 @@ const Footer = () => {
                       className="text-blue-400 cursor-pointer hover:scale-110 transition-transform duration-200"
                       size={26}
                     />
-                    <FaInstagram
-                      className="text-pink-500 cursor-pointer hover:scale-110 transition-transform duration-200"
-                      size={26}
-                    />
+                    <Link to="https://www.instagram.com/foxteach_offical/?hl=en">
+                      <FaInstagram
+                        className="text-pink-500 cursor-pointer hover:scale-110 transition-transform duration-200"
+                        size={26}
+                      />
+                    </Link>
                   </div>
                 </li>
               </ul>
