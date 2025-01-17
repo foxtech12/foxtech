@@ -79,6 +79,8 @@ const Content = () => {
       duration: 900,
       offset: 300,
     });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     return () => AOS.refresh();
   }, []);
 

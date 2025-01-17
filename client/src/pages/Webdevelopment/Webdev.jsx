@@ -103,6 +103,8 @@ const Webdev = () => {
       duration: 1500,
       offset: 300,
     });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
     return () => AOS.refresh();
   }, []);
 
