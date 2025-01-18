@@ -307,8 +307,8 @@ const About = () => {
                           className="h-full w-full object-cover"
                         />
                       </div>
-                      <div className="absolute bg-gray-50 -bottom-10 w-full p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
-                        <span className="text-lime-400 font-bold text-xs">
+                      <div className="absolute bg-gray-50 -bottom-7 w-full p-3 flex flex-col gap-1 group-hover:-bottom-0 group-hover:duration-600 duration-500">
+                        <span className="text-black font-bold text-lg uppercase">
                           {item.name}
                         </span>
 

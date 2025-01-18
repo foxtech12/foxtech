@@ -3,7 +3,7 @@ const userController = require("../controller/userController");
 const authMiddleware = require("../middlewares/authMiddleware");
 
 router.post("/login", userController.login);
-router.post("/register",authMiddleware, userController.signup);
+router.post("/register", userController.signup);
 router.post("/reset-password", userController.resetPassword);
 router.post("/forgot-password", userController.forgotPassword);
 router.post("/reset-password/:token", userController.resetPasswordInLoginTime);

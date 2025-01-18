@@ -191,7 +191,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="relative w-full bg-white overflow-x-hidden">
+      <div className="relative w-full bg-white overflow-x-hidden ">
         {/* Top Navbar */}
 
         <Navbar />
@@ -237,10 +237,7 @@ const Home = () => {
             </div>
 
             <div className="relative z-10">
-              <p
-                className="text-lg text-black font-bankGothic text-justify"
-                data-aos="zoom-out" // "zoom-in" effect for gradual scaling
-              >
+              <p className="text-xl text-black font-bankGothic text-justify">
                 Our mission is to unravel the intricacies of our genetic code,
                 providing you with the most detailed marketing insights.
               </p>
