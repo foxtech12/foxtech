@@ -305,7 +305,7 @@ const Home = () => {
             <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
               <h2 className="text-2xl font-bold text-black font-montserrat">
                 WHAT WE DO
-              </h2>
+                </h2>
             </div>
           </div>
 

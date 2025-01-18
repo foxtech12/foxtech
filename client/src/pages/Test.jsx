@@ -15,7 +15,7 @@ const StickyStackedCards = () => {
       );
       const lastThreeCards = response.data.slice(-3).map((card) => ({
         ...card,
-        formattedDate: new Date(card.date).toLocaleString(), // Format the date field
+        formattedDate: new Date(card.date).toLocaleString(),
       }));
       setCards(lastThreeCards);
     } catch (error) {
@@ -61,7 +61,7 @@ const StickyStackedCards = () => {
     <div>
       {/* Desktop Layout for Large Screens */}
       <div className="hidden sm:block lg:flex justify-center items-start mt-12 mb-40 gap-[30%] animate-slide-up">
-        {displayedEvents.length > 0 ?
+        {displayedEvents.length > 0 ? (
           displayedEvents.map((event, index) => (
             <div
               key={event._id}
@@ -104,19 +104,19 @@ const StickyStackedCards = () => {
                 </button>
               </div>
             </div>
-          )):
-          <div>Loading...</div>}
+          ))
+        ) : (
+          <div>Loading...</div>
+        )}
       </div>
 
-      {/* For Medium and Small Screens (Horizontal Scrolling) */}
-      <div className="sm:hidden lg:hidden mt-12 mb-40 flex justify-center gap-8">
+      {/* For Small and Medium Screens (Horizontal Scrolling) */}
+      <div className="sm:hidden mt-12 mb-40 overflow-x-auto w-full flex gap-6 scrollbar-hide">
         {displayedEvents.length > 0 &&
-          displayedEvents.map((event, index) => (
+          displayedEvents.map((event) => (
             <div
               key={event._id}
-              className={`group relative flex-shrink-0 flex flex-col items-center cursor-pointer w-[250px] h-[300px] bg-cover bg-center rounded-lg shadow-lg ${
-                index === 1 ? "scale-110" : "" // Apply scaling to the active card (centered card)
-              }`}
+              className="flex-shrink-0 w-[250px] h-[350px] bg-cover bg-center rounded-lg shadow-lg relative"
               style={{
                 backgroundImage: `url(${createImageUrl(
                   event.image.data.data,
@@ -128,15 +128,10 @@ const StickyStackedCards = () => {
                 <p className="font-semibold text-xl">{event.name}</p>
                 <p className="text-sm">{event.formattedDate}</p>
               </div>
-              <div
-                className="absolute inset-0 flex flex-col justify-end text-center shadow-lg rounded-lg mt-4 p-4 h-[345px] w-[250px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                style={{ backgroundColor: "#c4c0c0" }}
-              >
-                <p className="text-black font-semibold text-[10px] mb-[25%]">
-                  {event.name}
-                </p>
+              <div className="absolute inset-0 flex flex-col justify-end text-center p-4 bg-opacity-70 bg-black rounded-lg opacity-0 transition-opacity duration-500 hover:opacity-100">
+                <p className="text-white font-semibold">{event.name}</p>
                 <button
-                  className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
+                  className="mt-2 px-4 py-2 bg-green-500 text-white font-bold rounded-md hover:bg-green-700"
                   onClick={() => navigate(`/contact?name=${event.name}`)}
                 >
                   Register Now

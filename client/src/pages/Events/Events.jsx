@@ -259,130 +259,61 @@ const Events = () => {
       </div>
 
       <section className="py-10 px-5" id="featured" ref={upcomingEventsRef}>
-        {/* Horizontal Scroll for Small Screens */}
-        <div className="sm:hidden overflow-x-auto">
-          <div className="flex space-x-4 min-w-max">
-            {" "}
-            {/* Added min-w-max to ensure the cards stay in a single row */}
-            {cards.map((item, index) => (
-              <div className="flex justify-center items-start" key={index}>
-                <div className="group relative flex flex-col items-center cursor-pointer w-64">
-                  {" "}
-                  {/* Fixed width of the card */}
-                  <div className="relative cursor-pointer overflow-hidden text-gray-50 h-72 rounded-xl border border-gray-300">
-                    <div className="w-full h-full">
-                      <img
-                        src={createImageUrl(
-                          item.image.data.data,
-                          item.image.contentType
-                        )}
-                        alt={item.name}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <div className="absolute bg-[#E7FFE7] -bottom-10 w-full p-3 flex flex-col gap-2 transition-all duration-500 group-hover:bottom-0">
-                      <span className="text-black font-bold text-xs">
-                        {item.name}
-                      </span>
-                      <p className="text-black text-sm">{item.formattedDate}</p>
-                      <p className="text-black text-sm">{item.location}</p>
-                      <button
-                        className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-200"
-                        style={{
-                          background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
-                        }}
-                        onClick={() => navigate(`/contact?name=${item.name}`)}
-                      >
-                        Register Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+  {/* Horizontal Scrolling Layout */}
+  <div
+    className="flex gap-6 overflow-x-auto scrollbar-hide"
+    style={{ scrollSnapType: "x mandatory" }}
+  >
+    {cards.map((item, index) => (
+      <div
+        key={item._id || index}
+        className="flex-shrink-0 w-[90%] sm:w-72"
+        style={{ scrollSnapAlign: "start" }}
+      >
+        <div className="group relative flex flex-col items-center cursor-pointer">
+          {/* Card */}
+          <div className="relative overflow-hidden text-gray-50 h-80 w-full rounded-2xl border border-black">
+            <div className="w-full h-full">
+              <img
+                src={createImageUrl(item.image.data.data, item.image.contentType)}
+                alt={item.name}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            {/* Hover Content */}
+            <div className="absolute bg-[#E7FFE7] -bottom-24 w-full p-3 flex flex-col gap-2 transition-all duration-500 group-hover:bottom-0">
+              <span className="text-black font-bold text-xl">{item.name}</span>
+              <p className="text-neutral-800 text-lg">{item.formattedDate}</p>
+              <p className="text-neutral-800 text-lg">{item.location}</p>
+              <button
+                className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
+                onClick={() => navigate(`/contact?name=${item.name}`)}
+                style={{
+                  background:
+                    "linear-gradient(to right, #46FF46, rgb(220, 234, 220))",
+                }}
+              >
+                Register Now
+              </button>
+            </div>
           </div>
         </div>
+      </div>
+    ))}
+  </div>
+</section>
 
-        {/* Display Cards for Medium Screens */}
-        <div className="hidden sm:grid md:grid-cols-2 gap-6 lg:hidden">
-          {cards.map((item, index) => (
-            <div key={item._id} className="flex justify-center items-start">
-              <div className="group relative flex flex-col items-center cursor-pointer w-full max-w-[380px]">
-                <div className="relative cursor-pointer overflow-hidden text-gray-50 h-80 w-72 rounded-2xl border border-black">
-                  <div className="w-full h-full">
-                    <img
-                      src={createImageUrl(
-                        item.image.data.data,
-                        item.image.contentType
-                      )}
-                      alt={item.name}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute bg-[#E7FFE7] -bottom-10 w-full p-3 flex flex-col gap-2 transition-all duration-500 group-hover:bottom-0">
-                    <span className="text-black font-bold text-xl">
-                      {item.name}
-                    </span>
-                    <p className="text-neutral-800 text-lg">
-                      {item.formattedDate}
-                    </p>
-                    <p className="text-neutral-800 text-lg">{item.location}</p>
-                    <button
-                      className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
-                      onClick={() => navigate(`/contact?name=${item.name}`)}
-                      style={{
-                        background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
-                      }}
-                    >
-                      Register Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Display Three Cards for Large Screens */}
-        <div className="hidden lg:grid grid-cols-3 gap-10">
-          {cards.map((item, index) => (
-            <div key={item._id} className="flex justify-center items-start">
-              <div className="group relative flex flex-col items-center cursor-pointer w-full max-w-[380px]">
-                <div className="relative cursor-pointer overflow-hidden text-gray-50 h-80 w-72 rounded-2xl border border-black">
-                  <div className="w-full h-full">
-                    <img
-                      src={createImageUrl(
-                        item.image.data.data,
-                        item.image.contentType
-                      )}
-                      alt={item.name}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute bg-[#E7FFE7] -bottom-24 w-full p-3 flex flex-col gap-2 transition-all duration-500 group-hover:bottom-0">
-                    <span className="text-black font-bold text-xl">
-                      {item.name}
-                    </span>
-                    <p className="text-neutral-800 text-lg">
-                      {item.formattedDate}
-                    </p>
-                    <p className="text-neutral-800 text-lg">{item.location}</p>
-                    <button
-                      className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
-                      onClick={() => navigate(`/contact?name=${item.name}`)}
-                      style={{
-                        background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
-                      }}
-                    >
-                      Register Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+
+
+
+
+
+
+
+
+
+
 
       <div className="flex justify-center flex-col items-center">
         <div
