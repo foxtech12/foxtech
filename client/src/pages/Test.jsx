@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./test.css";
 
 const StickyStackedCards = () => {
   const [cards, setCards] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0); // Index tracking
   const navigate = useNavigate();
 
   const fetchSuggestions = async () => {
@@ -15,7 +15,7 @@ const StickyStackedCards = () => {
       );
       const lastThreeCards = response.data.slice(-3).map((card) => ({
         ...card,
-        formattedDate: new Date(card.date).toLocaleString(),
+        formattedDate: new Date(card.date).toLocaleString(), // Format the date field
       }));
       setCards(lastThreeCards);
     } catch (error) {
@@ -37,32 +37,59 @@ const StickyStackedCards = () => {
     }
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
-    }, 3000);
-
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, [cards.length]);
-
-  // Display the three upcoming events
-  const getDisplayedEvents = () => {
-    if (cards.length === 0) return []; // Handle empty data scenario
-    return [
-      cards[activeIndex % cards.length],
-      cards[(activeIndex + 1) % cards.length],
-      cards[(activeIndex + 2) % cards.length],
-    ];
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? cards.length - 1 : prevIndex - 1
+    );
   };
 
-  const displayedEvents = getDisplayedEvents();
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === cards.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const Arrow1 = ({ direction, onClick }) => (
+    <div
+      className="flex justify-center items-center w-12 h-12 bg-[#E7FFE7] rounded-lg cursor-pointer"
+      onClick={onClick}
+    >
+      {direction === "left" ? (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="3"
+          stroke="black"
+          className="w-10 h-10"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      ) : (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="3"
+          stroke="black"
+          className="w-10 h-10"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      )}
+    </div>
+  );
 
   return (
     <div>
       {/* Desktop Layout for Large Screens */}
       <div className="hidden sm:block lg:flex justify-center items-start mt-12 mb-40 gap-[30%] animate-slide-up">
-        {displayedEvents.length > 0 ? (
-          displayedEvents.map((event, index) => (
+        {cards.length > 0 ? (
+          cards.map((event, index) => (
             <div
               key={event._id}
               className={`group relative flex flex-col items-center cursor-pointer ${
@@ -70,11 +97,7 @@ const StickyStackedCards = () => {
               }`}
             >
               <div
-                className={`h-[300px] w-[250px] bg-cover bg-center rounded-lg shadow-lg relative transition-transform duration-700 ease-in-out z-10 ${
-                  index === 1
-                    ? "group-hover:translate-y-[-150px] group-hover:rotate-[20deg] group-hover:-translate-y-16"
-                    : "group-hover:translate-y-[-150px] group-hover:rotate-[20deg] group-hover:-translate-y-16"
-                }`}
+                className={`h-[300px] w-[250px] bg-cover bg-center rounded-lg shadow-lg relative transition-transform duration-700 ease-in-out z-10`}
                 style={{
                   backgroundImage: `url(${createImageUrl(
                     event.image.data.data,
@@ -110,35 +133,49 @@ const StickyStackedCards = () => {
         )}
       </div>
 
-      {/* For Small and Medium Screens (Horizontal Scrolling) */}
-      <div className="sm:hidden mt-12 mb-40 overflow-x-auto w-full flex gap-6 scrollbar-hide">
-        {displayedEvents.length > 0 &&
-          displayedEvents.map((event) => (
+      {/* For Medium and Small Screens (Index-Based Scrolling) */}
+      {/* For Medium and Small Screens (Index-Based Scrolling) */}
+      <div className="sm:hidden lg:hidden mt-12 mb-40 flex flex-col items-center relative">
+        {cards.length > 0 && (
+          <div className="w-[250px] h-[300px] bg-cover bg-center rounded-lg shadow-lg relative">
             <div
-              key={event._id}
-              className="flex-shrink-0 w-[250px] h-[350px] bg-cover bg-center rounded-lg shadow-lg relative"
+              className="relative flex flex-col items-center cursor-pointer w-full h-full"
               style={{
                 backgroundImage: `url(${createImageUrl(
-                  event.image.data.data,
-                  event.image.contentType
+                  cards[currentIndex]?.image?.data?.data,
+                  cards[currentIndex]?.image?.contentType
                 )})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             >
-              <div className="absolute top-4 left-4 text-white">
-                <p className="font-semibold text-xl">{event.name}</p>
-                <p className="text-sm">{event.formattedDate}</p>
-              </div>
-              <div className="absolute inset-0 flex flex-col justify-end text-center p-4 bg-opacity-70 bg-black rounded-lg opacity-0 transition-opacity duration-500 hover:opacity-100">
-                <p className="text-white font-semibold">{event.name}</p>
-                <button
-                  className="mt-2 px-4 py-2 bg-green-500 text-white font-bold rounded-md hover:bg-green-700"
-                  onClick={() => navigate(`/contact?name=${event.name}`)}
-                >
-                  Register Now
-                </button>
+              <div className="absolute top-4 left-4 text-white z-10">
+                <p className="font-semibold text-xl">
+                  {cards[currentIndex]?.name}
+                </p>
+                <p className="text-sm">{cards[currentIndex]?.formattedDate}</p>
               </div>
             </div>
-          ))}
+            <div className="absolute inset-0 flex flex-col justify-end text-center shadow-lg rounded-lg mt-4 p-4 h-full w-full opacity-100 transition-opacity duration-500">
+              <button
+                className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
+                onClick={() =>
+                  navigate(`/contact?name=${cards[currentIndex]?.name}`)
+                }
+              >
+                Register Now
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Previous and Next Buttons */}
+        <div className="absolute top-1/2 left-[-50px] transform -translate-y-1/2 z-20">
+          <Arrow1 direction="left" onClick={handlePrev} />
+        </div>
+        <div className="absolute top-1/2 right-[-50px] transform -translate-y-1/2 z-20">
+          <Arrow1 direction="right" onClick={handleNext} />
+        </div>
       </div>
     </div>
   );
