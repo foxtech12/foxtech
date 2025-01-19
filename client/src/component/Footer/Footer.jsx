@@ -28,7 +28,7 @@ const Footer = () => {
       <div className="flex flex-col lg:flex-row justify-between items-start px-6 lg:px-24 py-12 w-full max-w-screen-xl mx-auto">
         {/* Logo Section */}
         <div className="mb-6 lg:mb-0">
-          <img src={logo} alt="Logo" className="w-40 h-auto lg:w-48 lg:mr-14" />
+          <img src={logo} alt="Logo" className="w-40 h-auto lg:w-30 lg:mr-14" />
         </div>
 
         {/* Links Section */}
