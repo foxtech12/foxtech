@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../pages/images/4.png";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
-  const handleInput = (e) => {
-    setEmail(e.target.value);
-  };
-
   const handleSubscribe = () => {
-      navigate(`/about?name=${email} - Footer`);
+    navigate(`/about?name=Footer`);
   };
 
   return (
@@ -20,12 +14,12 @@ const Footer = () => {
       {/* Top Line */}
       <div className="w-full h-px bg-gray-300"></div>
 
-     {/* Footer Content */}
-     <div className="flex flex-col lg:flex-row justify-between items-start px-6 lg:px-24 py-12 w-full max-w-screen-xl mx-auto">
-      {/* Logo Section */}
-          <div className="mb-6 lg:mb-0 flex justify-center items-center w-full">
-            <img src={logo} alt="Logo" className="w-40 h-auto lg:w-30" />
-          </div>
+      {/* Footer Content */}
+      <div className="flex flex-col lg:flex-row justify-between items-start px-6 lg:px-24 py-12 w-full max-w-screen-xl mx-auto">
+        {/* Logo Section */}
+        <div className="mb-6 lg:mb-0 flex justify-center items-center w-full">
+          <img src={logo} alt="Logo" className="w-40 h-auto lg:w-30" />
+        </div>
 
         {/* Links Section */}
         <div className="flex flex-row w-full lg:w-2/3 justify-around">
@@ -46,7 +40,6 @@ const Footer = () => {
               <li className="text-xs sm:text-sm lg:text-base">
                 <Link to="/contact">Contact Us</Link>
               </li>
-              
             </ul>
           </div>
         </div>
