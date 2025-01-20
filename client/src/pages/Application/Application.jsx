@@ -40,24 +40,6 @@ const Application = () => {
     },
   ];
 
-  const projects = [
-    {
-      title: "Project A",
-      description:
-        "Developed a responsive e-commerce platform for a leading retail brand.",
-    },
-    {
-      title: "Project B",
-      description:
-        "Created a custom website for a tech startup, focusing on sleek design and user experience.",
-    },
-    {
-      title: "Project C",
-      description:
-        "Built an SEO-optimized blog platform for a content creator.",
-    },
-  ];
-
   const Step = ({ title, description, customStyle }) => (
     <div
       className={`w-full md:w-2/3 bg-green-50 p-6 rounded-lg shadow-md ${customStyle}`}
@@ -128,10 +110,7 @@ const Application = () => {
       <div className="max-w-7xl mx-auto mt-4 animate-slide-right">
         <div className="flex flex-col items-center space-y-10">
           {/* Step Component */}
-          <div
-            className="w-full md:w-2/3 bg-green-50 p-6 rounded-lg shadow-md"
-            
-          >
+          <div className="w-full md:w-2/3 bg-green-50 p-6 rounded-lg shadow-md">
             <div className="text-center text-black text-4xl uppercase tracking-wide">
               <p className="text-3xl">Application development Services</p>
               <p className="text-4xl font-semibold">
@@ -169,14 +148,14 @@ const Application = () => {
             <div className="overflow-x-auto px-4">
               <div className="flex space-x-4">
                 {solutions.map((solution, index) => (
-                   <div
-                   key={index}
-                   className="inline-block bg-[#E7FFE7] shadow-lg rounded-lg p-6 sm:p-8 md:p-10 text-center hover:shadow-2xl transition duration-300 w-full max-w-[90%] sm:max-w-[80%] md:max-w-[75%] mx-auto sm:mx-2 flex flex-col justify-between"
-                   style={{
-                     minHeight: "200px", // Adjust this value for taller boxes
-                     minWidth: "250px", // Adjust this value for wider boxes
-                   }}
-                 >
+                  <div
+                    key={index}
+                    className="inline-block bg-[#E7FFE7] shadow-lg rounded-lg p-6 sm:p-8 md:p-10 text-center hover:shadow-2xl transition duration-300 w-full max-w-[90%] sm:max-w-[80%] md:max-w-[75%] mx-auto sm:mx-2 flex flex-col justify-between"
+                    style={{
+                      minHeight: "200px", // Adjust this value for taller boxes
+                      minWidth: "250px", // Adjust this value for wider boxes
+                    }}
+                  >
                     <h2 className="text-base sm:text-lg md:text-xl font-medium text-black mb-2 sm:mb-4 md:mb-6 text-left">
                       {solution.title}
                     </h2>

@@ -130,11 +130,11 @@ const SeoHandling = () => {
             
           >
             <div className="text-center text-black text-4xl uppercase tracking-wide">
-              <p className="text-3xl">
+              <p className="text-2xl">
                 SEO Handling services drive Organic Traffic & Boost Your Online
                 Presence
               </p>
-              <p className="text-4xl font-semibold">
+              <p className="text-3xl font-semibold">
                 {" "}
                 Traffic & Boost Your Online Presence
               </p>

@@ -99,7 +99,7 @@ const ContactForm = ({ val }) => {
             >
               {["name", "email", "phone", "company", "subject"].map((field) => (
                 <div key={field}>
-                  <label className="block text-black font-semibold mb-2 capitalize">
+                  <label className="block text-black font-semibold mb-2 capitalize  font-sans">
                     {field}
                   </label>
                   <div
@@ -136,7 +136,7 @@ const ContactForm = ({ val }) => {
                       value={formData[field]}
                       onChange={handleChange}
                       placeholder={`Enter your ${field}`}
-                      className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500"
+                      className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500 font-sans"
                       required={field !== "subject"} // Subject is optional
                     />
                   </div>
@@ -145,7 +145,7 @@ const ContactForm = ({ val }) => {
               
               {/* Message */}
               <div className="relative">
-                <label className="block text-black font-semibold mb-2">
+                <label className="block text-black font-semibold mb-2 font-sans">
                   Message
                 </label>
                 <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black">
@@ -158,7 +158,7 @@ const ContactForm = ({ val }) => {
                   placeholder="Hi! I would like to ask you something..."
                   rows="4"
                   style={{ width: `${inputWidth}%` }}
-                  className="p-3 pl-10 bg-[#E7FFE7] text-black border border-black rounded transition-all duration-500"
+                  className="p-3 pl-10 bg-[#E7FFE7] text-black border border-black rounded transition-all duration-500 font-sans"
                   required
                 ></textarea>
               </div>
@@ -168,7 +168,7 @@ const ContactForm = ({ val }) => {
                 <button
                   type="submit"
                   style={{ width: `${inputWidth}%` }} // Adjust width dynamically
-                  className="bg-[#00FF00] hover:bg-green-600 text-black font-semibold py-3 px-8 rounded-full transition-all duration-500"
+                  className="bg-[#00FF00] hover:bg-green-600 text-black font-semibold py-3 px-8 rounded-full transition-all duration-500 font-sans"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}

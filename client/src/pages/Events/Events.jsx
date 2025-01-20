@@ -155,58 +155,57 @@ const Events = () => {
 
       {/* Event Cards Section */}
       <div className="hidden lg:flex justify-center items-start mt-12 gap-[30%] animate-slide-up">
-  {cards1.length > 0 &&
-    displayedEvents.map((event, index) => (
-      <div
-        key={event._id}
-        className={`group relative flex flex-col items-center cursor-pointer ${
-          index === 1 ? "scale-110" : ""
-        }`}
-      >
-        {/* Image container (Front card) */}
-        <div
-          className={`h-[300px] w-[250px] bg-cover bg-center rounded-lg shadow-lg relative transition-transform duration-700 ease-in-out z-10 ${
-            index === 1
-              ? "group-hover:translate-y-[-150px] group-hover:rotate-[20deg] group-hover:-translate-y-16" 
-              : "group-hover:translate-y-[-150px] group-hover:rotate-[20deg] group-hover:-translate-y-16"
-          }`}
-          style={{
-            backgroundImage: `url(${createImageUrl(
-              event.image.data.data,
-              event.image.contentType
-            )})`,
-          }}
-        >
-          {/* Event Name and Time on the Front */}
-          <div className="absolute top-4 left-4 text-white">
-            <p className="font-semibold text-xl">{event.name}</p>
-            <p className="text-sm">{event.formattedDate}</p>
-          </div>
-        </div>
+        {cards1.length > 0 &&
+          displayedEvents.map((event, index) => (
+            <div
+              key={event._id}
+              className={`group relative flex flex-col items-center cursor-pointer ${
+                index === 1 ? "scale-110" : ""
+              }`}
+            >
+              {/* Image container (Front card) */}
+              <div
+                className={`h-[300px] w-[250px] bg-cover bg-center rounded-lg shadow-lg relative transition-transform duration-700 ease-in-out z-10 ${
+                  index === 1
+                    ? "group-hover:translate-y-[-150px] group-hover:rotate-[20deg] group-hover:-translate-y-16"
+                    : "group-hover:translate-y-[-150px] group-hover:rotate-[20deg] group-hover:-translate-y-16"
+                }`}
+                style={{
+                  backgroundImage: `url(${createImageUrl(
+                    event.image.data.data,
+                    event.image.contentType
+                  )})`,
+                }}
+              >
+                {/* Event Name and Time on the Front */}
+                <div className="absolute top-4 left-4 text-white">
+                  <p className="font-semibold text-xl">{event.name}</p>
+                  <p className="text-sm">{event.formattedDate}</p>
+                </div>
+              </div>
 
-        {/* Card content (Back card) */}
-        <div
-          className={`absolute inset-0 flex flex-col justify-end text-center shadow-lg rounded-lg mt-4 p-4 h-[345px] w-[250px] opacity-0 transition-opacity duration-500 ${
-            index === 1
-              ? "opacity-100" // Always visible for the middle card
-              : "group-hover:opacity-100"
-          }`}
-          style={{ backgroundColor: "#c4c0c0" }}
-        >
-          <p className="text-black font-semibold text-[10px] mb-[25%]">
-            {event.name}
-          </p>
-          <button
-            className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
-            onClick={() => navigate(`/contact?name=${event.name}`)}
-          >
-            Register Now
-          </button>
-        </div>
+              {/* Card content (Back card) */}
+              <div
+                className={`absolute inset-0 flex flex-col justify-end text-center shadow-lg rounded-lg mt-4 p-4 h-[345px] w-[250px] opacity-0 transition-opacity duration-500 ${
+                  index === 1
+                    ? "opacity-100" // Always visible for the middle card
+                    : "group-hover:opacity-100"
+                }`}
+                style={{ backgroundColor: "#c4c0c0" }}
+              >
+                <p className="text-black font-semibold text-[10px] mb-[25%]">
+                  {event.name}
+                </p>
+                <button
+                  className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
+                  onClick={() => navigate(`/contact?name=${event.name}`)}
+                >
+                  Register Now
+                </button>
+              </div>
+            </div>
+          ))}
       </div>
-    ))}
-</div>
-
 
       <div className="w-full flex items-center justify-center my-6 mt-[10%]">
         <hr className="hidden lg:block w-full ml-8 mr-8 mx-auto border-t border-gray-400" />
@@ -259,61 +258,56 @@ const Events = () => {
       </div>
 
       <section className="py-10 px-5" id="featured" ref={upcomingEventsRef}>
-  {/* Horizontal Scrolling Layout */}
-  <div
-    className="flex gap-6 overflow-x-auto scrollbar-hide"
-    style={{ scrollSnapType: "x mandatory" }}
-  >
-    {cards.map((item, index) => (
-      <div
-        key={item._id || index}
-        className="flex-shrink-0 w-[90%] sm:w-72"
-        style={{ scrollSnapAlign: "start" }}
-      >
-        <div className="group relative flex flex-col items-center cursor-pointer">
-          {/* Card */}
-          <div className="relative overflow-hidden text-gray-50 h-80 w-full rounded-2xl border border-black">
-            <div className="w-full h-full">
-              <img
-                src={createImageUrl(item.image.data.data, item.image.contentType)}
-                alt={item.name}
-                className="h-full w-full object-cover"
-              />
+        {/* Horizontal Scrolling Layout */}
+        <div
+          className="flex gap-6 overflow-x-auto scrollbar-hide"
+          style={{ scrollSnapType: "x mandatory" }}
+        >
+          {cards.map((item, index) => (
+            <div
+              key={item._id || index}
+              className="flex-shrink-0 w-[90%] sm:w-72"
+              style={{ scrollSnapAlign: "start" }}
+            >
+              <div className="group relative flex flex-col items-center cursor-pointer">
+                {/* Card */}
+                <div className="relative overflow-hidden text-gray-50 h-80 w-full rounded-2xl border border-black">
+                  <div className="w-full h-full">
+                    <img
+                      src={createImageUrl(
+                        item.image.data.data,
+                        item.image.contentType
+                      )}
+                      alt={item.name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  {/* Hover Content */}
+                  <div className="absolute bg-[#E7FFE7] -bottom-24 w-full p-3 flex flex-col gap-2 transition-all duration-500 group-hover:bottom-0">
+                    <span className="text-black font-bold text-xl">
+                      {item.name}
+                    </span>
+                    <p className="text-neutral-800 text-lg">
+                      {item.formattedDate}
+                    </p>
+                    <p className="text-neutral-800 text-lg">{item.location}</p>
+                    <button
+                      className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
+                      onClick={() => navigate(`/contact?name=${item.name}`)}
+                      style={{
+                        background:
+                          "linear-gradient(to right, #46FF46, rgb(220, 234, 220))",
+                      }}
+                    >
+                      Register Now
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            {/* Hover Content */}
-            <div className="absolute bg-[#E7FFE7] -bottom-24 w-full p-3 flex flex-col gap-2 transition-all duration-500 group-hover:bottom-0">
-              <span className="text-black font-bold text-xl">{item.name}</span>
-              <p className="text-neutral-800 text-lg">{item.formattedDate}</p>
-              <p className="text-neutral-800 text-lg">{item.location}</p>
-              <button
-                className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
-                onClick={() => navigate(`/contact?name=${item.name}`)}
-                style={{
-                  background:
-                    "linear-gradient(to right, #46FF46, rgb(220, 234, 220))",
-                }}
-              >
-                Register Now
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
+      </section>
 
       <div className="flex justify-center flex-col items-center">
         <div

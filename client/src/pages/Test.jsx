@@ -48,6 +48,18 @@ const StickyStackedCards = () => {
       prevIndex === cards.length - 1 ? 0 : prevIndex + 1
     );
   };
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Automatic slide change for small screens
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === cards.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, [cards]);
 
   const Arrow1 = ({ direction, onClick }) => (
     <div
@@ -83,21 +95,43 @@ const StickyStackedCards = () => {
       )}
     </div>
   );
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
+      }, 3000);
+  
+      return () => clearInterval(interval); // Cleanup the interval on component unmount
+    }, [cards.length]);
+  const getDisplayedEvents = () => {
+    if (cards.length === 0) return []; // Handle empty data scenario
+    return [
+      cards[activeIndex % cards.length],
+      cards[(activeIndex + 1) % cards.length],
+      cards[(activeIndex + 2) % cards.length],
+    ];
+  };
+  const displayedEvents = getDisplayedEvents();
+
 
   return (
     <div>
       {/* Desktop Layout for Large Screens */}
-      <div className="hidden sm:block lg:flex justify-center items-start mt-12 mb-40 gap-[30%] animate-slide-up">
-        {cards.length > 0 ? (
-          cards.map((event, index) => (
+      <div className="hidden lg:flex justify-center items-start mt-12 gap-[30%] animate-slide-up">
+        {cards.length > 0 &&
+          displayedEvents.map((event, index) => (
             <div
               key={event._id}
               className={`group relative flex flex-col items-center cursor-pointer ${
                 index === 1 ? "scale-110" : ""
               }`}
             >
+              {/* Image container (Front card) */}
               <div
-                className={`h-[300px] w-[250px] bg-cover bg-center rounded-lg shadow-lg relative transition-transform duration-700 ease-in-out z-10`}
+                className={`h-[300px] w-[250px] bg-cover bg-center rounded-lg shadow-lg relative transition-transform duration-700 ease-in-out z-10 ${
+                  index === 1
+                    ? "group-hover:translate-y-[-150px] group-hover:rotate-[20deg] group-hover:-translate-y-16"
+                    : "group-hover:translate-y-[-150px] group-hover:rotate-[20deg] group-hover:-translate-y-16"
+                }`}
                 style={{
                   backgroundImage: `url(${createImageUrl(
                     event.image.data.data,
@@ -105,14 +139,19 @@ const StickyStackedCards = () => {
                   )})`,
                 }}
               >
+                {/* Event Name and Time on the Front */}
                 <div className="absolute top-4 left-4 text-white">
                   <p className="font-semibold text-xl">{event.name}</p>
                   <p className="text-sm">{event.formattedDate}</p>
                 </div>
               </div>
+
+              {/* Card content (Back card) */}
               <div
                 className={`absolute inset-0 flex flex-col justify-end text-center shadow-lg rounded-lg mt-4 p-4 h-[345px] w-[250px] opacity-0 transition-opacity duration-500 ${
-                  index === 1 ? "opacity-100" : "group-hover:opacity-100"
+                  index === 1
+                    ? "opacity-100" // Always visible for the middle card
+                    : "group-hover:opacity-100"
                 }`}
                 style={{ backgroundColor: "#c4c0c0" }}
               >
@@ -127,13 +166,9 @@ const StickyStackedCards = () => {
                 </button>
               </div>
             </div>
-          ))
-        ) : (
-          <div>Loading...</div>
-        )}
+          ))}
       </div>
 
-      {/* For Medium and Small Screens (Index-Based Scrolling) */}
       {/* For Medium and Small Screens (Index-Based Scrolling) */}
       <div className="sm:hidden lg:hidden mt-12 mb-40 flex flex-col items-center relative">
         {cards.length > 0 && (

@@ -137,8 +137,8 @@ const Personal = () => {
             
           >
             <div className="text-center text-black text-4xl uppercase tracking-wide">
-              <p className="text-3xl">Personal Branding Service</p>
-              <p className="text-4xl font-semibold">
+              <p className="text-2xl">Personal Branding Service</p>
+              <p className="text-3xl font-semibold">
                 {" "}
                 Build your unique brand identity
               </p>

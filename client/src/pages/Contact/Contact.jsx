@@ -1,6 +1,5 @@
 import React from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
-import { FaFacebook, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Navbar from "../../component/Navbar/Navbar";
 import Footer from "../../component/Footer/Footer";
 import eventBg from "../images/eventbg.png";
@@ -23,6 +22,7 @@ const Contact = () => {
   }, []);
   useEffect(() => {
     AOS.init({ duration: 1000 });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   const [scrollDirection, setScrollDirection] = useState(0); // 0 for up, 1 for down
@@ -86,11 +86,11 @@ const Contact = () => {
       </div>
       <div className="w-full h-20 bg-[#f0fff0] flex items-center justify-center animate-slide-down"></div>
       <div className="p-6 bg-[#E7FFE7] rounded mx-auto mt-5 flex flex-col items-center justify-center text-center w-full sm:w-4/5 md:w-3/4 lg:w-1/2 animate-slide-right">
-        <p className="text-lg md:text-2xl lg:text-3xl font-semibold leading-tight">
+        <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold leading-tight">
           <span className="text-green-800 lg:text-5xl">
             Get in touch with us
           </span>
-        </p>
+        </h2>
       </div>
 
       <ContactForm val={queryData} />
@@ -167,9 +167,9 @@ const Contact = () => {
             <div className="text-center mt-8">
               {/* Header Section */}
               <div className="inline-block bg-[#46FF46] text-white px-6 py-2 rounded-tr-3xl rounded-bl-3xl shadow-md mx-auto">
-                <p className="text-lg md:text-xl lg:text-2xl font-medium uppercase tracking-wide text-black">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-medium uppercase tracking-wide text-black">
                   FAQ’s
-                </p>
+                </h3>
               </div>
             </div>
           </div>
@@ -180,7 +180,11 @@ const Contact = () => {
                 <div key={index} className="mb-4">
                   <details className="group border rounded-md p-4 bg-[#E7FFE7]">
                     <summary className="font-medium cursor-pointer flex justify-between items-center">
-                      {faq.headline} {/* Display the FAQ headline */}
+                      <h2 className="text-2xl lg:text-2xl font-bold text-gray-800 mb-8 uppercase">
+                        {" "}
+                        {faq.headline}
+                      </h2>
+                      {/* Display the FAQ headline */}
                       <span className="text-lg transition-transform">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +202,9 @@ const Contact = () => {
                         </svg>
                       </span>
                     </summary>
-                    <p className="mt-2 text-gray-600">{faq.description}</p>{" "}
+                    <p className="mt-2 text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">
+                      {faq.description}
+                    </p>
                     {/* Display the FAQ description */}
                   </details>
                 </div>

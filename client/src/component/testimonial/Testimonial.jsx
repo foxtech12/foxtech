@@ -115,7 +115,7 @@ const Testimonial = () => {
               />
             </svg>
             <blockquote>
-              <p className="text-2xl font-medium text-black dark:text-black">
+              <p className="text-xl font-medium text-black dark:text-black">
                 "{testimonials[currentIndex]?.review}"
               </p>
             </blockquote>

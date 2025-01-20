@@ -252,11 +252,11 @@ const Services = () => {
               maxWidth: "900px", // Set a maximum width
             }}
           >
-            <p className="text-lg md:text-2xl lg:text-3xl  leading-tight text-left">
+            <h3 className="text-lg md:text-2xl lg:text-3xl  leading-tight text-left">
               <span className="text-black lg:text-5xl text-left">
                 "Elevate Your Brand with Expert Social Media Solutions"
               </span>
-            </p>
+            </h3>
             <p className="text-black mt-2 text-sm md:text-lg lg:text-2xl">
               Innovative Strategies Tailored to Your Business Needs
             </p>
