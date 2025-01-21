@@ -3,8 +3,8 @@ import Navbar from "../../component/Navbar/Navbar";
 import Footer from "../../component/Footer/Footer";
 import "swiper/css";
 import "swiper/css/navigation";
-import case1 from "./images/image1.png";
-import report from "./images/image.png";
+import case1 from "./img 1.webp";
+import case2 from "./img2.jpg";
 import first from "../images/1st.png";
 import sec from "../images/2nd.png";
 import third from "../images/3rd.png";
@@ -263,7 +263,6 @@ const Services = () => {
           </div>
         </div>
       </div>
-      
 
       <div id="services" className="py-20 bg-white">
         {/* Section Title */}
@@ -307,91 +306,91 @@ const Services = () => {
       </div>
 
       <div className="flex justify-center mt-8">
-        {/* Cards container */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 p-6 lg:mx-10 mx-auto justify-center items-center hidden sm:block">
-          <div className="flex justify-between">
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 p-6 lg:mx-10 mx-auto justify-center items-center md:flex-col">
-              {/* Card 1 */}
-              <div
-                ref={cardRef}
-                className="border lg:ml-14 rounded-md shadow-lg overflow-hidden w-full sm:w-[300px] md:w-[350px] lg:w-[400px] justify-center items-center"
-              >
-                <img
-                  src={report}
-                  alt="Analytics"
-                  className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-contain" // Decreased height for the image
-                />
-                <div className="p-4 bg-green-50">
-                  <h3 className="font-bold text-lg sm:text-xl md:text-2xl">
-                    ANALYTICS
-                  </h3>
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg mt-1">
-                    Analytics Description
-                  </p>
-                </div>
-              </div>
-              {/* Card 2 */}
-              <div
-                ref={cardReference} // Updated reference name here
-                className="border lg:ml-14 rounded-md shadow-lg overflow-hidden w-full sm:w-[300px] md:w-[350px] lg:w-[400px]"
-              >
-                <img
-                  src={report}
-                  alt="Analytics"
-                  className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-contain" // Decreased height for the image
-                />
-                <div className="p-4 bg-green-50">
-                  <h3 className="font-bold text-lg sm:text-xl md:text-2xl">
-                    ANALYTICS
-                  </h3>
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg mt-1">
-                    Analytics Description
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  {/* Cards container for medium and large screens */}
+  <div className="hidden sm:grid w-full grid-cols-1 md:grid-cols-2 gap-8 p-6 lg:mx-20 mx-auto justify-center items-center">
+    {/* Card 1 */}
+    <div
+      ref={cardRef}
+      className="border rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto flex flex-col items-center"
+    >
+      <img
+        src={case1}
+        alt="Analytics"
+        className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-fit"
+      />
+      <div className="p-6 bg-green-50 text-center">
+        <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl">ANALYTICS</h3>
+        <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mt-4 leading-relaxed">
+          Unlock the power of data with our advanced analytics tools. Gain
+          real-time insights into your marketing performance with intuitive
+          dashboards, detailed metrics, and visually engaging charts. Our
+          platform helps you track progress, identify trends, and make
+          data-driven decisions effortlessly. Stay ahead of the curve with our
+          analytics system tailored to your unique business goals.
+        </p>
+      </div>
+    </div>
 
-        {/* Horizontally scrollable for small screens */}
-        <div className="flex  block sm:hidden overflow-x-auto w-full mt-8">
-          <div className="flex space-x-6">
-            {/* Card 1 for horizontal scroll */}
-            <div className="border rounded-md shadow-lg overflow-hidden w-[300px]">
-              <img
-                src={report}
-                alt="Analytics"
-                className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-contain"
-              />
-              <div className="p-4 bg-green-50">
-                <h3 className="font-bold text-lg sm:text-xl md:text-2xl">
-                  ANALYTICS
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base md:text-lg mt-1">
-                  Analytics Description
-                </p>
-              </div>
-            </div>
+    {/* Card 2 */}
+    <div
+      ref={cardReference}
+      className="border rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto flex flex-col items-center"
+    >
+      <img
+        src={case2}
+        alt="Reporting"
+        className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-fit"
+      />
+      <div className="p-6 bg-green-50 text-center">
+        <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl">REPORTING</h3>
+        <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mt-4 leading-relaxed">
+          Gain real-time performance tracking with insights for growth and
+          optimization. Enhance your marketing ROI with advanced visualizations
+          and predictive analytics that guide your business to success.
+        </p>
+      </div>
+    </div>
+  </div>
 
-            {/* Card 2 for horizontal scroll */}
-            <div className="border rounded-md shadow-lg overflow-hidden w-[300px]">
-              <img
-                src={report}
-                alt="Analytics"
-                className="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-contain"
-              />
-              <div className="p-4 bg-green-50">
-                <h3 className="font-bold text-lg sm:text-xl md:text-2xl">
-                  ANALYTICS
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base md:text-lg mt-1">
-                  Analytics Description
-                </p>
-              </div>
-            </div>
-          </div>
+  {/* Horizontally scrollable for small screens */}
+  <div className="flex block sm:hidden overflow-x-auto w-full px-4">
+    <div className="flex space-x-6">
+      {/* Card 1 */}
+      <div className="border rounded-lg shadow-lg overflow-hidden w-[320px] flex-shrink-0">
+        <img
+          src={case1}
+          alt="Analytics"
+          className="w-full h-[200px] object-fit"
+        />
+        <div className="p-4 bg-green-50 text-center">
+          <h3 className="font-bold text-lg">ANALYTICS</h3>
+          <p className="text-gray-600 text-sm mt-4 leading-relaxed">
+            Unlock the power of data with our advanced analytics tools. Gain
+            real-time insights into your marketing performance with intuitive
+            dashboards and detailed metrics.
+          </p>
         </div>
       </div>
+
+      {/* Card 2 */}
+      <div className="border rounded-lg shadow-lg overflow-hidden w-[320px] flex-shrink-0">
+        <img
+          src={case2}
+          alt="Reporting"
+          className="w-full h-[200px] object-fit"
+        />
+        <div className="p-4 bg-green-50 text-center">
+          <h3 className="font-bold text-lg">REPORTING</h3>
+          <p className="text-gray-600 text-sm mt-4 leading-relaxed">
+            Gain real-time performance tracking and insights with advanced
+            visualizations and predictive analytics to enhance your ROI.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       <div className="bg-white w-full mb-4">
         {/* Analytics and Reporting Section */}
