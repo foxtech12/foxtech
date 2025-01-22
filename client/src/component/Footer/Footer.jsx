@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../pages/images/4.png";
+import logo1 from "../../pages/images/3.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
@@ -17,34 +18,39 @@ const Footer = () => {
       <div className="w-full h-px bg-gray-300"></div>
       {/* Footer Content */}
       <div className="flex flex-col lg:flex-row justify-between items-start px-6 lg:px-24 py-12 w-full max-w-screen-xl mx-auto">
-        {/* Logo Section */}
-        <div className="mb-6 lg:mb-0 flex lg:justify-start sm:justify-center items-center w-full">
-          <img src={logo} alt="Logo" className="w-40 h-auto lg:w-30" />
+        {/* Large screen: Hide this on small screens and show it on large screens */}
+        <div className="block lg:hidden sm:hidden mb-6 lg:mb-0 flex justify-center items-center w-full">
+          <img src={logo} alt="Logo" className="w-60 h-auto lg:w-30" />
+        </div>
+
+        {/* Show logo for small screens and hide on medium/large */}
+        <div className="hidden sm:block md:justify-center md:items-center mb-6 lg:mb-0 flex justify-center items-center ">
+          <img src={logo1} alt="Logo" className="w-40 h-auto lg:w-30" />
         </div>
         {/* Links and Newsletter Section */}
         <div className="flex flex-row  w-full lg:w-2/3 justify-start">
           {/* Links Section */}
           <div className="mb-6 sm:mb-0 w-full sm:w-1/2">
-            <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-4 lg:mb-10">
+            <h2 className="text-lg sm:text-lg lg:text-lg font-semibold mb-4 lg:mb-10">
               Links
-            </h4>
-            <ul className="space-y-4 lg:space-y-6">
-              <li className="text-xs sm:text-sm lg:text-base">
+            </h2>
+            <ul className="space-y-4 lg:space-y-6 ">
+              <li className="text-md  lg:text-base sm:mt-5">
                 <Link to="/">Home</Link>
               </li>
-              <li className="text-xs sm:text-sm lg:text-base">
+              <li className="text-md lg:text-base sm:mt-5">
                 <Link to="/service">Services</Link>
               </li>
-              <li className="text-xs sm:text-sm lg:text-base">
+              <li className="text-md lg:text-base sm:mt-5">
                 <Link to="/about">About</Link>
               </li>
-              <li className="text-xs sm:text-sm lg:text-base">
+              <li className="text-md  lg:text-base sm:mt-5">
                 <Link to="/contact">Contact Us</Link>
               </li>
             </ul>
           </div>
           <div className="w-full sm:w-1/2">
-            <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-4">
+            <h4 className="text-lg sm:text-lg lg:text-lg font-semibold mb-4">
               Newsletter
             </h4>
             <form className="space-y-4">
@@ -52,7 +58,7 @@ const Footer = () => {
               <div className="flex flex-col">
                 <label
                   htmlFor="name"
-                  className="text-xs sm:text-sm lg:text-base font-medium text-gray-700 mb-1"
+                  className="text-sm sm:text-sm lg:text-base font-medium text-gray-700 mb-1"
                 >
                   Name
                 </label>
@@ -61,7 +67,7 @@ const Footer = () => {
                   id="name"
                   name="name"
                   placeholder="Enter your name"
-                  className="border rounded-md p-2 text-xs sm:text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-green-500 text-xs sm:text-md lg:text-base p-1"
                 />
               </div>
 
@@ -69,7 +75,7 @@ const Footer = () => {
               <div className="flex flex-col">
                 <label
                   htmlFor="email"
-                  className="text-xs sm:text-sm lg:text-base font-medium text-gray-700 mb-1"
+                  className="text-sm sm:text-sm lg:text-base font-medium text-gray-700 mb-1"
                 >
                   Email
                 </label>
@@ -79,18 +85,19 @@ const Footer = () => {
                   name="email"
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="border rounded-md p-2 text-xs sm:text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="border-b border-gray-400 focus:outline-none focus:ring-0 focus:border-green-500 text-xs sm:text-sm lg:text-base p-1"
                   required
                 />
               </div>
 
               {/* Subscribe Button */}
             </form>
+
             <div className="flex items-center mt-3">
               <button
                 type="submit"
                 onClick={handleSubscribe}
-                className="text-xs sm:text-sm lg:text-base font-semibold border-b border-gray-700 text-gray-700 hover:text-black"
+                className="text-sm sm:text-sm lg:text-base font-semibold border-b border-gray-700 text-gray-700 hover:text-black"
               >
                 SUBSCRIBE
               </button>
@@ -98,26 +105,27 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center sm:justify-center space-x-6 lg:space-x-8 mb-4 ">
+      <div className="flex justify-center sm:justify-center space-x-6 lg:space-x-8 mb-4">
         <FaFacebook
-          className="text-blue-600 cursor-pointer hover:scale-110 transition-transform duration-200"
-          size={22}
+          className="text-blue-600 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl"
+          size={30}
         />
         <FaLinkedin
-          className="text-blue-800 cursor-pointer hover:scale-110 transition-transform duration-200"
-          size={22}
+          className="text-blue-800 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl"
+          size={30}
         />
         <FaTwitter
-          className="text-blue-400 cursor-pointer hover:scale-110 transition-transform duration-200"
-          size={22}
+          className="text-blue-400 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl"
+          size={30}
         />
         <Link to="https://www.instagram.com/foxteach_offical/?hl=en">
           <FaInstagram
-            className="text-pink-500 cursor-pointer hover:scale-110 transition-transform duration-200"
-            size={22}
+            className="text-pink-500 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl"
+            size={30}
           />
         </Link>
       </div>
+
       {/* Bottom Line */}
       <div className="w-[90%] lg:w-[85%] h-px bg-gray-300 mx-auto"></div>
       {/* Copyright */}

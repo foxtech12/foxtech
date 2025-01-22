@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Navbar from "../../component/Navbar/Navbar";
 import Footer from "../../component/Footer/Footer";
@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faMessage } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const Contact = () => {
   const [queryData, setQueryData] = useState("");
@@ -72,6 +73,16 @@ const Contact = () => {
     fetchFaqs();
   }, []);
 
+  const contactSectionRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if the hash is "#contact" and scroll to the section
+    if (location.hash === "#contact" && contactSectionRef.current) {
+      contactSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
   return (
     <>
       <Navbar />
@@ -93,8 +104,9 @@ const Contact = () => {
         </h2>
       </div>
 
-      <ContactForm val={queryData} />
-
+      <section id="contact" ref={contactSectionRef}>
+        <ContactForm val={queryData} />
+      </section>
       <div className="bg-white px-4 py-8 lg:py-12 overflow-x-hidden ">
         {/* Contact Section */}
         <div className="text-center mb-10">

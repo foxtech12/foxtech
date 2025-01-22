@@ -109,15 +109,7 @@ const Services = () => {
     // Add more cards as needed
   ];
 
-  const Card = ({
-    name,
-    role,
-    gradientFrom,
-    gradientVia,
-    gradientTo,
-    nameNavi,
-    image,
-  }) => {
+  const Card = ({ name, role, nameNavi, image }) => {
     return (
       <div className="group relative  w-80 min-h-[20rem] rounded-2xl overflow-hidden flex flex-col items-center text-center">
         {/* Background Overlay */}
@@ -227,6 +219,33 @@ const Services = () => {
     });
   }, []);
 
+  const cardData = [
+    {
+      id: 1,
+      title: "ANALYTICS",
+      description:
+        "Unlock the power of data with our advanced analytics tools. Gain real-time insights into your marketing performance with intuitive dashboards, detailed metrics, and visually engaging charts. Our platform helps you track progress, identify trends, and make data-driven decisions effortlessly. Stay ahead of the curve with our analytics system tailored to your unique business goals.",
+      image: case1,
+    },
+    {
+      id: 2,
+      title: "REPORTING",
+      description:
+        "Gain real-time performance tracking with insights for growth and optimization. Enhance your marketing ROI with advanced visualizations and predictive analytics that guide your business to success.",
+      image: case2,
+    },
+  ];
+
+  const createImageUrl = (fileData, contentType) => {
+    try {
+      const blob = new Blob([new Uint8Array(fileData)], { type: contentType });
+      const url = URL.createObjectURL(blob);
+      return url;
+    } catch (error) {
+      console.error("Error decoding image:", error);
+      return "";
+    }
+  };
   const navigate = useNavigate();
   return (
     <div>
@@ -308,98 +327,79 @@ const Services = () => {
       <div className="flex justify-center mt-8">
   {/* Cards container for medium and large screens */}
   <div className="hidden sm:grid w-full grid-cols-1 md:grid-cols-2 gap-8 p-6 lg:mx-20 mx-auto justify-center items-center">
-  {/* Card 1 */}
-  <div
-    ref={cardRef}
-    className="border rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto flex flex-col items-center group"
-  >
-    <div className="overflow-hidden w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
-      <img
-        src={case1}
-        alt="Analytics"
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-      />
-    </div>
-    <div className="p-6 bg-green-50 text-center">
-      <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl group-hover:text-green-600 group-hover:scale-105 transition-all duration-300">
-        ANALYTICS
-      </h3>
-      <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mt-4 leading-relaxed group-hover:text-gray-800 group-hover:scale-105 transition-all duration-300">
-        Unlock the power of data with our advanced analytics tools. Gain
-        real-time insights into your marketing performance with intuitive
-        dashboards, detailed metrics, and visually engaging charts. Our
-        platform helps you track progress, identify trends, and make
-        data-driven decisions effortlessly. Stay ahead of the curve with our
-        analytics system tailored to your unique business goals.
-      </p>
-    </div>
+    {cardData.map((item, index) => (
+      <div className="flex justify-center items-start animate-slide-up" key={index}>
+        <div className="group relative flex flex-col items-center cursor-pointer w-full max-w-[600px]">
+          <div
+            key={item._id}
+            className="relative group duration-500 cursor-pointer overflow-hidden text-gray-50 h-[500px] w-[420px] rounded-2xl hover:duration-700 flex-shrink-0 border border-black"
+          >
+            <div className="w-full h-full">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div
+              className={`absolute bg-green-200 ${
+                index === 0 ? "-bottom-80" : "-bottom-40"
+              } w-full p-6 flex flex-col gap-3 group-hover:-bottom-0 group-hover:duration-600 duration-500`}
+            >
+              <span className="text-black font-bold text-2xl">
+                {item.title}
+              </span>
+              <p className="text-neutral-800 text-lg">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
   </div>
 
-  {/* Card 2 */}
-  <div
-    ref={cardReference}
-    className="border rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto flex flex-col items-center group"
-  >
-    <div className="overflow-hidden w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
-      <img
-        src={case2}
-        alt="Reporting"
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-      />
-    </div>
-    <div className="p-6 bg-green-50 text-center">
-      <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl group-hover:text-green-600 group-hover:scale-105 transition-all duration-300">
-        REPORTING
-      </h3>
-      <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mt-4 leading-relaxed group-hover:text-gray-800 group-hover:scale-105 transition-all duration-300">
-        Gain real-time performance tracking with insights for growth and
-        optimization. Enhance your marketing ROI with advanced visualizations
-        and predictive analytics that guide your business to success.
-      </p>
-    </div>
-  </div>
-</div>
-
-
-
-  {/* Horizontally scrollable for small screens */}
+  {/* Cards for small screens */}
   <div className="flex block sm:hidden overflow-x-auto w-full px-4">
-    <div className="flex space-x-6">
-      {/* Card 1 */}
-      <div className="border rounded-lg shadow-lg overflow-hidden w-[320px] flex-shrink-0">
-        <img
-          src={case1}
-          alt="Analytics"
-          className="w-full h-[200px] object-fit"
-        />
-        <div className="p-4 bg-green-50 text-center">
-          <h3 className="font-bold text-lg">ANALYTICS</h3>
-          <p className="text-gray-600 text-sm mt-4 leading-relaxed">
-            Unlock the power of data with our advanced analytics tools. Gain
-            real-time insights into your marketing performance with intuitive
-            dashboards and detailed metrics.
-          </p>
+  <div className="flex space-x-6">
+    {cardData.map((item, index) => (
+      <div
+        className="flex justify-center items-start animate-slide-up"
+        key={index}
+      >
+        <div className="group relative flex flex-col items-center cursor-pointer w-full max-w-[300px]">
+          <div
+            key={item.id}
+            className="relative group duration-500 cursor-pointer overflow-hidden text-gray-50 h-[300px] w-[260px] rounded-xl hover:duration-700 flex-shrink-0 border border-black"
+          >
+            <div className="w-full h-full">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div
+              className={`absolute bg-gray-50 ${
+                index === 0 ? "-bottom-40" : "-bottom-16"
+              } w-full p-4 flex flex-col gap-2 group-hover:-bottom-0 group-hover:duration-600 duration-500`}
+            >
+              <p className="text-green-400 font-bold text-lg uppercase">
+                {item.title}
+              </p>
+              <p className="text-neutral-800 text-sm">
+                {item.description}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Card 2 */}
-      <div className="border rounded-lg shadow-lg overflow-hidden w-[320px] flex-shrink-0">
-        <img
-          src={case2}
-          alt="Reporting"
-          className="w-full h-[200px] object-fit"
-        />
-        <div className="p-4 bg-green-50 text-center">
-          <h3 className="font-bold text-lg">REPORTING</h3>
-          <p className="text-gray-600 text-sm mt-4 leading-relaxed">
-            Gain real-time performance tracking and insights with advanced
-            visualizations and predictive analytics to enhance your ROI.
-          </p>
-        </div>
-      </div>
-    </div>
+    ))}
   </div>
 </div>
+
+</div>
+
 
 
       <div className="bg-white w-full mb-4">

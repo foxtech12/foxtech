@@ -15,7 +15,7 @@ const Events = () => {
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER}/api/event/get-event`
-      );  
+      );
       const lastThreeCards = response.data.slice(-3).map((card) => ({
         ...card,
         formattedDate: new Date(card.date).toLocaleString(), // Format the date field
@@ -235,12 +235,12 @@ const Events = () => {
       <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
         <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
           <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-tight leading-tight whitespace-normal m-0 p-0">
-            EXPLORE OUR UPCOMING EVENTS DESIGNED TO INSPIRE, EDUCATE, AND
-            CONNECT. FROM WORKSHOPS AND WEBINARS TO INDUSTRY CONFERENCES, [YOUR
-            COMPANY NAME] OFFERS A VARIETY OF EVENTS TAILORED TO HELP YOU STAY
-            AHEAD IN THE SOCIAL MEDIA MARKETING LANDSCAPE. JOIN US TO GAIN
-            VALUABLE INSIGHTS, NETWORK WITH INDUSTRY PROFESSIONALS, AND ENHANCE
-            YOUR SKILLS.
+            Explore our upcoming events designed to inspire, educate, and
+            connect. From workshops and webinars to industry conferences,
+            Foxteach offers a variety of events tailored to help you stay ahead
+            in the social media marketing landscape. Join us to gain valuable
+            insights, network with industry professionals, and enhance your
+            skills.
           </p>
         </div>
       </div>
@@ -318,7 +318,7 @@ const Events = () => {
           }}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black font-montserrat">
-            What Attendees Say?
+            What Do Attendees Say?
           </h2>
         </div>
       </div>
@@ -326,9 +326,9 @@ const Events = () => {
       <div className="flex justify-center flex-col px-4 sm:px-[10%] items-center">
         <div className="text-center bg-[#E7FFE7] mb-5 py-4 sm:py-5 px-4 sm:px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5">
           <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-tight leading-tight whitespace-normal m-0 p-0">
-            "THE SOCIAL MEDIA MASTERY WORKSHOP WAS INCREDIBLY INSIGHTFUL. I
-            LEARNED SO MUCH AND CAN'T WAIT TO APPLY THESE STRATEGIES TO MY
-            BUSINESS!" - ATTENDEE A
+            "The social media mastery workshop was incredibly insightful. I
+            learned so much and can't wait to apply these strategies to my
+            business!" - Attendee A
           </p>
         </div>
       </div>
@@ -336,8 +336,8 @@ const Events = () => {
       <div className="flex justify-center flex-col px-4 sm:px-[10%] items-center">
         <div className="text-center bg-[#E7FFE7] mb-5 py-4 sm:py-5 px-4 sm:px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5">
           <p className="text-lg sm:text-2xl text-black font-montserrat text-justify">
-            "GREAT EVENT WITH LOTS OF PRACTICAL TIPS. THE NETWORKING
-            OPPORTUNITIES WERE FANTASTIC!" - ATTENDEE B
+            "Great event with lots of practical tips. The networking
+            opportunities were fantastic!" - Attendee B
           </p>
         </div>
       </div>

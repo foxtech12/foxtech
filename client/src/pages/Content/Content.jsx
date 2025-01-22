@@ -44,10 +44,10 @@ const Content = () => {
     <div
       className={`w-full md:w-2/3 bg-green-50 p-6 rounded-lg shadow-md ${customStyle}`}
     >
-      <h3 className="text-lg md:text-2xl font-semibold text-black-700 font-bankGothic">
+      <p className="text-xl md:text-2xl font-semibold text-black-700 font-bankGothic">
         {title}
-      </h3>
-      <p className="text-gray-700 mt-2 text-sm md:text-base leading-relaxed font-bankGothic">
+      </p>
+      <p className="text-gray-700 mt-2 text-md md:text-md leading-relaxed font-bankGothic">
         {description}
       </p>
     </div>
@@ -117,7 +117,7 @@ const Content = () => {
           </div>
 
           <div className="max-w-5xl mx-auto mt-4 ">
-            <p className="uppercase sm:ml-5 md:ml-5 text-center">
+            <p className=" sm:ml-5 md:ml-5 text-center">
               Exceptional Content Creation Captivate, Engage, and Convert
               Elevate your brand’s voice with our innovative content creation
               services. We specialize in crafting compelling content that
@@ -154,7 +154,7 @@ const Content = () => {
                       minWidth: "250px", // Adjust this value for wider boxes
                     }}
                   >
-                    <h2 className="text-base sm:text-lg md:text-xl font-medium text-black mb-4 sm:mb-6 md:mb-8 text-left">
+                    <h2 className="text-lg sm:text-lg md:text-2xl font-medium text-black mb-4 sm:mb-6 md:mb-8 text-left">
                       {solution.title}
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg font-light text-gray-600 text-left mt-4 sm:mt-6 md:mt-8">
@@ -179,9 +179,9 @@ const Content = () => {
                     : "right-card"
                 }`}
               >
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-medium text-black mb-6 md:mb-10 lg:mb-14 mt-4 md:mt-6 lg:mt-8 text-left">
+                <p className="text-2xl md:text-2xl lg:text-3xl font-medium text-black mb-6 md:mb-10 lg:mb-14 mt-4 md:mt-6 lg:mt-8 text-left">
                   {solution.title}
-                </h2>
+                </p>
                 <p className="text-base md:text-lg lg:text-xl font-light text-gray-600 text-left mt-2 md:mt-4 lg:mt-6">
                   {solution.description}
                 </p>

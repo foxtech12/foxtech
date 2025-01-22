@@ -65,7 +65,7 @@ const SeoHandling = () => {
       <h3 className="text-lg md:text-2xl font-semibold text-black-700 font-bankGothic">
         {title}
       </h3>
-      <p className="text-gray-700 mt-2 text-sm md:text-base leading-relaxed font-bankGothic">
+      <p className="text-gray-700 mt-2 text-md md:text-md leading-relaxed font-bankGothic">
         {description}
       </p>
     </div>
@@ -142,7 +142,7 @@ const SeoHandling = () => {
           </div>
 
           <div className="max-w-5xl mx-auto mt-4">
-            <p className="uppercase sm:ml-5 md:ml-5 text-center">
+            <p className=" sm:ml-5 md:ml-5 text-center">
               At foxteach, we specialize in SEO strategies that enhance your
               websites visibility, drive organic traffic, and improve search
               engine rankings. Our comprehensive approach ensures your business

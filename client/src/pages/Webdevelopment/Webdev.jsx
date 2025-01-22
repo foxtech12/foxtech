@@ -71,7 +71,7 @@ const Webdev = () => {
       <h3 className="text-lg md:text-2xl font-semibold text-black-700 font-bankGothic">
         {title}
       </h3>
-      <p className="text-gray-700 mt-2 text-sm md:text-base leading-relaxed font-bankGothic">
+      <p className="text-gray-700 mt-2 text-md md:text-md leading-relaxed font-bankGothic">
         {description}
       </p>
     </div>
@@ -146,7 +146,7 @@ const Webdev = () => {
           <div
             className="max-w-5xl mx-auto mt-4 px-4 sm:px-6 md:px-8"
           >
-            <p className="uppercase text-xs sm:text-sm md:text-base lg:text-lg leading-tight sm:leading-normal md:leading-relaxed break-words overflow-wrap-normal text-justify">
+            <p className=" text-xs sm:text-sm md:text-base lg:text-lg leading-tight sm:leading-normal md:leading-relaxed break-words overflow-wrap-normal text-justify">
               At Foxteach, we specialize in creating stunning, functional, and
               user-friendly websites that drive engagement and conversions.
               Whether you need a simple landing page or a complex e-commerce

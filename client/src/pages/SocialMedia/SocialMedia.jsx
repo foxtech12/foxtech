@@ -69,7 +69,7 @@ const SocialMedia = () => {
       <h3 className="text-lg md:text-2xl font-semibold text-black-700 font-bankGothic">
         {title}
       </h3>
-      <p className="text-gray-700 mt-2 text-sm md:text-base leading-relaxed font-bankGothic">
+      <p className="text-gray-700 mt-2 text-md md:text-md leading-relaxed font-bankGothic">
         {description}
       </p>
     </div>
@@ -145,7 +145,7 @@ const SocialMedia = () => {
           </div>
 
           <div className="max-w-5xl mx-auto mt-4" >
-            <p className="uppercase sm:ml-5 md:ml-5 text-center">
+            <p className=" sm:ml-5 md:ml-5 text-center">
               Harness the power of social media to connect with your audience
               and drive real results. Our social media marketing services are
               designed to build your brand, engage your followers, and increase

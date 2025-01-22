@@ -47,7 +47,7 @@ const Application = () => {
       <h3 className="text-lg md:text-2xl font-semibold text-black-700 font-bankGothic">
         {title}
       </h3>
-      <p className="text-gray-700 mt-2 text-sm md:text-base leading-relaxed font-bankGothic">
+      <p className="text-gray-700 mt-2 text-md md:text-md leading-relaxed font-bankGothic">
         {description}
       </p>
     </div>
@@ -121,7 +121,7 @@ const Application = () => {
           </div>
 
           <div className="max-w-5xl mx-auto mt-4">
-            <p className="uppercase sm:ml-5 md:ml-5 text-center">
+            <p className=" sm:ml-5 md:ml-5 text-center">
               At Foxteach, we specialize in developing custom applications that
               deliver exceptional user experiences and drive business success.
               Whether you need a mobile app, a web application, or an enterprise

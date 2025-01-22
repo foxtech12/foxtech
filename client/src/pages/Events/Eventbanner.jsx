@@ -28,6 +28,11 @@ const EventBanner = () => {
 
   const navigate = useNavigate();
 
+  const handleScrollToContact = () => {
+    // Navigate to the Contact page with a hash for the contact section
+    navigate("/contact#contact");
+  };
+
   return (
     <div className="flex justify-center items-center px-4 w-full mb-5">
       <div
@@ -47,8 +52,8 @@ const EventBanner = () => {
           </p>
           <button
             className="px-6 py-2 bg-[#46FF46] text-black rounded-full shadow-md hover:bg-green-600 transition duration-300"
-            onClick={() => navigate("/contact")}
-          >
+            onClick={handleScrollToContact}
+            >
             Register Now
           </button>
         </div>
