@@ -308,49 +308,59 @@ const Services = () => {
       <div className="flex justify-center mt-8">
   {/* Cards container for medium and large screens */}
   <div className="hidden sm:grid w-full grid-cols-1 md:grid-cols-2 gap-8 p-6 lg:mx-20 mx-auto justify-center items-center">
-    {/* Card 1 */}
-    <div
-      ref={cardRef}
-      className="border rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto flex flex-col items-center"
-    >
+  {/* Card 1 */}
+  <div
+    ref={cardRef}
+    className="border rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto flex flex-col items-center group"
+  >
+    <div className="overflow-hidden w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
       <img
         src={case1}
         alt="Analytics"
-        className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-fit"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
-      <div className="p-6 bg-green-50 text-center">
-        <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl">ANALYTICS</h3>
-        <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mt-4 leading-relaxed">
-          Unlock the power of data with our advanced analytics tools. Gain
-          real-time insights into your marketing performance with intuitive
-          dashboards, detailed metrics, and visually engaging charts. Our
-          platform helps you track progress, identify trends, and make
-          data-driven decisions effortlessly. Stay ahead of the curve with our
-          analytics system tailored to your unique business goals.
-        </p>
-      </div>
     </div>
+    <div className="p-6 bg-green-50 text-center">
+      <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl group-hover:text-green-600 group-hover:scale-105 transition-all duration-300">
+        ANALYTICS
+      </h3>
+      <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mt-4 leading-relaxed group-hover:text-gray-800 group-hover:scale-105 transition-all duration-300">
+        Unlock the power of data with our advanced analytics tools. Gain
+        real-time insights into your marketing performance with intuitive
+        dashboards, detailed metrics, and visually engaging charts. Our
+        platform helps you track progress, identify trends, and make
+        data-driven decisions effortlessly. Stay ahead of the curve with our
+        analytics system tailored to your unique business goals.
+      </p>
+    </div>
+  </div>
 
-    {/* Card 2 */}
-    <div
-      ref={cardReference}
-      className="border rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto flex flex-col items-center"
-    >
+  {/* Card 2 */}
+  <div
+    ref={cardReference}
+    className="border rounded-lg shadow-lg overflow-hidden w-full max-w-md mx-auto flex flex-col items-center group"
+  >
+    <div className="overflow-hidden w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]">
       <img
         src={case2}
         alt="Reporting"
-        className="w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-fit"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
-      <div className="p-6 bg-green-50 text-center">
-        <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl">REPORTING</h3>
-        <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mt-4 leading-relaxed">
-          Gain real-time performance tracking with insights for growth and
-          optimization. Enhance your marketing ROI with advanced visualizations
-          and predictive analytics that guide your business to success.
-        </p>
-      </div>
+    </div>
+    <div className="p-6 bg-green-50 text-center">
+      <h3 className="font-bold text-xl sm:text-2xl lg:text-3xl group-hover:text-green-600 group-hover:scale-105 transition-all duration-300">
+        REPORTING
+      </h3>
+      <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl mt-4 leading-relaxed group-hover:text-gray-800 group-hover:scale-105 transition-all duration-300">
+        Gain real-time performance tracking with insights for growth and
+        optimization. Enhance your marketing ROI with advanced visualizations
+        and predictive analytics that guide your business to success.
+      </p>
     </div>
   </div>
+</div>
+
+
 
   {/* Horizontally scrollable for small screens */}
   <div className="flex block sm:hidden overflow-x-auto w-full px-4">
