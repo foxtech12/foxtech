@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Navbar from "../../component/Navbar/Navbar";
 import Footer from "../../component/Footer/Footer";
 import eventBg from "../images/eventbg.png";
@@ -9,7 +9,7 @@ import "./contact.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faMessage } from "@fortawesome/free-solid-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
@@ -76,11 +76,28 @@ const Contact = () => {
   const contactSectionRef = useRef(null);
   const location = useLocation();
 
+  const [normal, setNormal] = useState(false);
+  const [name, setName] = useState("");
+  const [locationValue, setLocation] = useState("");
   useEffect(() => {
     // Check if the hash is "#contact" and scroll to the section
-    if (location.hash === "#contact" && contactSectionRef.current) {
+    // if (location.hash.startsWith("#contact") && contactSectionRef.current) {
+    //   contactSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    const params = new URLSearchParams(location.search);
+
+    const normal = params.get("normal");
+
+    if (normal === "yes") {
+      setNormal(normal);
       contactSectionRef.current.scrollIntoView({ behavior: "smooth" });
+      // Extract query parameters from the URL
+      const nameFromURL = params.get("name");
+      const locationFromURL = params.get("location");
+      // Set the extracted data into state
+      if (nameFromURL) setName(nameFromURL);
+      if (locationFromURL) setLocation(locationFromURL);
     }
+    // }
   }, [location]);
 
   return (
@@ -105,7 +122,12 @@ const Contact = () => {
       </div>
 
       <section id="contact" ref={contactSectionRef}>
-        <ContactForm val={queryData} />
+        <ContactForm
+          val={queryData}
+          location={locationValue}
+          name={name}
+          normal={normal}
+        />
       </section>
       <div className="bg-white px-4 py-8 lg:py-12 overflow-x-hidden ">
         {/* Contact Section */}

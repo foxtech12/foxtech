@@ -199,8 +199,8 @@ const Events = () => {
                 </p>
                 <button
                   className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
-                  onClick={() => navigate(`/contact?name=${event.name}`)}
-                >
+                  onClick={() => navigate(`/contact?name=${event.name}&location=${event.location}&normal=yes`)}
+                  >
                   Register Now
                 </button>
               </div>
@@ -294,7 +294,7 @@ const Events = () => {
                     <p className="text-neutral-800 text-lg">{item.location}</p>
                     <button
                       className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
-                      onClick={() => navigate(`/contact?name=${item.name}`)}
+                      onClick={() => navigate(`/contact?name=${item.name}&location=${item.location}&normal=yes`)}
                       style={{
                         background:
                           "linear-gradient(to right, #46FF46, rgb(220, 234, 220))",

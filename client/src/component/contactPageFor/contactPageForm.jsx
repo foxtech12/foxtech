@@ -10,10 +10,9 @@ import {
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 
-const ContactForm = ({ val }) => {
+const ContactForm = ({ val, location, name, normal }) => {
   // State to track the form width
   const [inputWidth, setInputWidth] = useState(50);
-
   // Set width to 100% once the form is rendered
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -44,12 +43,14 @@ const ContactForm = ({ val }) => {
     setFormData((prevData) => ({
       ...prevData,
       related: val,
+      subject: `This is Event ${location}` // Set the subject field correctly
+
     }));
   }, [val]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState("");
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -60,7 +61,11 @@ const ContactForm = ({ val }) => {
         `${import.meta.env.VITE_SERVER}/api/contact/add`,
         formData
       );
-      toast.success("we will get back to you soon...");
+      if (normal) {
+        toast.success("Register Successfully");
+      } else {
+        toast.success("We will get back to you soon...");
+      }
       setFormData({
         email: "",
         phone: "",
@@ -97,71 +102,147 @@ const ContactForm = ({ val }) => {
               className="space-y-6 w-full sm:w-3/4 md:w-1/2 p-6"
               onSubmit={handleSubmit}
             >
-              {["name", "email", "phone", "company", "subject"].map((field) => (
-                <div key={field}>
-                  <label className="block text-black font-semibold mb-2 capitalize  font-sans">
-                    {field}
+              {/* Name Field */}
+              <div>
+                <label className="block text-black font-semibold mb-2 capitalize font-sans">
+                  Name
+                </label>
+                <div
+                  className="relative flex items-center bg-[#E7FFE7] border border-black rounded transition-all duration-500"
+                  style={{ width: `${inputWidth}%` }}
+                >
+                  <span className="absolute left-3 text-black">
+                    <FontAwesomeIcon icon={faBuilding} />
+                  </span>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your name"
+                    className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500 font-sans"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Email Field */}
+              <div>
+                <label className="block text-black font-semibold mb-2 capitalize font-sans">
+                  Email
+                </label>
+                <div
+                  className="relative flex items-center bg-[#E7FFE7] border border-black rounded transition-all duration-500"
+                  style={{ width: `${inputWidth}%` }}
+                >
+                  <span className="absolute left-3 text-black">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                  </span>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Enter your email"
+                    className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500 font-sans"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Phone Field */}
+              <div>
+                <label className="block text-black font-semibold mb-2 capitalize font-sans">
+                  Phone
+                </label>
+                <div
+                  className="relative flex items-center bg-[#E7FFE7] border border-black rounded transition-all duration-500"
+                  style={{ width: `${inputWidth}%` }}
+                >
+                  <span className="absolute left-3 text-black">
+                    <FontAwesomeIcon icon={faPhone} />
+                  </span>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Enter your phone"
+                    className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500 font-sans"
+                    required
+                  />
+                </div>
+              </div>
+              {!normal && (
+                <div>
+                  <label className="block text-black font-semibold mb-2 capitalize font-sans">
+                    Company
                   </label>
                   <div
                     className="relative flex items-center bg-[#E7FFE7] border border-black rounded transition-all duration-500"
                     style={{ width: `${inputWidth}%` }}
                   >
-                    {/* Conditionally render the email icon */}
-                    {field === "email" && (
-                      <span className="absolute left-3 text-black">
-                        <FontAwesomeIcon icon={faEnvelope} />
-                      </span>
-                    )}
-
-                    {field === "phone" && (
-                      <span className="absolute left-3 text-black">
-                        <FontAwesomeIcon icon={faPhone} />
-                      </span>
-                    )}
-                    {field === "company" && (
-                      <span className="absolute left-3 text-black">
-                        <FontAwesomeIcon icon={faBuilding} />
-                      </span>
-                    )}
-
-                    {field === "subject" && (
-                      <span className="absolute left-3 text-black">
-                        <FontAwesomeIcon icon={faBars} />
-                      </span>
-                    )}
-
+                    <span className="absolute left-3 text-black">
+                      <FontAwesomeIcon icon={faPhone} />
+                    </span>
                     <input
-                      type={field === "email" ? "email" : "text"}
-                      name={field}
-                      value={formData[field]}
+                      type="text"
+                      name="company"
+                      value={formData.company}
                       onChange={handleChange}
-                      placeholder={`Enter your ${field}`}
+                      placeholder="Enter your Company"
                       className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500 font-sans"
-                      required={field !== "subject"} // Subject is optional
                     />
                   </div>
                 </div>
-              ))}
-              
-              {/* Message */}
-              <div className="relative">
-                <label className="block text-black font-semibold mb-2 font-sans">
-                  Message
+              )}
+
+              {/* Subject Field */}
+              {!normal && (
+
+              <div>
+                <label className="block text-black font-semibold mb-2 capitalize font-sans">
+                  Subject
                 </label>
-                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black">
-                  <FontAwesomeIcon icon={faMessage} />
-                </span>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Hi! I would like to ask you something..."
-                  rows="4"
+                <div
+                  className="relative flex items-center bg-[#E7FFE7] border border-black rounded transition-all duration-500"
                   style={{ width: `${inputWidth}%` }}
-                  className="p-3 pl-10 bg-[#E7FFE7] text-black border border-black rounded transition-all duration-500 font-sans"
-                  required
-                ></textarea>
+                >
+                  <span className="absolute left-3 text-black">
+                    <FontAwesomeIcon icon={faBars} />
+                  </span>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Enter your subject"
+                    className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500 font-sans"
+                  />
+                </div>
               </div>
+              )}
+
+              {/* Message Field */}
+              {!normal && (
+                <div className="relative">
+                  <label className="block text-black font-semibold mb-2 font-sans">
+                    Message
+                  </label>
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black">
+                    <FontAwesomeIcon icon={faMessage} />
+                  </span>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Hi! I would like to ask you something..."
+                    rows="4"
+                    style={{ width: `${inputWidth}%` }}
+                    className="p-3 pl-10 bg-[#E7FFE7] text-black border border-black rounded transition-all duration-500 font-sans"
+                  ></textarea>
+                </div>
+              )}
 
               {/* Submit Button */}
               <div>
@@ -174,6 +255,7 @@ const ContactForm = ({ val }) => {
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
               </div>
+
               {/* Response Message */}
               {responseMessage && (
                 <p className="text-center mt-4 text-lg font-medium text-black">

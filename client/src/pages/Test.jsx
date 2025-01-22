@@ -162,8 +162,10 @@ const StickyStackedCards = () => {
                 </p>
                 <button
                   className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
-                  onClick={() => navigate(`/contact?name=${event.name}`)}
-                >
+                  onClick={() =>
+                    navigate(`/contact?name=${cards[currentIndex]?.name}&location=${cards[currentIndex]?.location}&normal=yes`)
+ 
+                 }                >
                   Register Now
                 </button>
               </div>
@@ -197,7 +199,8 @@ const StickyStackedCards = () => {
               <button
                 className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
                 onClick={() =>
-                  navigate(`/contact?name=${cards[currentIndex]?.name}`)
+                   navigate(`/contact?name=${cards[currentIndex]?.name}&location=${cards[currentIndex]?.location}&normal=yes`)
+
                 }
               >
                 Register Now
