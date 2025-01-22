@@ -152,8 +152,8 @@ const Events = () => {
       <div className="w-full h-20 bg-[#f0fff0] flex items-center justify-center animate-slide-right"></div>
 
       {/* Event Cards Section */}
-      <div className="hidden lg:flex justify-center items-start mt-12 gap-[30%] animate-slide-up">
-        {displayedEvents.length > 0 &&
+      <div className="hidden lg:flex justify-center items-start mt-12 gap-[30%] animate-slide-up lg:mb-14 md:mb-14">
+        {cards.length > 0 &&
           displayedEvents.map((event, index) => (
             <div
               key={event._id}
@@ -189,7 +189,10 @@ const Events = () => {
                     ? "opacity-100" // Always visible for the middle card
                     : "group-hover:opacity-100"
                 }`}
-                style={{ backgroundColor: "#c4c0c0" }}
+                style={{
+                  backgroundColor: "#c4c0c0",
+                  visibility: index === 1 ? "visible" : "hidden",
+                }}
               >
                 <p className="text-black font-semibold text-[10px] mb-[25%]">
                   {event.name}
