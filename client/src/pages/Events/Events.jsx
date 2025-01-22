@@ -5,10 +5,8 @@ import Footer from "../../component/Footer/Footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import EventBanner from "./Eventbanner";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
 const Events = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [cards, setCards] = useState([]);
@@ -17,7 +15,7 @@ const Events = () => {
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER}/api/event/get-event`
-      );
+      );  
       const lastThreeCards = response.data.slice(-3).map((card) => ({
         ...card,
         formattedDate: new Date(card.date).toLocaleString(), // Format the date field
@@ -155,7 +153,7 @@ const Events = () => {
 
       {/* Event Cards Section */}
       <div className="hidden lg:flex justify-center items-start mt-12 gap-[30%] animate-slide-up">
-        {cards1.length > 0 &&
+        {displayedEvents.length > 0 &&
           displayedEvents.map((event, index) => (
             <div
               key={event._id}

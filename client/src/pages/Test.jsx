@@ -95,13 +95,13 @@ const StickyStackedCards = () => {
       )}
     </div>
   );
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
-      }, 3000);
-  
-      return () => clearInterval(interval); // Cleanup the interval on component unmount
-    }, [cards.length]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % cards.length);
+    }, 3000);
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [cards.length]);
   const getDisplayedEvents = () => {
     if (cards.length === 0) return []; // Handle empty data scenario
     return [
@@ -112,11 +112,10 @@ const StickyStackedCards = () => {
   };
   const displayedEvents = getDisplayedEvents();
 
-
   return (
     <div>
       {/* Desktop Layout for Large Screens */}
-      <div className="hidden lg:flex justify-center items-start mt-12 gap-[30%] animate-slide-up">
+      <div className="hidden lg:flex justify-center items-start mt-12 gap-[30%] animate-slide-up lg:mb-14 md:mb-14">
         {cards.length > 0 &&
           displayedEvents.map((event, index) => (
             <div
@@ -153,7 +152,10 @@ const StickyStackedCards = () => {
                     ? "opacity-100" // Always visible for the middle card
                     : "group-hover:opacity-100"
                 }`}
-                style={{ backgroundColor: "#c4c0c0" }}
+                style={{
+                  backgroundColor: "#c4c0c0",
+                  visibility: index === 1 ? "visible" : "hidden",
+                }}
               >
                 <p className="text-black font-semibold text-[10px] mb-[25%]">
                   {event.name}

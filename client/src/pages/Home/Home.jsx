@@ -300,7 +300,7 @@ const Home = () => {
 
           <StickyStackedCards />
 
-          <div className="flex justify-center flex-col items-center">
+          <div className="flex justify-center flex-col items-center lg:mt-14 lg:mt-14">
             {/* Header Section */}
             <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
               <h2 className="text-2xl font-bold text-black font-montserrat">

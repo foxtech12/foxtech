@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   const navigate = useNavigate();
 
-  const [email,setEmail] = useState("")
+  const [email, setEmail] = useState("");
   const handleSubscribe = () => {
     navigate(`/contact?name=${email}`);
   };
@@ -47,7 +47,7 @@ const Footer = () => {
             <h4 className="text-sm sm:text-base lg:text-lg font-semibold mb-4">
               Newsletter
             </h4>
-            <form  className="space-y-4">
+            <form className="space-y-4">
               {/* Name Field */}
               <div className="flex flex-col">
                 <label
@@ -77,7 +77,7 @@ const Footer = () => {
                   type="email"
                   id="email"
                   name="email"
-                  onChange={(e)=>setEmail(e.target.value)}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   className="border rounded-md p-2 text-xs sm:text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
@@ -85,17 +85,16 @@ const Footer = () => {
               </div>
 
               {/* Subscribe Button */}
-             
             </form>
             <div className="flex items-center mt-3">
-                <button
-                  type="submit"
-                  onClick={handleSubscribe}
-                  className="text-xs sm:text-sm lg:text-base font-semibold border-b border-gray-700 text-gray-700 hover:text-black"
-                >
-                  SUBSCRIBE
-                </button>
-              </div>
+              <button
+                type="submit"
+                onClick={handleSubscribe}
+                className="text-xs sm:text-sm lg:text-base font-semibold border-b border-gray-700 text-gray-700 hover:text-black"
+              >
+                SUBSCRIBE
+              </button>
+            </div>
           </div>
         </div>
       </div>
