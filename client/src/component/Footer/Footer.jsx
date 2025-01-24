@@ -17,10 +17,15 @@ const Footer = () => {
       {/* Top Line */}
       <div className="w-full h-px bg-gray-300"></div>
       {/* Footer Content */}
-      <div className="flex flex-col lg:flex-row justify-between items-start px-6 lg:px-24 py-12 w-full max-w-screen-xl mx-auto">
+      <div className="flex flex-col lg:flex-row justify-between items-start px-6 lg:px-24 lg:py-12 w-full max-w-screen-xl mx-auto">
         {/* Large screen: Hide this on small screens and show it on large screens */}
         <div className="block lg:hidden sm:hidden mb-6 lg:mb-0 flex justify-center items-center w-full">
-          <img src={logo} alt="Logo" className="w-60 h-auto lg:w-30" />
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-60 lg:w-40 object-cover"
+            style={{ maxWidth: "100%", height: "auto", objectFit: "contain" }}
+          />
         </div>
 
         {/* Show logo for small screens and hide on medium/large */}

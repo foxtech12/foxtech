@@ -43,8 +43,7 @@ const ContactForm = ({ val, location, name, normal }) => {
     setFormData((prevData) => ({
       ...prevData,
       related: val,
-      subject: `This is Event ${location}` // Set the subject field correctly
-
+      subject: `${location}`, // Set the subject field correctly
     }));
   }, [val]);
 
@@ -97,7 +96,7 @@ const ContactForm = ({ val, location, name, normal }) => {
           </div>
 
           {/* Form */}
-          <div className="flex justify-center items-center min-h-screen">
+          <div className="flex justify-center items-center ">
             <form
               className="space-y-6 w-full sm:w-3/4 md:w-1/2 p-6"
               onSubmit={handleSubmit}
@@ -199,28 +198,27 @@ const ContactForm = ({ val, location, name, normal }) => {
 
               {/* Subject Field */}
               {!normal && (
-
-              <div>
-                <label className="block text-black font-semibold mb-2 capitalize font-sans">
-                  Subject
-                </label>
-                <div
-                  className="relative flex items-center bg-[#E7FFE7] border border-black rounded transition-all duration-500"
-                  style={{ width: `${inputWidth}%` }}
-                >
-                  <span className="absolute left-3 text-black">
-                    <FontAwesomeIcon icon={faBars} />
-                  </span>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="Enter your subject"
-                    className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500 font-sans"
-                  />
+                <div>
+                  <label className="block text-black font-semibold mb-2 capitalize font-sans">
+                    Subject
+                  </label>
+                  <div
+                    className="relative flex items-center bg-[#E7FFE7] border border-black rounded transition-all duration-500"
+                    style={{ width: `${inputWidth}%` }}
+                  >
+                    <span className="absolute left-3 text-black">
+                      <FontAwesomeIcon icon={faBars} />
+                    </span>
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Enter your subject"
+                      className="w-full pl-10 p-3 bg-transparent text-black outline-none transition-all duration-500 font-sans"
+                    />
+                  </div>
                 </div>
-              </div>
               )}
 
               {/* Message Field */}

@@ -328,7 +328,7 @@ const Events = () => {
           <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-tight leading-tight whitespace-normal m-0 p-0">
             "The social media mastery workshop was incredibly insightful. I
             learned so much and can't wait to apply these strategies to my
-            business!" - Attendee A
+            business!" - Arjun
           </p>
         </div>
       </div>
@@ -337,7 +337,7 @@ const Events = () => {
         <div className="text-center bg-[#E7FFE7] mb-5 py-4 sm:py-5 px-4 sm:px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5">
           <p className="text-lg sm:text-2xl text-black font-montserrat text-justify">
             "Great event with lots of practical tips. The networking
-            opportunities were fantastic!" - Attendee B
+            opportunities were fantastic!" - Sweta
           </p>
         </div>
       </div>

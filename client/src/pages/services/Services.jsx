@@ -224,18 +224,19 @@ const Services = () => {
       id: 1,
       title: "ANALYTICS",
       description:
-        "Unlock the power of data with our advanced analytics tools. Gain real-time insights into your marketing performance with intuitive dashboards, detailed metrics, and visually engaging charts. Our platform helps you track progress, identify trends, and make data-driven decisions effortlessly. Stay ahead of the curve with our analytics system tailored to your unique business goals.",
+        "Unlock insights into your data and make smarter decisions with intuitive dashboards and metrics.",
       image: case1,
     },
     {
       id: 2,
       title: "REPORTING",
       description:
-        "Gain real-time performance tracking with insights for growth and optimization. Enhance your marketing ROI with advanced visualizations and predictive analytics that guide your business to success.",
+        "Track performance in real-time and optimize growth with actionable reporting and analytics.",
       image: case2,
     },
   ];
-
+  
+  
   const createImageUrl = (fileData, contentType) => {
     try {
       const blob = new Blob([new Uint8Array(fileData)], { type: contentType });
@@ -271,12 +272,12 @@ const Services = () => {
               maxWidth: "900px", // Set a maximum width
             }}
           >
-            <h3 className="text-lg md:text-2xl lg:text-3xl  leading-tight text-left">
-              <span className="text-black lg:text-5xl text-left">
+            <h3 className="text-2xl md:text-2xl lg:text-3xl  leading-tight text-center">
+              <span className="text-black lg:text-5xl text-center">
                 "Elevate Your Brand with Expert Social Media Solutions"
               </span>
             </h3>
-            <p className="text-black mt-2 text-sm md:text-lg lg:text-2xl">
+            <p className="text-black mt-2 text-md md:text-lg lg:text-2xl">
               Innovative Strategies Tailored to Your Business Needs
             </p>
           </div>
@@ -325,82 +326,80 @@ const Services = () => {
       </div>
 
       <div className="flex justify-center mt-8">
-  {/* Cards container for medium and large screens */}
-  <div className="hidden sm:grid w-full grid-cols-1 md:grid-cols-2 gap-8 p-6 lg:mx-20 mx-auto justify-center items-center">
-    {cardData.map((item, index) => (
-      <div className="flex justify-center items-start animate-slide-up" key={index}>
-        <div className="group relative flex flex-col items-center cursor-pointer w-full max-w-[600px]">
-          <div
-            key={item._id}
-            className="relative group duration-500 cursor-pointer overflow-hidden text-gray-50 h-[500px] w-[420px] rounded-2xl hover:duration-700 flex-shrink-0 border border-black"
-          >
-            <div className="w-full h-full">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="h-full w-full object-cover"
-              />
-            </div>
+        {/* Cards container for medium and large screens */}
+        <div className="hidden sm:grid w-full grid-cols-1 md:grid-cols-2 gap-8 p-6 lg:mx-20 mx-auto justify-center items-center">
+          {cardData.map((item, index) => (
             <div
-              className={`absolute bg-green-200 ${
-                index === 0 ? "-bottom-80" : "-bottom-40"
-              } w-full p-6 flex flex-col gap-3 group-hover:-bottom-0 group-hover:duration-600 duration-500`}
+              className="flex justify-center items-start animate-slide-up"
+              key={index}
             >
-              <span className="text-black font-bold text-2xl">
-                {item.title}
-              </span>
-              <p className="text-neutral-800 text-lg">
-                {item.description}
-              </p>
+              <div className="group relative flex flex-col items-center cursor-pointer w-full max-w-[600px]">
+                <div
+                  key={item._id}
+                  className="relative group duration-500 cursor-pointer overflow-hidden text-gray-50 h-[500px] w-[420px] rounded-2xl hover:duration-700 flex-shrink-0 border border-black"
+                >
+                  <div className="w-full h-full">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="absolute bg-green-200 -bottom-20
+                    w-full p-6 flex flex-col gap-3 group-hover:-bottom-0 group-hover:duration-600 duration-500"
+                  >
+                    <span className="text-black font-bold text-2xl">
+                      {item.title}
+                    </span>
+                    <p className="text-neutral-800 text-lg">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
+
+        {/* Cards for small screens */}
+        <div className="flex block sm:hidden overflow-x-auto w-full px-4">
+          <div className="flex space-x-6">
+            {cardData.map((item, index) => (
+              <div
+                className="flex justify-center items-start animate-slide-up"
+                key={index}
+              >
+                <div className="group relative flex flex-col items-center cursor-pointer w-full max-w-[300px]">
+                  <div
+                    key={item.id}
+                    className="relative group duration-500 cursor-pointer overflow-hidden text-gray-50 h-[300px] w-[260px] rounded-xl hover:duration-700 flex-shrink-0 border border-black"
+                  >
+                    <div className="w-full h-full">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div
+                      className="absolute bg-gray-50  -bottom-20
+                      w-full p-4 flex flex-col gap-2 group-hover:-bottom-0 group-hover:duration-600 duration-500"
+                    >
+                      <p className="text-green-400 font-bold text-lg uppercase">
+                        {item.title}
+                      </p>
+                      <p className="text-neutral-800 text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    ))}
-  </div>
-
-  {/* Cards for small screens */}
-  <div className="flex block sm:hidden overflow-x-auto w-full px-4">
-  <div className="flex space-x-6">
-    {cardData.map((item, index) => (
-      <div
-        className="flex justify-center items-start animate-slide-up"
-        key={index}
-      >
-        <div className="group relative flex flex-col items-center cursor-pointer w-full max-w-[300px]">
-          <div
-            key={item.id}
-            className="relative group duration-500 cursor-pointer overflow-hidden text-gray-50 h-[300px] w-[260px] rounded-xl hover:duration-700 flex-shrink-0 border border-black"
-          >
-            <div className="w-full h-full">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div
-              className={`absolute bg-gray-50 ${
-                index === 0 ? "-bottom-40" : "-bottom-16"
-              } w-full p-4 flex flex-col gap-2 group-hover:-bottom-0 group-hover:duration-600 duration-500`}
-            >
-              <p className="text-green-400 font-bold text-lg uppercase">
-                {item.title}
-              </p>
-              <p className="text-neutral-800 text-sm">
-                {item.description}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
-</div>
-
-
 
       <div className="bg-white w-full mb-4">
         {/* Analytics and Reporting Section */}
