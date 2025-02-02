@@ -20,7 +20,9 @@ import { useNavigate } from "react-router-dom";
 import Testimonial from "../../component/testimonial/Testimonial";
 const Home = () => {
   const location = useLocation();
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
