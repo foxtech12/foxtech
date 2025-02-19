@@ -118,7 +118,7 @@
 
 /* General Navbar styles */
 .navbar {
-  position: sticky; /* Stick to the top of the viewport */
+  position: fixed; /* Stick to the top of the viewport */
   top: 0;
   z-index: 50; /* High z-index ensures it's above other elements */
   background-color: white; /* Background color to avoid transparency issues */

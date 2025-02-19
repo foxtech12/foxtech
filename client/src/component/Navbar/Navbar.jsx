@@ -61,15 +61,17 @@ const Navbar = () => {
 
   return (
     <div className="relative w-full bg-white">
-      <nav className="navbar flex items-center justify-between px-4 py-4 shadow-md bg-white sticky top-0 z-50">
+      {/* <nav className="navbar flex items-center justify-between px-4 py-4 shadow-md bg-white sticky top-0 z-50"> */}
+      <nav className="fixed navbar top-0 left-0 w-full bg-white shadow-md z-50 flex items-center justify-between px-4 py-4">
         {/* Logo Section */}
         <div>
-        <img
-  src={windowWidth < 768 ? logoSmallScreen : logo}
-  alt="FoxTech Logo"
-  className={windowWidth < 768 ? "small-screen-logo" : "large-screen-logo"}
-/>
-
+          <img
+            src={windowWidth < 768 ? logoSmallScreen : logo}
+            alt="FoxTech Logo"
+            className={
+              windowWidth < 768 ? "small-screen-logo" : "large-screen-logo"
+            }
+          />
         </div>
 
         {/* Hamburger Icon for Small Screens */}

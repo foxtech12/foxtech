@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import "./Home.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "swiper/css";
+import { motion, useAnimation } from "framer-motion";
+
 import "swiper/css/effect-cards";
 import Footer from "../../component/Footer/Footer";
 import Navbar from "../../component/Navbar/Navbar";
@@ -16,10 +18,16 @@ import fiv from "../images/5th.png";
 import six from "../images/6th.png";
 import right from "../images/3.png";
 import bg from "../images/bg.png";
+import a from "./image/a.png";
+import b from "./image/b.png";
+import c from "./image/c.png";
+import d from "./image/d.png";
+import e from "./image/e.png";
 import { useNavigate } from "react-router-dom";
 import Testimonial from "../../component/testimonial/Testimonial";
 const Home = () => {
   const location = useLocation();
+  const controls = useAnimation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -300,37 +308,99 @@ const Home = () => {
 
           <StickyStackedCards />
 
-          <div className="flex justify-center flex-col items-center lg:mt-14 lg:mt-14">
-            {/* Header Section */}
-            <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl">
-              <h2 className="text-2xl font-bold text-black font-montserrat">
-                WHAT WE DO
-                </h2>
-            </div>
-          </div>
-
-          <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
-            <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
-              <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-normal leading-normal whitespace-normal m-0 p-0">
-                At Foxteach, we specialize in delivering comprehensive social
-                marketing solutions tailored to elevate your brand's online
-                presence and drive measurable results. Our services encompass
-                every aspect of social media management, from crafting impactful
-                strategies to executing engaging content and providing
-                insightful analytics.
+          <motion.div
+            className="overflow-hidden w-full flex flex-col items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1 } }}
+          >
+            {/* Vision and Values Section */}
+            <div
+              className="text-center rounded-lg px-4 py-2 shadow-md w-full md:w-1/2 lg:w-2/6 mt-14"
+              style={{
+                background:
+                  "linear-gradient(to right, #46FF46, rgb(220, 234, 220))",
+              }}
+              data-aos="fade-up"
+            >
+              <p className="text-xl md:text-2xl lg:text-3xl font-bold text-black">
+                Our Vision and Values
               </p>
             </div>
-          </div>
+
+            <motion.div
+              id="values"
+              className="mt-8 text-center w-full md:w-3/4 lg:w-1/2"
+            >
+              <div className="mt-4 grid gap-6">
+                {[
+                  {
+                    img: a,
+                    title: "Innovation",
+                    text: "We embrace creativity and strive to bring fresh ideas to the table.",
+                  },
+                  {
+                    img: b,
+                    title: "Integrity",
+                    text: "We believe in honesty, transparency, and ethical practices in all our endeavors.",
+                  },
+                  {
+                    img: c,
+                    title: "Excellence",
+                    text: "We are committed to delivering the highest quality in everything we do.",
+                  },
+                  {
+                    img: d,
+                    title: "Collaboration",
+                    text: "We work together with our clients and partners to achieve common goals.",
+                  },
+                  {
+                    img: e,
+                    title: "Customer",
+                    text: "Our clients are at the heart of everything we do, and their success is our priority.",
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className={`flex flex-col sm:flex-row items-center justify-between bg-green-50 p-6 rounded-lg shadow-md ${
+                      index % 2 === 0
+                        ? "slide-left-animation"
+                        : "slide-right-animation"
+                    }`}
+                  >
+                    {/* Left Side: Image and Title */}
+                    <div className="flex flex-row items-center gap-4 w-full sm:w-1/2">
+                      <img
+                        src={item.img}
+                        alt={`${item.title} Icon`}
+                        className="w-16 h-16 rounded-full object-cover"
+                      />
+                      <div className="font-bold text-lg text-left">
+                        {item.title}
+                      </div>
+                    </div>
+
+                    {/* Right Side: Paragraph */}
+                    <div className="mt-4 sm:mt-0 sm:w-1/2 text-left">
+                      <p className="text-sm md:text-md text-gray-700">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
 
           {/* About us */}
           <div className="flex justify-center flex-col items-center">
             {/* Header Section */}
-            <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl  mt-10">
+            <div className="text-center bg-[#46FF46] mb-5 py-5 px-10 sm:px-14 inline-block rounded-bl-3xl rounded-tr-3xl mt-10">
               <h2 className="text-2xl font-bold text-black font-montserrat">
                 ABOUT US
               </h2>
             </div>
           </div>
+
           <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
             <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
               <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-normal leading-normal">
@@ -342,6 +412,16 @@ const Home = () => {
                 and data analysts, we offer a comprehensive suite of services
                 tailored to meet your unique needs and objectives.
               </p>
+
+              {/* Know More Button */}
+              <div className="mt-5">
+                <Link
+                  to="/about"
+                  className="bg-[#46FF46] hover:bg-[#34CC34] text-black font-semibold px-6 py-2 rounded-full transition duration-300 shadow-md"
+                >
+                  Know More
+                </Link>
+              </div>
             </div>
           </div>
 

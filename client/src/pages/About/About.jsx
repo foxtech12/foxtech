@@ -26,7 +26,10 @@ const About = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [special, setSpecial] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   const fetchTeamMembers = async () => {
     setLoading(true);
     try {

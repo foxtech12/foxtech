@@ -7,7 +7,16 @@ import { useNavigate } from "react-router-dom";
 import EventBanner from "./Eventbanner";
 import "swiper/css";
 import "swiper/css/navigation";
+import a from "./image/a.png";
+import b from "./image/b.png";
+import c from "./image/c.png";
+import d from "./image/d.png";
+import e from "./image/e.png";
+import { motion, useAnimation } from "framer-motion";
+
 const Events = () => {
+  const controls = useAnimation();
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [cards, setCards] = useState([]);
 
@@ -199,14 +208,101 @@ const Events = () => {
                 </p>
                 <button
                   className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
-                  onClick={() => navigate(`/contact?name=${event.name}&location=${event.location}&normal=yes`)}
-                  >
+                  onClick={() =>
+                    navigate(
+                      `/contact?name=${event.name}&location=${event.location}&normal=yes`
+                    )
+                  }
+                >
                   Register Now
                 </button>
               </div>
             </div>
           ))}
       </div>
+
+      <motion.div
+        className="overflow-hidden w-full flex flex-col items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 1 } }}
+      >
+        {/* Vision and Values Section */}
+        <div
+          className="text-center rounded-lg px-4 py-2 shadow-md w-full md:w-1/2 lg:w-2/6 mt-14"
+          style={{
+            background:
+              "linear-gradient(to right, #46FF46, rgb(220, 234, 220))",
+          }}
+          data-aos="fade-up"
+        >
+          <p className="text-xl md:text-2xl lg:text-3xl font-bold text-black">
+            Our Vision and Values
+          </p>
+        </div>
+
+        <motion.div
+          id="values"
+          className="mt-8 text-center w-full md:w-3/4 lg:w-1/2"
+        >
+          <div className="mt-4 grid gap-6">
+            {[
+              {
+                img: a,
+                title: "Innovation",
+                text: "We embrace creativity and strive to bring fresh ideas to the table.",
+              },
+              {
+                img: b,
+                title: "Integrity",
+                text: "We believe in honesty, transparency, and ethical practices in all our endeavors.",
+              },
+              {
+                img: c,
+                title: "Excellence",
+                text: "We are committed to delivering the highest quality in everything we do.",
+              },
+              {
+                img: d,
+                title: "Collaboration",
+                text: "We work together with our clients and partners to achieve common goals.",
+              },
+              {
+                img: e,
+                title: "Customer",
+                text: "Our clients are at the heart of everything we do, and their success is our priority.",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className={`flex flex-col sm:flex-row items-center justify-between bg-green-50 p-6 rounded-lg shadow-md ${
+                  index % 2 === 0
+                    ? "slide-left-animation"
+                    : "slide-right-animation"
+                }`}
+              >
+                {/* Left Side: Image and Title */}
+                <div className="flex flex-row items-center gap-4 w-full sm:w-1/2">
+                  <img
+                    src={item.img}
+                    alt={`${item.title} Icon`}
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div className="font-bold text-lg text-left">
+                    {item.title}
+                  </div>
+                </div>
+
+                {/* Right Side: Paragraph */}
+                <div className="mt-4 sm:mt-0 sm:w-1/2 text-left">
+                  <p className="text-sm md:text-md text-gray-700">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
 
       <div className="w-full flex items-center justify-center my-6 mt-[10%]">
         <hr className="hidden lg:block w-full ml-8 mr-8 mx-auto border-t border-gray-400" />
@@ -294,7 +390,11 @@ const Events = () => {
                     <p className="text-neutral-800 text-lg">{item.location}</p>
                     <button
                       className="mt-2 px-4 py-2 bg-green-100 text-black font-bold rounded-md hover:bg-green-600"
-                      onClick={() => navigate(`/contact?name=${item.name}&location=${item.location}&normal=yes`)}
+                      onClick={() =>
+                        navigate(
+                          `/contact?name=${item.name}&location=${item.location}&normal=yes`
+                        )
+                      }
                       style={{
                         background:
                           "linear-gradient(to right, #46FF46, rgb(220, 234, 220))",
