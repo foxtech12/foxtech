@@ -72,6 +72,8 @@ const Events = () => {
         ...card,
         formattedDate: new Date(card.date).toLocaleString(),
       }));
+
+
       setCards1(lastThreeCards);
     } catch (error) {
       console.error("Error fetching suggestions:", error);
@@ -162,13 +164,13 @@ const Events = () => {
 
       {/* Event Cards Section */}
       <div className="hidden lg:flex justify-center items-start mt-12 gap-[30%] animate-slide-up lg:mb-14 md:mb-14">
-        {cards.length > 0 &&
+        {cards1.length > 0 &&
           displayedEvents.map((event, index) => (
             <div
-              key={event._id}
               className={`group relative flex flex-col items-center cursor-pointer ${
                 index === 1 ? "scale-110" : ""
               }`}
+              key={index}
             >
               {/* Image container (Front card) */}
               <div
@@ -194,13 +196,11 @@ const Events = () => {
               {/* Card content (Back card) */}
               <div
                 className={`absolute inset-0 flex flex-col justify-end text-center shadow-lg rounded-lg mt-4 p-4 h-[345px] w-[250px] opacity-0 transition-opacity duration-500 ${
-                  index === 1
-                    ? "opacity-100" // Always visible for the middle card
-                    : "group-hover:opacity-100"
+                  index === 1 ? "opacity-100" : "group-hover:opacity-100"
                 }`}
                 style={{
                   backgroundColor: "#c4c0c0",
-                  visibility: index === 1 ? "visible" : "hidden",
+                  visibility: "visible", // Ensure visibility for all cards
                 }}
               >
                 <p className="text-black font-semibold text-[10px] mb-[25%]">

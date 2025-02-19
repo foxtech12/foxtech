@@ -119,10 +119,10 @@ const StickyStackedCards = () => {
         {cards.length > 0 &&
           displayedEvents.map((event, index) => (
             <div
-              key={event._id}
               className={`group relative flex flex-col items-center cursor-pointer ${
                 index === 1 ? "scale-110" : ""
               }`}
+              key={index}
             >
               {/* Image container (Front card) */}
               <div
@@ -148,13 +148,11 @@ const StickyStackedCards = () => {
               {/* Card content (Back card) */}
               <div
                 className={`absolute inset-0 flex flex-col justify-end text-center shadow-lg rounded-lg mt-4 p-4 h-[345px] w-[250px] opacity-0 transition-opacity duration-500 ${
-                  index === 1
-                    ? "opacity-100" // Always visible for the middle card
-                    : "group-hover:opacity-100"
+                  index === 1 ? "opacity-100" : "group-hover:opacity-100"
                 }`}
                 style={{
                   backgroundColor: "#c4c0c0",
-                  visibility: index === 1 ? "visible" : "hidden",
+                  visibility: "visible", // Ensure visibility for all cards
                 }}
               >
                 <p className="text-black font-semibold text-[10px] mb-[25%]">
@@ -163,9 +161,11 @@ const StickyStackedCards = () => {
                 <button
                   className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
                   onClick={() =>
-                    navigate(`/contact?name=${cards[currentIndex]?.name}&location=${cards[currentIndex]?.location}&normal=yes`)
- 
-                 }                >
+                    navigate(
+                      `/contact?name=${event.name}&location=${event.location}&normal=yes`
+                    )
+                  }
+                >
                   Register Now
                 </button>
               </div>
@@ -199,8 +199,9 @@ const StickyStackedCards = () => {
               <button
                 className="absolute bottom-2 left-2 px-3 py-2 bg-[#00FF00] text-black rounded-full hover:bg-green-600 transition duration-300"
                 onClick={() =>
-                   navigate(`/contact?name=${cards[currentIndex]?.name}&location=${cards[currentIndex]?.location}&normal=yes`)
-
+                  navigate(
+                    `/contact?name=${cards[currentIndex]?.name}&location=${cards[currentIndex]?.location}&normal=yes`
+                  )
                 }
               >
                 Register Now
