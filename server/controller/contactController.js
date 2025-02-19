@@ -14,6 +14,7 @@ const transporter = nodemailer.createTransport({
 
 exports.addContact = async (req, res) => {
   try {
+    console.log("come")
     const { email, phone, message, name, company, subject,related } = req.body;
     const contact = new Contact({
       email,

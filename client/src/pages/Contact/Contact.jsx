@@ -15,7 +15,9 @@ import { useLocation } from "react-router-dom";
 
 const Contact = () => {
   const [queryData, setQueryData] = useState("");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const name = searchParams.get("name");

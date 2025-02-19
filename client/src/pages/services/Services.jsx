@@ -25,7 +25,9 @@ import "swiper/css/navigation";
 gsap.registerPlugin(ScrollTrigger);
 const Services = () => {
   const cardRef = useRef(null);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     const card = cardRef.current;
 

@@ -21,7 +21,9 @@ const About = () => {
   useEffect(() => {
     AOS.init({ duration: 900, once: true });
   }, []);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const controls = useAnimation();
   const [teamMembers, setTeamMembers] = useState([]);
   const [special, setSpecial] = useState([]);
