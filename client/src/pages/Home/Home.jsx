@@ -17,6 +17,7 @@ import four from "../images/4th.png";
 import fiv from "../images/5th.png";
 import six from "../images/6th.png";
 import right from "../images/3.png";
+import right1 from "../images/31.png";
 import bg from "../images/bg.png";
 import a from "./image/a.png";
 import b from "./image/b.png";
@@ -229,36 +230,44 @@ const Home = () => {
               />
             </div>
 
-            <div className="relative z-10 opacity-100 mb-10">
-              <h1 className="text-5xl font-bold text-black leading-tight font-poppins">
-                We Are Experts In Carving
-              </h1>
-            </div>
+            <div className="relative z-10 opacity-100 mb-10 flex flex-col items-start space-y-6">
+  <h1 className="text-5xl font-serif text-black leading-tight">INNOVATE</h1>
+  <div className="flex items-center gap-2">
+    <h1 className="text-5xl font-serif text-black leading-tight">GR</h1>
+    <div className="w-12 h-12 rounded-full border-4 border-green-500 overflow-hidden">
+      <img src={right1} alt="O Image" className="w-full h-full object-cover"/>
+    </div>
+    <h1 className="text-5xl font-serif text-black leading-tight">W</h1>
+  </div>
+  <h1 className="text-5xl font-serif text-black leading-tight">TRANSFORM</h1>
+</div>
 
-            <div className="relative z-10 mb-10">
-              <button
-                className="px-6 py-3 bg-[#12fc2d] text-black font-bankGothic rounded-full hover:bg-green-600 font-poppins"
-                onClick={() => navigate(`/contact?name=home`)}
-              >
-                Get Started
-              </button>
-            </div>
+<div className="relative z-10 mb-10">
+  <p className="text-xl text-black font-bankGothic text-left">
+    WE PRIORITIZE TRUST, TRANSPARENCY, AND INNOVATION,
+    ENSURING RELIABLE SOLUTIONS, CLEAR COMMUNICATION,
+    AND DEDICATED SUPPORT TO HELP YOUR BUSINESS
+    THRIVE SUCCESSFULLY.
+  </p>
+</div>
 
-            <div className="relative z-10">
-              <p className="text-xl text-black font-bankGothic text-justify">
-                Our mission is to unravel the intricacies of our genetic code,
-                providing you with the most detailed marketing insights.
-              </p>
-            </div>
+            <div className="relative z-10 mb-5">
+  <button
+    className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic hover:bg-green-600 font-poppins"
+    onClick={() => navigate(`/contact?name=home`)}
+  >
+    Get Started
+  </button>
+</div>
           </div>
 
           {/* Right Side Image for Larger Screens */}
-          <div className="left-content absolute right-0 top-0 w-[45%] h-[85%] flex items-center justify-end rounded-bl-[222px] overflow-hidden opacity-0 hidden lg:flex ">
+          <div className="left-content absolute right-0 top-0 w-[33%] h-full flex items-center justify-end  overflow-hidden  hidden lg:flex">
             <div className="w-full h-full relative">
               <img
-                src={right}
+                src={right1}
                 alt="Experts Illustration"
-                className="w-auto h-auto object-contain mt-10 rounded-full animate-top-down"
+                className="w-full h-full object-contain  mt-10"
               />
             </div>
           </div>
