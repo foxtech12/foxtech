@@ -221,14 +221,14 @@ const Home = () => {
 
           {/* Left Side Content */}
           <div className="left-content relative flex flex-col px-8 sm:px-24 max-w-3xl bg-opacity-40 opacity-0">
-            {/* Small Screen Image */}
+            {/* Small Screen Image
             <div className="lg:hidden mb-6 flex justify-center ">
               <img
                 src={right}
                 alt="Experts Illustration"
                 className="w-40 h-40 object-contain mt-4 rounded-full animate-top-down items-center" // Adjust size as needed
               />
-            </div>
+            </div> */}
 
             <div className="relative z-10 opacity-100 mb-10 flex flex-col items-start space-y-6">
   <h1 className="text-5xl font-serif text-black leading-tight">INNOVATE</h1>
@@ -251,7 +251,7 @@ const Home = () => {
   </p>
 </div>
 
-            <div className="relative z-10 mb-5">
+ <div className="relative z-10 mb-5">
   <button
     className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic hover:bg-green-600 font-poppins"
     onClick={() => navigate(`/contact?name=home`)}
