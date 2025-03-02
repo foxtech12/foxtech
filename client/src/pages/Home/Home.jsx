@@ -229,17 +229,18 @@ const Home = () => {
               /> */}
             </div>
 
-            <div className="relative z-10 opacity-100 mb-10 flex flex-col items-start space-y-6">
-  <h1 className="text-5xl font-serif text-black leading-tight">INNOVATE</h1>
-  <div className="flex items-center gap-2">
-    <h1 className="text-5xl font-serif text-black leading-tight">GR</h1>
-    <div className="w-12 h-12 rounded-full border-4 border-green-500 overflow-hidden">
-      <img src={right1} alt="O Image" className="w-full h-full object-cover"/>
-    </div>
-    <h1 className="text-5xl font-serif text-black leading-tight">W</h1>
-  </div>
-  <h1 className="text-5xl font-serif text-black leading-tight">TRANSFORM</h1>
-</div>
+            <div className="relative z-10 opacity-100 mb-10 flex flex-col items-center sm:items-start space-y-6">
+              <h1 className="text-5xl font-serif text-black leading-tight">INNOVATE</h1>
+              <div className="flex items-center gap-2">
+                <h1 className="text-5xl font-serif text-black leading-tight">GR</h1>
+                <div className="w-12 h-12 rounded-full border-4 border-green-500 overflow-hidden">
+                  <img src={right1} alt="O Image" className="w-full h-full object-cover" />
+                </div>
+                <h1 className="text-5xl font-serif text-black leading-tight">W</h1>
+              </div>
+              <h1 className="text-5xl font-serif text-black leading-tight">TRANSFORM</h1>
+            </div>
+
 
 <div className="relative z-10 mb-10">
   <p className="text-xl text-black font-bankGothic text-left">
@@ -260,16 +261,16 @@ const Home = () => {
 </div>
           </div>
 
-          {/* Right Side Image for Larger Screens */}
-          <div className="left-content absolute right-0 top-0 w-[33%] h-full flex items-center justify-end  overflow-hidden  hidden lg:flex">
-            <div className="w-full h-full relative">
-              <img
-                src={right1}
-                alt="Experts Illustration"
-                className="w-full h-full object-contain  mt-10"
-              />
-            </div>
-          </div>
+           {/* Right Side Image for Larger Screens */}
+           <div className="absolute right-0 top-0 w-[40%] lg:w-[50%] h-full items-center justify-end overflow-hidden hidden lg:flex">
+  <div className="w-full h-full relative">
+    <img
+      src={right1}
+      alt="Experts Illustration"
+      className="w-full h-full object-cover mt-10"
+    />
+  </div>
+</div>
         </div>
 
         {/* Services Section */}
