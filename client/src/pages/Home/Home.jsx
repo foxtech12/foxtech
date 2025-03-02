@@ -251,7 +251,7 @@ const Home = () => {
   </p>
 </div>
 
- <div className="relative z-10 mb-5">
+<div className="relative z-10 mb-5 flex justify-center md:justify-start">
   <button
     className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
     onClick={() => navigate(`/contact?name=home`)}
@@ -259,6 +259,7 @@ const Home = () => {
     Get Started
   </button>
 </div>
+
           </div>
 
            {/* Right Side Image for Larger Screens */}
