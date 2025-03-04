@@ -230,16 +230,17 @@ const Home = () => {
             </div>
 
             <div className="relative z-10 opacity-100 mb-10 flex flex-col items-center sm:items-start space-y-6">
-              <h1 className="text-5xl font-serif text-black leading-tight">INNOVATE</h1>
-              <div className="flex items-center gap-2">
-                <h1 className="text-5xl font-serif text-black leading-tight">GR</h1>
-                <div className="w-12 h-12 rounded-full border-4 border-green-500 overflow-hidden">
-                  <img src={right1} alt="O Image" className="w-full h-full object-cover" />
-                </div>
-                <h1 className="text-5xl font-serif text-black leading-tight">W</h1>
+            <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">INNOVATE</h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">GR</h1>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
+                <img src={right1} alt="O Image" className="w-full h-full object-cover" />
               </div>
-              <h1 className="text-5xl font-serif text-black leading-tight">TRANSFORM</h1>
+              <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">W</h1>
             </div>
+            <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">TRANSFORM</h1>
+          </div>
+
 
 
 <div className="relative z-10 mb-10">
