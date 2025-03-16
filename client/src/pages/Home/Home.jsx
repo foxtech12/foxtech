@@ -209,7 +209,7 @@ const Home = () => {
         <div className="relative flex flex-col lg:flex-row items-center lg:h-screen h-[75vh] bg-white">
           {/* Background Overlay */}
           <div
-            className="absolute top-0 left-0 w-full h-full bg-cover bg-center lg:h-screen h-[70vh]" // Adjust height for small screens
+            className="absolute top-0 left-0 w-full  bg-cover bg-center lg:h-screen h-[70vh]" // Adjust height for small screens
             style={{
               backgroundImage: `url(${bg})`,
               animationName: "background-grow-up",
@@ -220,51 +220,50 @@ const Home = () => {
           ></div>
 
           {/* Left Side Content */}
-          <div className="left-content relative flex  flex-col px-8 sm:px-24 max-w-3xl bg-opacity-40 opacity-0">
-            <div className="lg:hidden mb-10 flex justify-center ">
-              {/* <img
-                src={right}
-                alt="Experts Illustration"
-                className="w-40 h-40 object-contain mt-4 rounded-full animate-top-down items-center" // Adjust size as needed
-              /> */}
-            </div>
+          <div className="left-content relative flex flex-col px-8 sm:px-24 max-w-3xl bg-opacity-40 opacity-0 mx-auto lg:mx-0">
+  
+  {/* Optional Image Section */}
+  <div className="lg:hidden mb-10 flex justify-center">
+    {/* Image if needed */}
+  </div>
 
-            <div className="relative z-10 opacity-100 mb-10 flex flex-col items-center sm:items-start space-y-6">
-            <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">INNOVATE</h1>
-            <div className="flex items-center gap-2">
-              <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">GR</h1>
-              <div className="w-10 h-10 sm:w-12 sm:h-12 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
-                <img src={right1} alt="O Image" className="w-full h-full object-cover" />
-              </div>
-              <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">W</h1>
-            </div>
-            <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">TRANSFORM</h1>
-          </div>
+  {/* Heading Section */}
+  <div className="relative z-10 opacity-100 mb-10 flex flex-col items-center lg:items-start space-y-6">
+    <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight text-center lg:text-left">INNOVATE</h1>
+    
+    <div className="flex items-center gap-2 justify-center lg:justify-start">
+      <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">GR</h1>
+      <div className="w-10 h-10 sm:w-12 sm:h-12 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
+        <img src={right1} alt="O Image" className="w-full h-full object-cover" />
+      </div>
+      <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">W</h1>
+    </div>
+    
+    <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight text-center lg:text-left">TRANSFORM</h1>
+  </div>
 
+  {/* Paragraph Section */}
+  <div className="relative z-10 mb-10 flex justify-center lg:justify-start">
+    <p className="text-xl text-black font-bankGothic text-center lg:text-left max-w-md">
+      WE PRIORITIZE TRUST, TRANSPARENCY, AND INNOVATION, ENSURING RELIABLE SOLUTIONS, CLEAR COMMUNICATION, AND DEDICATED SUPPORT TO HELP YOUR BUSINESS THRIVE SUCCESSFULLY.
+    </p>
+  </div>
 
+  {/* Button Section */}
+  <div className="relative z-10 mb-5 flex justify-center lg:justify-start">
+    <button
+      className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
+      onClick={() => navigate(`/contact?name=home`)}
+    >
+      Get Started
+    </button>
+  </div>
 
-<div className="relative z-10 mb-10">
-  <p className="text-xl text-black font-bankGothic text-left">
-    WE PRIORITIZE TRUST, TRANSPARENCY, AND INNOVATION,
-    ENSURING RELIABLE SOLUTIONS, CLEAR COMMUNICATION,
-    AND DEDICATED SUPPORT TO HELP YOUR BUSINESS
-    THRIVE SUCCESSFULLY.
-  </p>
 </div>
 
-<div className="relative z-10 mb-5 flex justify-center md:justify-start">
-  <button
-    className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
-    onClick={() => navigate(`/contact?name=home`)}
-  >
-    Get Started
-  </button>
-</div>
-
-          </div>
 
            {/* Right Side Image for Larger Screens */}
-           <div className="absolute right-0 top-0 w-[40%] lg:w-[50%] h-full items-center justify-end overflow-hidden hidden lg:flex">
+           <div className="absolute right-0 top-0 w-[40%] lg:w-[45%] h-fu ll items-center justify-end overflow-hidden hidden lg:flex">
   <div className="w-full h-full relative">
     <img
       src={right1}
