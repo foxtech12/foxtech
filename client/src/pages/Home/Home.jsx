@@ -263,7 +263,7 @@ const Home = () => {
 
 
            {/* Right Side Image for Larger Screens */}
-           <div className="absolute right-0 top-0 w-[40%] lg:w-[45%] h-fu ll items-center justify-end overflow-hidden hidden lg:flex">
+           <div className="absolute right-0 top-0 w-[40%] lg:w-[45%] h-full items-center justify-end overflow-hidden hidden lg:flex">
   <div className="w-full h-full relative">
     <img
       src={right1}
