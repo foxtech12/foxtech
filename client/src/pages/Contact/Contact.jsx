@@ -151,7 +151,7 @@ const Contact = () => {
                   <FontAwesomeIcon icon={faPhone} />
                   <p className="font-semibold">Phone:</p>
                 </div>
-                <p className="ml-7">(123) 456-789</p>
+                <p className="ml-7">+91 8278240088</p>
               </div>
 
               {/* Email */}
@@ -163,7 +163,7 @@ const Contact = () => {
                   <FaEnvelope className="text-xl mt-1 text-black" />
                   <p className="font-semibold">Email:</p>
                 </div>
-                <p className="ml-7">contact@yourcompany.com</p>
+                <p className="ml-7">offical.foxteach@gmail.com</p>
               </div>
 
               {/* Address */}
@@ -175,7 +175,7 @@ const Contact = () => {
                   <FaMapMarkerAlt className="text-xl mt-1 text-black" />
                   <p className="font-semibold">Address:</p>
                 </div>
-                <p className="ml-7">1234 Marketing St., City, State, Zip</p>
+                <p className="ml-7">Shopno 63 near majra chungi,Kanina road Mahendergarh, Pin : 123029</p>
               </div>
 
               {/* Business Hours */}
