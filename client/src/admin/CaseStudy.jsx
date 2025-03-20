@@ -189,7 +189,7 @@ const CaseStudy = () => {
   const [eidtformData, editsetFormData] = useState({
     name: "",
     review: "",
-    image: null,
+    pdf: null,
   });
 
   const openEditModal = (suggestion) => {
@@ -217,7 +217,7 @@ const CaseStudy = () => {
     formData.append("review", eidtformData.review);
 
     if (eidtformData.image) {
-      formData.append("image", eidtformData.image);
+      formData.append("image", eidtformData.pdf);
     }
 
     try {
