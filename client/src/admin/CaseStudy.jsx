@@ -208,27 +208,37 @@ const CaseStudy = () => {
       [name]: value,
     });
   };
-
+  const handleFileChange1 = (e) => {
+    editsetFormData({
+      ...eidtformData,
+      pdf: e.target.files[0], // Store file object properly
+    });
+  };
   const handleSubmitEdit = async (e) => {
     e.preventDefault();
+    setEditModalOpen(false);
+
+    setLoading(true)
     const formData = new FormData();
 
     formData.append("name", eidtformData.name);
     formData.append("review", eidtformData.review);
 
-    if (eidtformData.image) {
+    if (eidtformData.pdf) {
       formData.append("image", eidtformData.pdf);
     }
-
     try {
-      await axiosInstance.put(
+      const res = await axiosInstance.put(
         `/api/case/update/${selectedSuggestion._id}`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
+      console.log(res)
       fetchSuggestions();
-      setEditModalOpen(false);
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
+
       console.error("Error updating suggestion:", error);
     }
   };
@@ -498,11 +508,7 @@ const CaseStudy = () => {
                       type="file"
                       name="pdf"
                       accept="application/pdf" // Allows only PDF files
-                      onChange={(e) =>
-                        handleInputChange({
-                          target: { name: "pdf", value: e.target.files[0] },
-                        })
-                      }
+                      onChange={handleFileChange1}
                       className="w-full px-3 py-2 border border-gray-300 rounded"
                     />
                   </div>

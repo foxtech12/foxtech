@@ -51,6 +51,7 @@ exports.getEventById = async (req, res) => {
 // Update an event
 exports.updateEvent = async (req, res) => {
   try {
+    console.log(req.file)
     const { name, review } = req.body;
 
     const updatedData = { name, review };
@@ -60,6 +61,8 @@ exports.updateEvent = async (req, res) => {
         contentType: req.file.mimetype,
       };
     }
+
+    console.log(req.params.id)
 
     const updatedEvent = await Event.findByIdAndUpdate(
       req.params.id,
