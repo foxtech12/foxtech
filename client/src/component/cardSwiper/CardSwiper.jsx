@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FaDownload } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import "swiper/swiper-bundle.css";
-import axios from "axios";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const CardSwiper = () => {
   const [slidesData, setSlidesData] = useState([]);
 
-  // Fetch suggestions on component mount
+  // Fetch case studies
   const fetchSuggestions = async () => {
     try {
       const response = await axios.get(
@@ -15,7 +17,7 @@ const CardSwiper = () => {
       );
       setSlidesData(response.data);
     } catch (error) {
-      console.error("Error fetching suggestions:", error);
+      console.error("Error fetching case studies:", error);
     }
   };
 
@@ -23,71 +25,77 @@ const CardSwiper = () => {
     fetchSuggestions();
   }, []);
 
-  const createImageUrl = (fileData, contentType) => {
-    try {
-      const blob = new Blob([new Uint8Array(fileData)], { type: contentType });
-      const url = URL.createObjectURL(blob);
-      return url;
-    } catch (error) {
-      console.error("Error decoding image:", error);
-      return "";
-    }
+  // Function to handle PDF download
+  const downloadPdf = (bufferData, fileName) => {
+    const blob = new Blob([new Uint8Array(bufferData)], {
+      type: "application/pdf",
+    });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${fileName}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
   };
 
   return (
-    <>
-      {/* Case Study Section */}
-      <div
-        className="p-6"
-        style={{
-          transform: "translateX(-100%)",
-          animation: "slideIn 1s forwards",
+    <div className="p-4 md:p-6 w-full max-w-7xl mx-auto">
+      {/* Swiper Section */}
+      <Swiper
+        modules={[Navigation]}
+        spaceBetween={20}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
         }}
+        navigation
+        grabCursor={true}
+        loop={true}
+        className="w-full"
       >
-        {/* Horizontal scrolling for all screen sizes */}
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide">
-          {slidesData.length > 0 &&
-            slidesData.map((slide, index) => (
-              <div
-                key={index}
-                className="min-w-[80%] md:min-w-[30%] lg:min-w-[20%] flex-shrink-0 rounded-2xl shadow-lg overflow-hidden"
-              >
-                <img
-                  src={createImageUrl(
-                    slide.image.data.data,
-                    slide.image.contentType
-                  )}
-                  alt={slide.name}
-                  className="w-[400px] h-[300px] md:h-[300px] lg:h-[300px] object-cover rounded-t-2xl" // Consistent height for all images across large and medium screens
-                />
-                <div className="p-4 bg-[#E7FFE7] rounded-b-2xl">
-                  <h3 className="font-bold text-md">{slide.name}</h3>
-                  <p className="text-gray-600 text-sm mt-1">{slide.review}</p>
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
+        {slidesData.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className="shadow-md rounded-xl p-3 flex flex-col justify-between min-h-56"
+              style={{
+                background:
+                  "linear-gradient(to right, #46FF46, rgb(220, 234, 220))",
+              }}
+            >
+              <h3 className="text-md font-semibold text-gray-900 truncate">
+                {slide.name}
+              </h3>
+              <p className="text-gray-600 text-sm mt-2 line-clamp-3 overflow-hidden max-h-14">
+                {slide.review}
+              </p>
 
-      {/* Add keyframes for the slide-in animation */}
-      <style jsx>{`
-        @keyframes slideIn {
-          from {
-            transform: translateX(-100%);
-          }
-          to {
-            transform: translateX(0);
-          }
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none; /* IE and Edge */
-          scrollbar-width: none; /* Firefox */
-        }
-      `}</style>
-    </>
+              {/* Download PDF Button */}
+              <div className="mt-auto pt-3 flex justify-end items-center">
+                {slide.image?.data?.data &&
+                slide.image.contentType === "application/pdf" ? (
+                  <button
+                    className="flex items-center gap-2 px-3 py-1.5 bg-white text-black text-xs font-medium rounded-lg shadow hover:bg-[#3FE13F] transition"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      downloadPdf(slide.image.data.data, slide.name);
+                    }}
+                  >
+                    Download <FaDownload className="h-4 w-4 text-black" />
+                  </button>
+                ) : (
+                  <p className="text-gray-500 text-xs">No PDF available</p>
+                )}
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 

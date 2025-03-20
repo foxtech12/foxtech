@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaTrash, FaEdit } from "react-icons/fa";
+import { FaTrash, FaEdit, FaDownload } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import axiosInstance from "../api";
 import AdminNav from "../component/Sidebar/Sidebar";
@@ -77,8 +77,9 @@ const CaseStudy = () => {
   }, []);
   const fetchSuggestions = async () => {
     try {
-      setLoading(false);
+      setLoading(true);
       const response = await axiosInstance.get(`/api/case/get-case`);
+      console.log(response.data);
       setSuggestions(response.data);
       setLoading(false);
     } catch (error) {
@@ -88,7 +89,6 @@ const CaseStudy = () => {
     } finally {
       setLoading(false);
 
-      setLoading(false);
     }
   };
 
@@ -245,15 +245,23 @@ const CaseStudy = () => {
 
   // Change page handler
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const createImageUrl = (fileData, contentType) => {
-    try {
-      const blob = new Blob([new Uint8Array(fileData)], { type: contentType });
-      const url = URL.createObjectURL(blob);
-      return url;
-    } catch (error) {
-      console.error("Error decoding image:", error);
-      return "";
-    }
+  const downloadPdf = (bufferData, fileName) => {
+    // Convert buffer array to Blob
+    const blob = new Blob([new Uint8Array(bufferData)], {
+      type: "application/pdf",
+    });
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary download link
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${fileName}.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Revoke the URL after download
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -307,7 +315,7 @@ const CaseStudy = () => {
                 <tr>
                   <th className="px-6 py-3">Name</th>
                   <th className="px-6 py-3">Description</th>
-                  <th className="px-6 py-3">Image</th>
+                  <th className="px-6 py-3">Download</th>
                   <th className="px-6 py-3">Actions</th>
                 </tr>
               </thead>
@@ -319,21 +327,21 @@ const CaseStudy = () => {
                       className="border-b dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-200"
                     >
                       <td className="px-6 py-3">{suggestion.name}</td>
-
                       <td className="px-6 py-3">{suggestion.review}</td>
                       <td className="px-6 py-3">
                         {suggestion.image?.data?.data &&
-                        suggestion.image.contentType ? (
-                          <img
-                            src={createImageUrl(
-                              suggestion.image.data.data,
-                              suggestion.image.contentType
-                            )}
-                            alt={suggestion.name}
-                            className="w-16 h-16 object-cover rounded"
+                        suggestion.image.contentType === "application/pdf" ? (
+                          <FaDownload
+                            className="h-6 w-6 text-black-500 cursor-pointer hover:text-blue-600"
+                            onClick={() =>
+                              downloadPdf(
+                                suggestion.image.data.data,
+                                suggestion.name
+                              )
+                            }
                           />
                         ) : (
-                          "No Image"
+                          "No Data"
                         )}
                       </td>
                       <td className="px-6 py-3">
@@ -423,16 +431,18 @@ const CaseStudy = () => {
                   </div>
                   <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
-                      Image
+                      PDF*
                     </label>
                     <input
                       type="file"
-                      name="image"
-                      accept="image/*"
+                      name="pdf"
+                      required
+                      accept="application/pdf" // Only allows PDF files
                       onChange={handleImageChange}
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
                     />
                   </div>
+
                   <div className="flex justify-end">
                     <button
                       type="button"
@@ -483,18 +493,20 @@ const CaseStudy = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label className="block text-gray-700">Image</label>
+                    <label className="block text-gray-700">PDF*</label>
                     <input
                       type="file"
-                      name="image"
+                      name="pdf"
+                      accept="application/pdf" // Allows only PDF files
                       onChange={(e) =>
                         handleInputChange({
-                          target: { name: "image", value: e.target.files[0] },
+                          target: { name: "pdf", value: e.target.files[0] },
                         })
                       }
                       className="w-full px-3 py-2 border border-gray-300 rounded"
                     />
                   </div>
+
                   <div className="flex justify-end">
                     <button
                       type="button"
