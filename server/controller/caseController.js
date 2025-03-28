@@ -5,23 +5,29 @@ exports.createEvent = async (req, res) => {
   try {
     const { name, review } = req.body;
 
-    if (!req.file) {
-      return res.status(400).json({ message: "Image file is required" });
+    // Check if both images are uploaded
+    if (!req.files || !req.files.image || !req.files.imgCase) {
+      return res.status(400).json({ message: "Both image and imgCase files are required" });
     }
 
-    const event = new Event({
+    const newCase = new Event({
       name,
       review,
       image: {
-        data: req.file.buffer,
-        contentType: req.file.mimetype,
+        data: req.files.image[0].buffer, // First uploaded file for 'image'
+        contentType: req.files.image[0].mimetype,
+      },
+      imgCase: {
+        data: req.files.imgCase[0].buffer, // Second uploaded file for 'imgCase'
+        contentType: req.files.imgCase[0].mimetype,
       },
     });
 
-    const savedEvent = await event.save();
-    res.status(201).json(savedEvent);
+    const savedCase = await newCase.save();
+    res.status(201).json({ message: "Case added successfully!", savedCase });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Error adding case:", error);
+    res.status(500).json({ error: "Something went wrong" });
   }
 };
 
@@ -51,24 +57,33 @@ exports.getEventById = async (req, res) => {
 // Update an event
 exports.updateEvent = async (req, res) => {
   try {
-    console.log(req.file)
+    console.log(req.files);
     const { name, review } = req.body;
 
     const updatedData = { name, review };
-    if (req.file) {
+
+    if (req.files?.image) {
       updatedData.image = {
-        data: req.file.buffer,
-        contentType: req.file.mimetype,
+        data: req.files.image[0].buffer,
+        contentType: req.files.image[0].mimetype,
       };
     }
 
-    console.log(req.params.id)
+    if (req.files?.imgCase) {
+      updatedData.imgCase = {
+        data: req.files.imgCase[0].buffer,
+        contentType: req.files.imgCase[0].mimetype,
+      };
+    }
+
+    console.log(req.params.id);
 
     const updatedEvent = await Event.findByIdAndUpdate(
       req.params.id,
       updatedData,
       { new: true }
     );
+
     if (!updatedEvent) {
       return res.status(404).json({ message: "Event not found" });
     }
@@ -78,6 +93,7 @@ exports.updateEvent = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 // Delete an event
 exports.deleteEvent = async (req, res) => {

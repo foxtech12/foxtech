@@ -88,7 +88,6 @@ const CaseStudy = () => {
       console.error("Error fetching suggestions:", error);
     } finally {
       setLoading(false);
-
     }
   };
 
@@ -116,6 +115,7 @@ const CaseStudy = () => {
     name: "",
     review: "",
     image: null, // Added for image
+    imgCase: null,
   });
 
   const handleChange = (e) => {
@@ -125,11 +125,13 @@ const CaseStudy = () => {
   const handleImageChange = (e) => {
     setFormData({ ...formData, image: e.target.files[0] });
   };
-
+  const handleImageChange1 = (e) => {
+    setFormData({ ...formData, imgCase: e.target.files[0] });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the category already exists
+    // Check if category already exists
     const isDuplicate = suggestions.some(
       (suggestion) =>
         suggestion.name.toLowerCase() === formData.name.toLowerCase()
@@ -140,16 +142,20 @@ const CaseStudy = () => {
       return;
     }
 
+    if (!formData.image || !formData.imgCase) {
+      toast.error("Both images are required!");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      // Create a FormData object to include the image file
+      // Create FormData object
       const formPayload = new FormData();
       formPayload.append("name", formData.name);
       formPayload.append("review", formData.review);
-      if (formData.image) {
-        formPayload.append("image", formData.image);
-      }
+      formPayload.append("image", formData.image);
+      formPayload.append("imgCase", formData.imgCase);
 
       const response = await axiosInstance.post(
         `/api/case/add-case`,
@@ -162,16 +168,16 @@ const CaseStudy = () => {
       );
 
       toast.success("Event added successfully!");
-      fetchSuggestions(); // Fetch the updated suggestions
+      fetchSuggestions();
       isModal(false);
       setFormData({
         name: "",
         review: "",
         image: null,
+        imgCase: null,
       });
 
-      // Reset allDeleted state to false as we added new categories
-      setAllDeleted(false); // This will allow the button text to update in real-time
+      setAllDeleted(false);
     } catch (error) {
       toast.error("Something went wrong");
       console.error("Error adding event:", error);
@@ -190,6 +196,7 @@ const CaseStudy = () => {
     name: "",
     review: "",
     pdf: null,
+    imgCase: null,
   });
 
   const openEditModal = (suggestion) => {
@@ -214,34 +221,44 @@ const CaseStudy = () => {
       pdf: e.target.files[0], // Store file object properly
     });
   };
+  const handleFileChange2 = (e) => {
+    editsetFormData({
+      ...eidtformData,
+      imgCase: e.target.files[0], // Store file object properly
+    });
+  };
   const handleSubmitEdit = async (e) => {
     e.preventDefault();
     setEditModalOpen(false);
-
-    setLoading(true)
+    setLoading(true);
+  
     const formData = new FormData();
-
     formData.append("name", eidtformData.name);
     formData.append("review", eidtformData.review);
-
-    if (eidtformData.pdf) {
-      formData.append("image", eidtformData.pdf);
+  
+    if (eidtformData.image) {
+      formData.append("image", eidtformData.image);
     }
+    if (eidtformData.imgCase) {
+      formData.append("imgCase", eidtformData.imgCase);
+    }
+  
     try {
       const res = await axiosInstance.put(
         `/api/case/update/${selectedSuggestion._id}`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-      console.log(res)
+  
+      console.log(res);
       fetchSuggestions();
-      setLoading(false)
     } catch (error) {
-      setLoading(false)
-
       console.error("Error updating suggestion:", error);
+    } finally {
+      setLoading(false);
     }
   };
+  
 
   const filteredContacts = suggestions.filter((contact) =>
     contact.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -273,7 +290,16 @@ const CaseStudy = () => {
     // Revoke the URL after download
     URL.revokeObjectURL(url);
   };
-
+  const createImageUrl = (fileData, contentType) => {
+    try {
+      const blob = new Blob([new Uint8Array(fileData)], { type: contentType });
+      const url = URL.createObjectURL(blob);
+      return url;
+    } catch (error) {
+      console.error("Error decoding image:", error);
+      return "";
+    }
+  };
   return (
     <div>
       <ToastContainer />
@@ -326,6 +352,7 @@ const CaseStudy = () => {
                   <th className="px-6 py-3">Name</th>
                   <th className="px-6 py-3">Description</th>
                   <th className="px-6 py-3">Download</th>
+                  <th className="px-6 py-3">Image</th>
                   <th className="px-6 py-3">Actions</th>
                 </tr>
               </thead>
@@ -354,6 +381,19 @@ const CaseStudy = () => {
                           "No Data"
                         )}
                       </td>
+                      <td className="px-6 py-3">
+                        {suggestion.imgCase?.data?.data &&
+                          <img
+                            src={createImageUrl(
+                              suggestion.imgCase.data.data,
+                              suggestion.imgCase.contentType
+                            )}
+                            alt="Uploaded"
+                            className="h-16 w-16 rounded-lg"
+                          />
+                       }
+                      </td>
+
                       <td className="px-6 py-3">
                         <div className="flex space-x-2">
                           <FaTrash
@@ -452,7 +492,19 @@ const CaseStudy = () => {
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
                     />
                   </div>
-
+                  <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                      Image*
+                    </label>
+                    <input
+                      type="file"
+                      name="imgCase"
+                      required
+                      accept="image/*"
+                      onChange={handleImageChange1}
+                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                    />
+                  </div>
                   <div className="flex justify-end">
                     <button
                       type="button"
@@ -509,6 +561,16 @@ const CaseStudy = () => {
                       name="pdf"
                       accept="application/pdf" // Allows only PDF files
                       onChange={handleFileChange1}
+                      className="w-full px-3 py-2 border border-gray-300 rounded"
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-gray-700">Image*</label>
+                    <input
+                      type="file"
+                      name="imgCase"
+                      accept="image/*"
+                      onChange={handleFileChange2}
                       className="w-full px-3 py-2 border border-gray-300 rounded"
                     />
                   </div>

@@ -17,6 +17,11 @@ const testSchema = new mongoose.Schema(
       data: Buffer,
       contentType: String,
     },
+
+    imgCase: {
+      data: Buffer,
+      contentType: String,
+    },
   },
   {
     timestamps: true,

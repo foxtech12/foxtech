@@ -41,7 +41,16 @@ const CardSwiper = () => {
 
     URL.revokeObjectURL(url);
   };
-
+  const createImageUrl = (fileData, contentType) => {
+    try {
+      const blob = new Blob([new Uint8Array(fileData)], { type: contentType });
+      const url = URL.createObjectURL(blob);
+      return url;
+    } catch (error) {
+      console.error("Error decoding image:", error);
+      return "";
+    }
+  };
   return (
     <div className="p-4 md:p-6 w-full max-w-7xl mx-auto">
       {/* Swiper Section */}
@@ -73,7 +82,18 @@ const CardSwiper = () => {
               <p className="text-gray-600 text-sm mt-2 line-clamp-3 overflow-hidden max-h-14">
                 {slide.review}
               </p>
-
+              {slide.imgCase && (
+                  <div className="mt-4 flex justify-center">
+                    <img
+                       src={createImageUrl(
+                        slide.imgCase.data.data,
+                        slide.imgCase.contentType
+                      )}
+                      alt="Uploaded"
+                      className="w-full h-40 object-cover rounded-lg shadow-lg"
+                    />
+                  </div>
+                )}
               {/* Download PDF Button */}
               <div className="mt-auto pt-3 flex justify-end items-center">
                 {slide.image?.data?.data &&
