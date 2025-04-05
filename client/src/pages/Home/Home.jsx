@@ -40,35 +40,26 @@ const Home = () => {
             const rightImage = document.querySelector(".right-image");
             const leftContent = document.querySelector(".left-content");
 
-            // Animating navbar immediately
             setTimeout(() => {
               navbar.classList.add("animate-navbar");
             }, 0);
 
-            // Background overlay animation with slight delay
             setTimeout(() => {
               background.classList.add("animate-background");
             }, 500);
 
-            // Right image animation (faster)
             setTimeout(() => {
               rightImage.classList.add("animate-right-image");
             }, 0);
-
-            // Left content animation (slower)
             setTimeout(() => {
               leftContent.classList.add("animate-left-content");
-            }, 0); // Delayed to start after the right image
-
-            // Stop observing after animations are triggered
+            }, 0);
             observer.disconnect();
           }
         });
       },
-      { threshold: 0.1 } // Trigger when 10% of the element is visible
+      { threshold: 0.1 } 
     );
-
-    // Select the section to observe
     const section = document.querySelector(".animated-section");
     if (section) observer.observe(section);
 
@@ -148,7 +139,6 @@ const Home = () => {
       nameNavi: "personal",
       image: six,
     },
-    // Add more cards as needed
   ];
 
   const Card = ({
@@ -209,7 +199,7 @@ const Home = () => {
         <div className="relative flex flex-col lg:flex-row items-center lg:h-screen h-[75vh] bg-white">
           {/* Background Overlay */}
           <div
-            className="absolute top-0 left-0 w-full  bg-cover bg-center lg:h-screen h-[70vh]" // Adjust height for small screens
+            className="absolute top-0 left-0 w-full  bg-cover bg-center lg:h-screen h-[75vh]" // Adjust height for small screens
             style={{
               backgroundImage: `url(${bg})`,
               animationName: "background-grow-up",
@@ -223,24 +213,25 @@ const Home = () => {
           <div className="left-content relative flex flex-col px-8 sm:px-24 max-w-3xl bg-opacity-40 opacity-0 mx-auto lg:mx-0">
   
   {/* Optional Image Section */}
-  <div className="lg:hidden mb-10 flex justify-center">
+  <div className="lg:hidden mb-12 flex justify-center">
     {/* Image if needed */}
   </div>
 
   {/* Heading Section */}
-  <div className="relative z-10 opacity-100 mb-10 flex flex-col items-center lg:items-start space-y-6">
-    <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight text-center lg:text-left">INNOVATE</h1>
-    
-    <div className="flex items-center gap-2 justify-center lg:justify-start">
-      <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">GR</h1>
-      <div className="w-10 h-10 sm:w-12 sm:h-12 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
-        <img src={right1} alt="O Image" className="w-full h-full object-cover" />
-      </div>
-      <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight">W</h1>
+  <div className="relative z-10 opacity-100 mb-10 flex flex-col items-center lg:items-start space-y-6 w-full">
+  <h1 className="text-6xl xl:text-7xl font-serif text-black leading-tight text-center lg:text-left">INNOVATE</h1>
+
+  <div className="flex items-center gap-2 justify-center lg:justify-start w-full">
+    <h1 className="text-6xl xl:text-7xl font-serif text-black leading-tight">GR</h1>
+    <div className="w-12 h-12 sm:w-14 sm:h-16 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
+      <img src={right1} alt="O Image" className="w-full h-full object-cover" />
     </div>
-    
-    <h1 className="text-5xl xl:text-7xl font-serif text-black leading-tight text-center lg:text-left">TRANSFORM</h1>
+    <h1 className="text-6xl xl:text-7xl font-serif text-black leading-tight">W</h1>
   </div>
+
+  <h1 className="text-6xl xl:text-7xl font-serif text-black leading-tight text-center lg:text-left">TRANSFORM</h1>
+</div>
+
 
   {/* Paragraph Section */}
   <div className="relative z-10 mb-10 flex justify-center lg:justify-start">
