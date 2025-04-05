@@ -195,8 +195,8 @@ const Home = () => {
 
         <Navbar />
 
-        {/* Hero Section */}
-        <div className="relative flex flex-col lg:flex-row items-center min-h-screen bg-white overflow-hidden">
+   {/* Hero Section */}
+   <div className="relative flex flex-col lg:flex-row items-center min-h-screen bg-white overflow-hidden pb-0">
   {/* Background Overlay */}
   <div
     className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
@@ -210,21 +210,17 @@ const Home = () => {
   ></div>
 
   {/* Left Side Content */}
-  <div className="left-content relative z-10 flex flex-col px-4 sm:px-8 md:px-24 w-full max-w-3xl mx-auto lg:mx-0">
+  <div className="left-content relative z-10 flex flex-col justify-between px-4 sm:px-8 md:px-24 w-full max-w-3xl mx-auto lg:mx-0 min-h-screen py-10">
     
-    {/* Optional Mobile Image */}
-    <div className="lg:hidden mb-12 flex justify-center">
-      {/* Mobile Image if needed */}
-    </div>
-
- {/* Heading Section */}
-<div className="relative z-10 opacity-100 mb-10  px-4 sm:px-6 flex flex-col items-center space-y-7 w-full mt-[6rem] lg:mt-0">
+    {/* Top Section: Headings */}
+    {/* Heading Section */}
+<div className="relative z-10 opacity-100 px-4 sm:px-6 flex flex-col items-center space-y-6 w-full mt-[30%]  sm:mt-10">
   {/* INNOVATE */}
   <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-center break-words max-w-full">
     INNOVATE
   </h1>
 
-  {/* GROW Section */}
+  {/* GROW */}
   <div className="w-full flex justify-center">
     <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-center max-w-full">
       <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
@@ -245,21 +241,17 @@ const Home = () => {
   </h1>
 </div>
 
-
-
-
-
-    {/* Paragraph Section */}
-    <div className="mb-10 flex justify-center lg:justify-start">
-      <p className="text-base sm:text-lg md:text-xl text-black font-bankGothic text-center lg:text-left max-w-md">
+    {/* Middle Section: Paragraph */}
+    <div className="mt-6 text-center">
+      <p className="text-base sm:text-lg md:text-xl text-black font-bankGothic max-w-md mx-auto">
         WE PRIORITIZE TRUST, TRANSPARENCY, AND INNOVATION, ENSURING RELIABLE
         SOLUTIONS, CLEAR COMMUNICATION, AND DEDICATED SUPPORT TO HELP YOUR
         BUSINESS THRIVE SUCCESSFULLY.
       </p>
     </div>
 
-    {/* Button Section */}
-    <div className="mb-2  flex justify-center lg:justify-start">
+    {/* Bottom Section: Button */}
+    <div className="mt-3 flex justify-center">
       <button
         className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
         onClick={() => navigate(`/contact?name=home`)}
@@ -269,7 +261,7 @@ const Home = () => {
     </div>
   </div>
 
-  {/* Right Side Image (Large Screens Only) */}
+  {/* Right Side Image (for large screens) */}
   <div className="absolute right-0 top-0 w-[40%] lg:w-[45%] h-full items-center justify-end overflow-hidden hidden lg:flex">
     <div className="w-full h-full relative">
       <img
@@ -279,7 +271,9 @@ const Home = () => {
       />
     </div>
   </div>
-         </div>
+</div>
+
+
 
 
         {/* Services Section */}
