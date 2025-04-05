@@ -217,8 +217,8 @@ const Home = () => {
       {/* Mobile Image if needed */}
     </div>
 
-    {/* Heading Section */}
-    <div className="relative z-10 opacity-100 mb-10 px-4 sm:px-6 flex flex-col items-center space-y-6 w-full">
+ {/* Heading Section */}
+<div className="relative z-10 opacity-100 mb-10  px-4 sm:px-6 flex flex-col items-center space-y-7 w-full mt-[6rem] lg:mt-0">
   {/* INNOVATE */}
   <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-center break-words max-w-full">
     INNOVATE
@@ -246,6 +246,9 @@ const Home = () => {
 </div>
 
 
+
+
+
     {/* Paragraph Section */}
     <div className="mb-10 flex justify-center lg:justify-start">
       <p className="text-base sm:text-lg md:text-xl text-black font-bankGothic text-center lg:text-left max-w-md">
@@ -256,7 +259,7 @@ const Home = () => {
     </div>
 
     {/* Button Section */}
-    <div className="mb-5 flex justify-center lg:justify-start">
+    <div className="mb-2  flex justify-center lg:justify-start">
       <button
         className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
         onClick={() => navigate(`/contact?name=home`)}
@@ -276,7 +279,7 @@ const Home = () => {
       />
     </div>
   </div>
-</div>
+         </div>
 
 
         {/* Services Section */}
