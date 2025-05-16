@@ -17,7 +17,7 @@ import four from "../images/4th.png";
 import fiv from "../images/5th.png";
 import six from "../images/6th.png";
 import right from "../images/3.png";
-import right1 from "../images/31.png";
+import right1 from "../images/31.jpg";
 import bg from "../images/bg.png";
 import a from "./image/a.png";
 import b from "./image/b.png";
@@ -141,52 +141,26 @@ const Home = () => {
     },
   ];
 
-  const Card = ({
-    name,
-    role,
-    gradientFrom,
-    gradientVia,
-    gradientTo,
-    nameNavi,
-    image,
-  }) => {
-    return (
-      <div className="group relative  w-80 min-h-[20rem] rounded-2xl overflow-hidden flex flex-col items-center text-center">
-        {/* Background Overlay */}
-        <div
-          className={`absolute inset-0  group-hover:scale-95 transition-all duration-500 rounded-2xl`}
-          style={{
-            background: "linear-gradient(to right, #46FF46,rgb(220, 234, 220))",
-          }}
-        ></div>
-
-        {/* Profile Image */}
-        <div className="w-28 h-28 bg-white rounded-full border-4 border-gray-200 z-10 mt-6 group-hover:scale-200 group-hover:-translate-x-24 group-hover:-translate-y-20 transition-all duration-500 flex items-center justify-center overflow-hidden">
-          <img
-            src={image}
-            alt=""
-            className="w-full h-full object-cover p-4 slide-animation"
-          />
-        </div>
-
-        {/* Content */}
-        <div className="z-10 mt-4 px-4">
-          <span className="text-2xl font-semibold block mb-2">{name}</span>
-          <p className="text-sm sm:text-base text-gray-800">{role}</p>
-        </div>
-
-        {/* Follow Button */}
-        <div className="mt-auto mb-4 z-10">
-          <button
-            onClick={() => navigate(`/${nameNavi}`)}
-            className="bg-green-100 px-4 py-2 text-black rounded-md hover:scale-105 transition-all duration-500 hover:bg-green-700"
-          >
-            view more
-          </button>
-        </div>
+const Card = ({ name, role, image }) => {
+  return (
+    <div className="bg-white rounded shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full h-full flex flex-col">
+      <div className="h-40 w-full overflow-hidden rounded-t">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
-    );
-  };
+      <div className="flex-grow p-4 flex flex-col justify-between">
+        <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
+        <p className="text-sm text-gray-600 mt-2">{role}</p>
+      </div>
+    </div>
+  );
+};
+
+
+
 
   return (
     <>
@@ -210,56 +184,56 @@ const Home = () => {
   ></div>
 
   {/* Left Side Content */}
-  <div className="left-content relative z-10 flex flex-col justify-between px-4 sm:px-8 md:px-24 w-full max-w-3xl mx-auto lg:mx-0 min-h-screen py-10">
-    
-    {/* Top Section: Headings */}
-    {/* Heading Section */}
-<div className="relative z-10 opacity-100 px-4 sm:px-6 flex flex-col items-center space-y-6 w-full mt-[30%]  sm:mt-10">
-  {/* INNOVATE */}
-  <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-center break-words max-w-full">
-    INNOVATE
-  </h1>
+<div className="left-content relative z-10 flex flex-col justify-between px-4 sm:px-8 md:px-24 w-full max-w-3xl mx-auto lg:mx-0 min-h-screen py-10">
 
-  {/* GROW */}
-  <div className="w-full flex justify-center">
-    <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-center max-w-full">
-      <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
-        GR
-      </h1>
-      <div className="w-10 h-10 sm:w-12 sm:h-12 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
-        <img src={right1} alt="O" className="w-full h-full object-cover" />
+  {/* Top Section: Headings */}
+  <div className="relative z-10 opacity-100 px-4 sm:px-6 flex flex-col items-start space-y-6 w-full mt-[30%] sm:mt-10">
+    {/* INNOVATE */}
+    <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-left break-words max-w-full">
+      INNOVATE
+    </h1>
+
+    {/* GROW */}
+    <div className="w-full flex justify-start">
+      <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-start max-w-full">
+        <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
+          GR
+        </h1>
+        <div className="w-10 h-10 sm:w-12 sm:h-12 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
+          <img src={right1} alt="O" className="w-full h-full object-cover" />
+        </div>
+        <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
+          W
+        </h1>
       </div>
-      <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
-        W
-      </h1>
     </div>
+
+    {/* TRANSFORM */}
+    <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-left break-words max-w-full">
+      TRANSFORM
+    </h1>
   </div>
 
-  {/* TRANSFORM */}
-  <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-center break-words max-w-full">
-    TRANSFORM
-  </h1>
+  {/* Middle Section: Paragraph */}
+  <div className="mt-6 text-left">
+    <p className="text-base sm:text-lg md:text-xl text-black font-bankGothic max-w-md">
+      WE PRIORITIZE TRUST, TRANSPARENCY, AND INNOVATION, ENSURING RELIABLE
+      SOLUTIONS, CLEAR COMMUNICATION, AND DEDICATED SUPPORT TO HELP YOUR
+      BUSINESS THRIVE SUCCESSFULLY.
+    </p>
+  </div>
+
+  {/* Bottom Section: Button (Centered) */}
+  <div className="mt-3 flex justify-center">
+    <button
+      className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
+      onClick={() => navigate(`/contact?name=home`)}
+    >
+      Get Started
+    </button>
+  </div>
 </div>
 
-    {/* Middle Section: Paragraph */}
-    <div className="mt-6 text-center">
-      <p className="text-base sm:text-lg md:text-xl text-black font-bankGothic max-w-md mx-auto">
-        WE PRIORITIZE TRUST, TRANSPARENCY, AND INNOVATION, ENSURING RELIABLE
-        SOLUTIONS, CLEAR COMMUNICATION, AND DEDICATED SUPPORT TO HELP YOUR
-        BUSINESS THRIVE SUCCESSFULLY.
-      </p>
-    </div>
-
-    {/* Bottom Section: Button */}
-    <div className="mt-3 flex justify-center">
-      <button
-        className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
-        onClick={() => navigate(`/contact?name=home`)}
-      >
-        Get Started
-      </button>
-    </div>
-  </div>
 
   {/* Right Side Image (for large screens) */}
   <div className="absolute right-0 top-0 w-[40%] lg:w-[45%] h-full items-center justify-end overflow-hidden hidden lg:flex">
@@ -288,25 +262,27 @@ const Home = () => {
           </div>
 
           {/* Cards Container */}
-          <div
-            className="container mx-auto px-8 py-8 flex justify-center items-center"
-            data-aos="fade-up"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
-              {cards.map((card, index) => (
-                <Card
-                  key={index}
-                  name={card.name}
-                  role={card.role}
-                  gradientFrom={card.gradientFrom}
-                  gradientVia={card.gradientVia}
-                  gradientTo={card.gradientTo}
-                  nameNavi={card.nameNavi}
-                  image={card.image}
-                />
-              ))}
-            </div>
-          </div>
+          <div className="container mx-auto px-4 py-12" data-aos="fade-up">
+  
+
+  {/* Horizontal Scroll Section */}
+  <div className="flex overflow-x-auto space-x-6 scrollbar-hide px-2">
+    {cards.map((card, index) => (
+      <div
+        key={index}
+        className="flex-shrink-0 w-[260px] h-[340px]" // fixed width and height
+      >
+        <Card
+          name={card.name}
+          role={card.role}
+          image={card.image}
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+
         </div>
 
         {/* Events Section */}
