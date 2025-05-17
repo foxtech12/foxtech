@@ -10,7 +10,11 @@ import "swiper/swiper-bundle.css";
 import "./personal.css";
 import ContactFoot from "../../component/ContactFooter/ContactFoot";
 import eventBg from "../images/eventbg.png";
-
+import img1 from "../img1.avif";
+import img2 from "../img2.avif";
+import img3 from "../img3.avif";
+import img4 from "../img3.avif";
+import img5 from "../img5.avif";
 const Personal = () => {
   const solutions = [
     {
@@ -62,6 +66,53 @@ const Personal = () => {
         "Built an SEO-optimized blog platform for a content creator.",
     },
   ];
+    const steps = [
+      {
+        title: "Discovery",
+        description:
+          "We begin with a detailed consultation to understand your goals, strengths, and target audience.",
+        image: img1,
+      },
+      {
+        title: "Strategy",
+        description:
+          "Develop a personalized branding strategy that aligns with your objectives and resonates with your audience",
+        image: img2,
+      },
+      {
+        title: "Design",
+        description:
+          "Create a cohesive visual identity that captures your unique personality and professional image.",
+        image: img3,
+      },
+      {
+        title: "Implementation",
+        description:
+          "Create a cohesive visual identity that captures your unique personality and professional image.",
+        image: img4,
+      },
+      {
+        title: "Content Creation",
+        description:
+          "Develop and distribute content that reinforces your brand message and engages your audience.",
+        image: img5,
+      },
+    ];
+  
+      const StepCard = ({ title, description, index, image }) => {
+      return (
+        <div
+          className="w-full md:w-[300px] p-6 bg-white rounded-xl shadow-md transition-transform hover:scale-105"
+          data-aos={index % 2 === 0 ? "zoom-in-left" : "zoom-in-right"}
+        >
+          <img src={image} alt={title} className="h-20 w-20 mx-auto mb-4" />
+          <h3 className="text-xl font-bold mb-2 text-center text-gray-800">
+            {title}
+          </h3>
+          <p className="text-gray-600 text-center">{description}</p>
+        </div>
+      );
+    };
 
   const Step = ({ title, description, customStyle }) => (
     <div
@@ -234,46 +285,17 @@ const Personal = () => {
         {/* Steps Section */}
         <div className="flex flex-col items-center space-y-10">
           {/* Step Components with Zoom-in Effects */}
-          <Step
-            title="Discovery"
-            description="We begin with a detailed consultation to understand your goals, strengths, and target audience."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Strategy"
-            description="Develop a personalized branding strategy that aligns with your objectives and resonates with your audience."
-            dataAos="zoom-in-right" // Animation for right zoom-in
-          />
-
-          <Arrow />
-
-          <Step
-            title="Design "
-            description="Create a cohesive visual identity that captures your unique personality and professional image."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Implementation"
-            description="Create a cohesive visual identity that captures your unique personality and professional image."
-            dataAos="zoom-in-right" // Animation for right zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Content Creation"
-            description="Develop and distribute content that reinforces your brand message and engages your audience. "
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-          <Step
-            title="Monitoring & Adjustment"
-            description="Continuously monitor your brand's performance and make adjustments to ensure sustained growth and visibility. "
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
+          <div className="flex flex-wrap justify-center gap-6 px-4 py-10">
+            {steps.map((step, index) => (
+              <StepCard
+                key={index}
+                title={step.title}
+                description={step.description}
+                index={index}
+                image={step.image}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
