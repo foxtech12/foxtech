@@ -10,7 +10,11 @@ import "swiper/swiper-bundle.css";
 import "./application.css";
 import ContactFoot from "../../component/ContactFooter/ContactFoot";
 import eventBg from "../images/eventbg.png";
-
+import img1 from "../img1.avif";
+import img2 from "../img2.avif";
+import img3 from "../img3.avif";
+import img4 from "../img3.avif";
+import img5 from "../img5.avif";
 const Application = () => {
   const solutions = [
     {
@@ -85,7 +89,53 @@ const Application = () => {
   }, []);
 
   const containerRef = useRef(null);
+  const steps = [
+    {
+      title: "Consultation",
+      description:
+        "We begin with a detailed consultation to understand your goals, target audience, and technical requirements.",
+      image: img1,
+    },
+    {
+      title: "Planning",
+      description:
+        "We create a comprehensive project plan, including wireframes, technical specifications, and timelines.",
+      image: img2,
+    },
+    {
+      title: "Analytics",
+      description:
+        "Data-driven approach to measure and optimize performance.",
+      image: img3,
+    },
+    {
+      title: "Design",
+      description:
+        "Our UI/UX designers develop prototypes and mockups to visualize the application's interface and user experience.",
+      image: img4,
+    },
+    {
+      title: "Optimization",
+      description:
+        "Adjusting strategies based on data and feedback.",
+      image: img5,
+    },
+  ];
 
+    const StepCard = ({ title, description, index, image }) => {
+    return (
+      <div
+        className="w-full md:w-[300px] p-6 bg-white rounded-xl shadow-md transition-transform hover:scale-105"
+        data-aos={index % 2 === 0 ? "zoom-in-left" : "zoom-in-right"}
+      >
+        <img src={image} alt={title} className="h-20 w-20 mx-auto mb-4" />
+        <h3 className="text-xl font-bold mb-2 text-center text-gray-800">
+          {title}
+        </h3>
+        <p className="text-gray-600 text-center">{description}</p>
+      </div>
+    );
+  };
   return (
     <div>
       <Navbar />
@@ -207,60 +257,19 @@ const Application = () => {
         </div>
 
         {/* Steps Section */}
-        <div className="flex flex-col items-center space-y-10">
+<div className="flex flex-col items-center space-y-10">
           {/* Step Components with Zoom-in Effects */}
-          <Step
-            title="Consultation"
-            description="We begin with a detailed consultation to understand your goals, target audience, and technical requirements."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Planning"
-            description="We create a comprehensive project plan, including wireframes, technical specifications, and timelines."
-            dataAos="zoom-in-right" // Animation for right zoom-in
-          />
-
-          <Arrow />
-
-          <Step
-            title="Design "
-            description="Our UI/UX designers develop prototypes and mockups to visualize the application's interface and user experience."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Optimization"
-            description="Adjusting strategies based on data and feedback."
-            dataAos="zoom-in-right" // Animation for right zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Development"
-            description="Our developers build the application using the latest technologies and best practices to ensure performance and scalability."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-          <Step
-            title="Testing"
-            description="We conduct rigorous testing to identify and resolve any issues, ensuring a smooth and reliable application."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-          <Step
-            title="Launch"
-            description="We deploy the application to the appropriate platforms and provide training on how to use and manage it."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-          <Step
-            title="Maintenance"
-            description="We offer ongoing support and maintenance to keep your application running smoothly and efficiently."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
+          <div className="flex flex-wrap justify-center gap-6 px-4 py-10">
+            {steps.map((step, index) => (
+              <StepCard
+                key={index}
+                title={step.title}
+                description={step.description}
+                index={index}
+                image={step.image}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

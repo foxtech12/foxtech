@@ -10,7 +10,11 @@ import "swiper/swiper-bundle.css";
 import "./seo.css";
 import ContactFoot from "../../component/ContactFooter/ContactFoot";
 import eventBg from "../images/eventbg.png";
-
+import img1 from "../img1.avif";
+import img2 from "../img2.avif";
+import img3 from "../img3.avif";
+import img4 from "../img3.avif";
+import img5 from "../img5.avif";
 const SeoHandling = () => {
   const solutions = [
     {
@@ -103,7 +107,53 @@ const SeoHandling = () => {
   }, []);
 
   const containerRef = useRef(null);
+  const steps = [
+    {
+      title: "Consultation",
+      description:
+        "Understand your goals and current SEO status.",
+      image: img1,
+    },
+    {
+      title: "Research",
+      description:
+        "Conduct thorough keyword and competitor research..",
+      image: img2,
+    },
+    {
+      title: "Analytics",
+      description:
+        "Develop a customized SEO strategy tailored to your business.",
+      image: img3,
+    },
+    {
+      title: "Strategy",
+      description:
+        "Our campaigns drive real, measurable results for your business",
+      image: img4,
+    },
+    {
+      title: "Reporting",
+      description:
+        "Provide regular reports on SEO progress and results.",
+      image: img5,
+    },
+  ];
 
+    const StepCard = ({ title, description, index, image }) => {
+    return (
+      <div
+        className="w-full md:w-[300px] p-6 bg-white rounded-xl shadow-md transition-transform hover:scale-105"
+        data-aos={index % 2 === 0 ? "zoom-in-left" : "zoom-in-right"}
+      >
+        <img src={image} alt={title} className="h-20 w-20 mx-auto mb-4" />
+        <h3 className="text-xl font-bold mb-2 text-center text-gray-800">
+          {title}
+        </h3>
+        <p className="text-gray-600 text-center">{description}</p>
+      </div>
+    );
+  };
   return (
     <div>
       <Navbar />
@@ -229,46 +279,17 @@ const SeoHandling = () => {
         {/* Steps Section */}
         <div className="flex flex-col items-center space-y-10">
           {/* Step Components with Zoom-in Effects */}
-          <Step
-            title="Consultation"
-            description="Understand your goals and current SEO status."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Research"
-            description="Conduct thorough keyword and competitor research.."
-            dataAos="zoom-in-right" // Animation for right zoom-in
-          />
-
-          <Arrow />
-
-          <Step
-            title="Strategy "
-            description="Develop a customized SEO strategy tailored to your business."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Implementation"
-            description="Implementation"
-            dataAos="zoom-in-right" // Animation for right zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Monitoring"
-            description="Continuously monitor performance and make data-driven adjustments."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-          <Step
-            title="Reporting"
-            description="Provide regular reports on SEO progress and results."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
+          <div className="flex flex-wrap justify-center gap-6 px-4 py-10">
+            {steps.map((step, index) => (
+              <StepCard
+                key={index}
+                title={step.title}
+                description={step.description}
+                index={index}
+                image={step.image}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
