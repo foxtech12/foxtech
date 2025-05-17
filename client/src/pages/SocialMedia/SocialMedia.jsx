@@ -12,7 +12,11 @@ import "swiper/swiper-bundle.css";
 import "./social.css";
 import ContactFoot from "../../component/ContactFooter/ContactFoot";
 import eventBg from "../images/eventbg.png";
-
+import img1 from "../img1.avif";
+import img2 from "../img2.avif";
+import img3 from "../img3.avif";
+import img4 from "../img3.avif";
+import img5 from "../img5.avif";
 const SocialMedia = () => {
   const solutions = [
     {
@@ -94,7 +98,53 @@ const SocialMedia = () => {
       </svg>
     </div>
   );
+  const steps = [
+    {
+      title: "Experienced Team",
+      description:
+        "Our team of skilled designers and developers brings years of experience to your project.",
+      image: img1,
+    },
+    {
+      title: "Customized Solution",
+      description:
+        "We tailor our strategies to meet your specific needs.",
+      image: img2,
+    },
+    {
+      title: "Analytics",
+      description:
+        "Data-driven approach to measure and optimize performance.",
+      image: img3,
+    },
+    {
+      title: "Results",
+      description:
+        "Our campaigns drive real, measurable results for your business",
+      image: img4,
+    },
+    {
+      title: "Testing",
+      description:
+        "We conduct thorough testing to identify and fix any issues, ensuring a smooth user experience.",
+      image: img5,
+    },
+  ];
 
+    const StepCard = ({ title, description, index, image }) => {
+    return (
+      <div
+        className="w-full md:w-[300px] p-6 bg-white rounded-xl shadow-md transition-transform hover:scale-105"
+        data-aos={index % 2 === 0 ? "zoom-in-left" : "zoom-in-right"}
+      >
+        <img src={image} alt={title} className="h-20 w-20 mx-auto mb-4" />
+        <h3 className="text-xl font-bold mb-2 text-center text-gray-800">
+          {title}
+        </h3>
+        <p className="text-gray-600 text-center">{description}</p>
+      </div>
+    );
+  };
   useEffect(() => {
     AOS.init({
       once: true,
@@ -232,43 +282,19 @@ const SocialMedia = () => {
         </div>
 
         {/* Steps Section */}
-        <div className="flex flex-col items-center space-y-10">
+  <div className="flex flex-col items-center space-y-10">
           {/* Step Components with Zoom-in Effects */}
-          <Step
-            title="Discovery"
-            description="We begin by understanding your brand, audience, and objectives."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Planning"
-            description="Creating a customized social media strategy."
-            dataAos="zoom-in-right" // Animation for right zoom-in
-          />
-
-          <Arrow />
-
-          <Step
-            title="Monitoring "
-            description="Continuously tracking performance and engagement."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Optimization"
-            description="Adjusting strategies based on data and feedback."
-            dataAos="zoom-in-right" // Animation for right zoom-in
-          />
-          <Arrow />
-
-          <Step
-            title="Reporting"
-            description="Providing comprehensive reports to showcase results and insights."
-            dataAos="zoom-in-left" // Animation for left zoom-in
-          />
-          <Arrow />
+          <div className="flex flex-wrap justify-center gap-6 px-4 py-10">
+            {steps.map((step, index) => (
+              <StepCard
+                key={index}
+                title={step.title}
+                description={step.description}
+                index={index}
+                image={step.image}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

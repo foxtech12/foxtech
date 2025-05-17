@@ -58,7 +58,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.1 } 
+      { threshold: 0.1 }
     );
     const section = document.querySelector(".animated-section");
     if (section) observer.observe(section);
@@ -141,26 +141,26 @@ const Home = () => {
     },
   ];
 
-const Card = ({ name, role, image }) => {
-  return (
-    <div className="bg-white rounded shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full h-full flex flex-col">
-      <div className="h-40 w-full overflow-hidden rounded-t">
-        <img
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
+  const Card = ({ name, role, image, nameNavi }) => {
+    return (
+      <div
+        className="bg-white rounded shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full h-full flex flex-col"
+        onClick={() => navigate(`/${nameNavi}`)}
+      >
+        <div className="h-40 w-full overflow-hidden rounded-t">
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <div className="flex-grow p-4 flex flex-col justify-between">
+          <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
+          <p className="text-sm text-gray-600 mt-2">{role}</p>
+        </div>
       </div>
-      <div className="flex-grow p-4 flex flex-col justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
-        <p className="text-sm text-gray-600 mt-2">{role}</p>
-      </div>
-    </div>
-  );
-};
-
-
-
+    );
+  };
 
   return (
     <>
@@ -169,86 +169,85 @@ const Card = ({ name, role, image }) => {
 
         <Navbar />
 
-   {/* Hero Section */}
-   <div className="relative flex flex-col lg:flex-row items-center min-h-screen bg-white overflow-hidden pb-0">
-  {/* Background Overlay */}
-  <div
-    className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
-    style={{
-      backgroundImage: `url(${bg})`,
-      animationName: "background-grow-up",
-      animationDuration: "0.8s",
-      animationTimingFunction: "ease-out",
-      animationFillMode: "forwards",
-    }}
-  ></div>
+        {/* Hero Section */}
+        <div className="relative flex flex-col lg:flex-row items-center min-h-screen bg-white overflow-hidden pb-0">
+          {/* Background Overlay */}
+          <div
+            className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${bg})`,
+              animationName: "background-grow-up",
+              animationDuration: "0.8s",
+              animationTimingFunction: "ease-out",
+              animationFillMode: "forwards",
+            }}
+          ></div>
 
-  {/* Left Side Content */}
-<div className="left-content relative z-10 flex flex-col justify-between px-4 sm:px-8 md:px-24 w-full max-w-3xl mx-auto lg:mx-0 min-h-screen py-10">
+          {/* Left Side Content */}
+          <div className="left-content relative z-10 flex flex-col justify-between px-4 sm:px-8 md:px-24 w-full max-w-3xl mx-auto lg:mx-0 min-h-screen py-10">
+            {/* Top Section: Headings */}
+            <div className="relative z-10 opacity-100 px-4 sm:px-6 flex flex-col items-start space-y-6 w-full mt-[30%] sm:mt-10">
+              {/* INNOVATE */}
+              <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-left break-words max-w-full">
+                INNOVATE
+              </h1>
 
-  {/* Top Section: Headings */}
-  <div className="relative z-10 opacity-100 px-4 sm:px-6 flex flex-col items-start space-y-6 w-full mt-[30%] sm:mt-10">
-    {/* INNOVATE */}
-    <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-left break-words max-w-full">
-      INNOVATE
-    </h1>
+              {/* GROW */}
+              <div className="w-full flex justify-start">
+                <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-start max-w-full">
+                  <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
+                    GR
+                  </h1>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
+                    <img
+                      src={right1}
+                      alt="O"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
+                    W
+                  </h1>
+                </div>
+              </div>
 
-    {/* GROW */}
-    <div className="w-full flex justify-start">
-      <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-start max-w-full">
-        <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
-          GR
-        </h1>
-        <div className="w-10 h-10 sm:w-12 sm:h-12 xl:w-16 xl:h-16 rounded-full border-4 border-green-500 overflow-hidden">
-          <img src={right1} alt="O" className="w-full h-full object-cover" />
+              {/* TRANSFORM */}
+              <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-left break-words max-w-full">
+                TRANSFORM
+              </h1>
+            </div>
+
+            {/* Middle Section: Paragraph */}
+            <div className="mt-6 text-left">
+              <p className="text-base sm:text-lg md:text-xl text-black font-bankGothic max-w-md">
+                WE PRIORITIZE TRUST, TRANSPARENCY, AND INNOVATION, ENSURING
+                RELIABLE SOLUTIONS, CLEAR COMMUNICATION, AND DEDICATED SUPPORT
+                TO HELP YOUR BUSINESS THRIVE SUCCESSFULLY.
+              </p>
+            </div>
+
+            {/* Bottom Section: Button (Centered) */}
+            <div className="mt-3 flex justify-center">
+              <button
+                className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
+                onClick={() => navigate(`/contact?name=home`)}
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Right Side Image (for large screens) */}
+          <div className="absolute right-0 top-0 w-[40%] lg:w-[45%] h-full items-center justify-end overflow-hidden hidden lg:flex">
+            <div className="w-full h-full relative">
+              <img
+                src={right1}
+                alt="Experts Illustration"
+                className="w-full h-full object-cover mt-10"
+              />
+            </div>
+          </div>
         </div>
-        <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight">
-          W
-        </h1>
-      </div>
-    </div>
-
-    {/* TRANSFORM */}
-    <h1 className="text-[2.8rem] sm:text-[3.2rem] xl:text-7xl font-serif text-black leading-tight text-left break-words max-w-full">
-      TRANSFORM
-    </h1>
-  </div>
-
-  {/* Middle Section: Paragraph */}
-  <div className="mt-6 text-left">
-    <p className="text-base sm:text-lg md:text-xl text-black font-bankGothic max-w-md">
-      WE PRIORITIZE TRUST, TRANSPARENCY, AND INNOVATION, ENSURING RELIABLE
-      SOLUTIONS, CLEAR COMMUNICATION, AND DEDICATED SUPPORT TO HELP YOUR
-      BUSINESS THRIVE SUCCESSFULLY.
-    </p>
-  </div>
-
-  {/* Bottom Section: Button (Centered) */}
-  <div className="mt-3 flex justify-center">
-    <button
-      className="px-6 py-3 bg-black text-[#12fc2d] font-bankGothic rounded-bl-2xl rounded-tr-2xl hover:bg-green-600 font-poppins"
-      onClick={() => navigate(`/contact?name=home`)}
-    >
-      Get Started
-    </button>
-  </div>
-</div>
-
-
-  {/* Right Side Image (for large screens) */}
-  <div className="absolute right-0 top-0 w-[40%] lg:w-[45%] h-full items-center justify-end overflow-hidden hidden lg:flex">
-    <div className="w-full h-full relative">
-      <img
-        src={right1}
-        alt="Experts Illustration"
-        className="w-full h-full object-cover mt-10"
-      />
-    </div>
-  </div>
-</div>
-
-
-
 
         {/* Services Section */}
         <div id="services" className="py-20 bg-white mt-5">
@@ -263,26 +262,23 @@ const Card = ({ name, role, image }) => {
 
           {/* Cards Container */}
           <div className="container mx-auto px-4 py-12" data-aos="fade-up">
-  
-
-  {/* Horizontal Scroll Section */}
-  <div className="flex overflow-x-auto space-x-6 scrollbar-hide px-2">
-    {cards.map((card, index) => (
-      <div
-        key={index}
-        className="flex-shrink-0 w-[260px] h-[340px]" // fixed width and height
-      >
-        <Card
-          name={card.name}
-          role={card.role}
-          image={card.image}
-        />
-      </div>
-    ))}
-  </div>
-</div>
-
-
+            {/* Horizontal Scroll Section */}
+            <div className="flex overflow-x-auto space-x-6 scrollbar-hide px-2">
+              {cards.map((card, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-[260px] h-[340px]" // fixed width and height
+                >
+                  <Card
+                    name={card.name}
+                    role={card.role}
+                    image={card.image}
+                    nameNavi={card.nameNavi}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Events Section */}

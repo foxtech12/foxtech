@@ -132,11 +132,11 @@ const Footer = () => {
 
       {/* Social Links */}
       <div className="flex justify-center space-x-6 lg:space-x-8 mb-4">
-        <FaFacebook className="text-blue-600 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl" size={30} />
-        <FaLinkedin className="text-blue-800 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl" size={30} />
-        <FaTwitter className="text-blue-400 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl" size={30} />
+        <FaFacebook className="text-blue-600 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl" size={30} color="black"/>
+        <FaLinkedin className="text-blue-800 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl" size={30} color="black"/>
+        <FaTwitter className="text-blue-400 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl" size={30} color="black"/>
         <Link to="https://www.instagram.com/foxteach_offical/?hl=en">
-          <FaInstagram className="text-pink-500 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl" size={30} />
+          <FaInstagram className="text-pink-500 cursor-pointer hover:scale-110 transition-transform duration-200 text-lg md:text-xl lg:text-3xl" size={30} color="black"/>
         </Link>
       </div>
 
