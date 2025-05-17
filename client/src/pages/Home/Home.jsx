@@ -24,6 +24,8 @@ import b from "./image/b.png";
 import c from "./image/c.png";
 import d from "./image/d.png";
 import e from "./image/e.png";
+
+import ContentCards from "../../component/About/AboutContent";
 import { useNavigate } from "react-router-dom";
 import Testimonial from "../../component/testimonial/Testimonial";
 const Home = () => {
@@ -385,29 +387,9 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
-            <div className="text-center bg-[#E7FFE7] mb-5 py-5 px-5 sm:px-10 inline-block rounded-bl-3xl rounded-tr-3xl mx-auto mt-5 h-auto">
-              <p className="text-lg sm:text-2xl text-black font-montserrat text-justify tracking-normal leading-normal">
-                At Foxteach, we are passionate about helping brands navigate the
-                ever-evolving landscape of social media marketing. Our mission
-                is to empower businesses to connect with their audience in
-                meaningful ways, driving engagement, growth, and success. With a
-                team of experienced social media strategists, content creators,
-                and data analysts, we offer a comprehensive suite of services
-                tailored to meet your unique needs and objectives.
-              </p>
-
-              {/* Know More Button */}
-              <div className="mt-5">
-                <Link
-                  to="/about"
-                  className="bg-[#46FF46] hover:bg-[#34CC34] text-black font-semibold px-6 py-2 rounded-full transition duration-300 shadow-md"
-                >
-                  Know More
-                </Link>
-              </div>
-            </div>
-          </div>
+           <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
+      <ContentCards />
+    </div>
 
           {/* WHY FOXTECH */}
           <div className="flex justify-center flex-col items-center">

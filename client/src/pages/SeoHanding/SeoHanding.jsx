@@ -140,20 +140,34 @@ const SeoHandling = () => {
     },
   ];
 
-    const StepCard = ({ title, description, index, image }) => {
-    return (
-      <div
-        className="w-full md:w-[300px] p-6 bg-white rounded-xl shadow-md transition-transform hover:scale-105"
-        data-aos={index % 2 === 0 ? "zoom-in-left" : "zoom-in-right"}
-      >
-        <img src={image} alt={title} className="h-20 w-20 mx-auto mb-4" />
-        <h3 className="text-xl font-bold mb-2 text-center text-gray-800">
-          {title}
-        </h3>
-        <p className="text-gray-600 text-center">{description}</p>
+  const StepCard = ({ title, description, index, image }) => {
+  const isReverse = index % 2 !== 0;
+
+  return (
+    <div
+      className={`flex flex-col md:flex-row ${
+        isReverse ? 'md:flex-row-reverse' : ''
+      } w-full max-w-5xl h-[300px] bg-white overflow-hidden`}
+    >
+      {/* Image Section with Zoom Effect */}
+      <div className="w-full md:w-1/2 h-full overflow-hidden group">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+        />
       </div>
-    );
-  };
+
+      {/* Content Section */}
+      <div className="w-full md:w-1/2 h-full p-6 flex flex-col justify-center bg-[#F9F9F9]">
+        <h3 className="text-xl font-bold mb-2 text-gray-800">{title}</h3>
+        <p className="text-gray-600">{description}</p>
+      </div>
+    </div>
+  );
+};
+
+
   return (
     <div>
       <Navbar />
@@ -279,17 +293,18 @@ const SeoHandling = () => {
         {/* Steps Section */}
         <div className="flex flex-col items-center space-y-10">
           {/* Step Components with Zoom-in Effects */}
-          <div className="flex flex-wrap justify-center gap-6 px-4 py-10">
-            {steps.map((step, index) => (
-              <StepCard
-                key={index}
-                title={step.title}
-                description={step.description}
-                index={index}
-                image={step.image}
-              />
-            ))}
-          </div>
+         <div className="flex flex-col items-center">
+  {steps.map((step, index) => (
+    <StepCard
+      key={index}
+      title={step.title}
+      description={step.description}
+      index={index}
+      image={step.image}
+    />
+  ))}
+</div>
+
         </div>
       </div>
 
