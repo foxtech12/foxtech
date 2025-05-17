@@ -16,6 +16,7 @@ import img3 from "../img3.avif";
 import img4 from "../img3.avif";
 import img5 from "../img5.avif";
 
+
 const Content = () => {
   const solutions = [
     {
