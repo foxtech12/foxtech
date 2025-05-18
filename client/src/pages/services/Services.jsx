@@ -22,6 +22,11 @@ import { useNavigate } from "react-router-dom";
 import ContactFoot from "../../component/ContactFooter/ContactFoot";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 gsap.registerPlugin(ScrollTrigger);
 const Services = () => {
   const cardRef = useRef(null);
@@ -111,6 +116,83 @@ const Services = () => {
     // Add more cards as needed
   ];
 
+    const cards1 = [
+      {
+        name: "Content Creation",
+        role: "Exceptional Content Creation Captivate, Engage, and Convert Elevate your brand’s voice with our innovative content creation services.",
+        gradientFrom: "from-sky-200",
+        gradientVia: "via-orange-200",
+        gradientTo: "to-orange-700",
+        nameNavi: "content",
+        image: first,
+      },
+      {
+        name: "Social Media Marketing",
+        role: "Harness the power of social media to connect with your audience and drive real results.",
+        gradientFrom: "from-sky-200",
+        gradientVia: "via-orange-200",
+        gradientTo: "to-orange-700",
+        nameNavi: "social",
+        image: sec,
+      },
+      {
+        name: "Web Development Service",
+        role: "At Foxteach, we specialize in creating stunning, functional, and user-friendly websites that drive engagement and conversions. ",
+        gradientFrom: "from-sky-200",
+        gradientVia: "via-orange-200",
+        gradientTo: "to-orange-700",
+        nameNavi: "web",
+        image: third,
+      },
+      {
+        name: "Application development Services",
+        role: "At Foxteach, we specialize in developing custom applications that deliver exceptional user experiences and drive business success.",
+        gradientFrom: "from-sky-200",
+        gradientVia: "via-orange-200",
+        gradientTo: "to-orange-700",
+        nameNavi: "application",
+        image: four,
+      },
+      {
+        name: "SEO Handling services",
+        role: "At foxteach, we specialize in SEO strategies that enhance your websites visibility, drive organic traffic, and improve search engine rankings.",
+        gradientFrom: "from-sky-200",
+        gradientVia: "via-orange-200",
+        gradientTo: "to-orange-700",
+        nameNavi: "seo",
+        image: fiv,
+      },
+      {
+        name: "Personal Branding Service",
+        role: "At Foxteach, we help individuals create powerful personal brands that stand out in a crowded market.",
+        gradientFrom: "from-sky-200",
+        gradientVia: "via-orange-200",
+        gradientTo: "to-orange-700",
+        nameNavi: "personal",
+        image: six,
+      },
+    ];
+  
+    const Card1 = ({ name, role, image, nameNavi }) => {
+      return (
+        <div
+          className="bg-white rounded shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full h-full flex flex-col"
+          onClick={() => navigate(`/${nameNavi}`)}
+        >
+          <div className="h-40 w-full overflow-hidden rounded-t">
+            <img
+              src={image}
+              alt={name}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          <div className="flex-grow p-4 flex flex-col justify-between">
+            <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
+            <p className="text-sm text-gray-600 mt-2">{role}</p>
+          </div>
+        </div>
+      );
+    };
   const Card = ({ name, role, nameNavi, image }) => {
     return (
       <div className="group relative  w-80 min-h-[20rem] rounded-2xl overflow-hidden flex flex-col items-center text-center">
@@ -297,25 +379,36 @@ const Services = () => {
         </div>
 
         {/* Cards Container */}
-        <div
-          className="container mx-auto px-8 py-8 flex justify-center items-center"
-          data-aos="fade-up"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
-            {cards.map((card, index) => (
-              <Card
-                key={index}
-                name={card.name}
-                role={card.role}
-                gradientFrom={card.gradientFrom}
-                gradientVia={card.gradientVia}
-                gradientTo={card.gradientTo}
-                nameNavi={card.nameNavi}
-                image={card.image}
-              />
-            ))}
+       <div className="w-full max-w-5xl mx-auto py-10 px-4">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={20}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              breakpoints={{
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+            >
+              {cards1.map((card, index) => (
+                <SwiperSlide key={index}>
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-[260px] h-[340px]" // fixed width and height
+                  >
+                    <Card1
+                      name={card.name}
+                      role={card.role}
+                      image={card.image}
+                      nameNavi={card.nameNavi}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
-        </div>
       </div>
 
       <div className="text-center mt-8">

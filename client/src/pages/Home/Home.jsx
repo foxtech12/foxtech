@@ -24,7 +24,11 @@ import b from "./image/b.png";
 import c from "./image/c.png";
 import d from "./image/d.png";
 import e from "./image/e.png";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import ContentCards from "../../component/About/AboutContent";
 import { useNavigate } from "react-router-dom";
 import Testimonial from "../../component/testimonial/Testimonial";
@@ -263,23 +267,35 @@ const Home = () => {
           </div>
 
           {/* Cards Container */}
-          <div className="container mx-auto px-4 py-12" data-aos="fade-up">
-            {/* Horizontal Scroll Section */}
-            <div className="flex overflow-x-auto space-x-6 scrollbar-hide px-2">
+          <div className="w-full max-w-5xl mx-auto py-10 px-4">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={20}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              breakpoints={{
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+            >
               {cards.map((card, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-[260px] h-[340px]" // fixed width and height
-                >
-                  <Card
-                    name={card.name}
-                    role={card.role}
-                    image={card.image}
-                    nameNavi={card.nameNavi}
-                  />
-                </div>
+                <SwiperSlide key={index}>
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-[260px] h-[340px]" // fixed width and height
+                  >
+                    <Card
+                      name={card.name}
+                      role={card.role}
+                      image={card.image}
+                      nameNavi={card.nameNavi}
+                    />
+                  </div>
+                </SwiperSlide>
               ))}
-            </div>
+            </Swiper>
           </div>
         </div>
 
@@ -387,9 +403,9 @@ const Home = () => {
             </div>
           </div>
 
-           <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
-      <ContentCards />
-    </div>
+          <div className="flex justify-center flex-col px-5 sm:px-[10%] items-center">
+            <ContentCards />
+          </div>
 
           {/* WHY FOXTECH */}
           <div className="flex justify-center flex-col items-center">

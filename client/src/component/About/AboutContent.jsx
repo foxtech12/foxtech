@@ -66,12 +66,6 @@ const ContentCards = () => {
         <div className="w-full sm:w-1/2 h-full p-5 bg-[#E7FFE7] flex flex-col justify-center items-center text-center">
   <h3 className="text-lg sm:text-xl font-bold text-black mb-2">{card.title}</h3>
   <p className="text-sm sm:text-base text-gray-700 mb-4">{card.description}</p>
-  <Link
-    to={card.link}
-    className="text-sm font-semibold text-green-700 hover:underline"
-  >
-    READ MORE &gt;
-  </Link>
 </div>
 
     </div>
