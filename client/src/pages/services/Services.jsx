@@ -11,7 +11,7 @@ import third from "../images/3rd.png";
 import four from "../images/4th.png";
 import fiv from "../images/5th.png";
 import six from "../images/6th.png";
-import eventBg from "../images/eventbg.png";
+import eventBg from "../../pages/2.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./service.css";

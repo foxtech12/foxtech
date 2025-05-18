@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import Footer from "../../component/Footer/Footer";
-import eventBg from "../images/eventbg.png";
+import eventBg from "../../pages/4.png";
 import "./team.css";
 import Loader from "../../component/Loader/Loader";
 import axios from "axios";

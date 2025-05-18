@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../../component/Navbar/Navbar";
-import eventBg from "../images/eventbg.png";
+import eventBg from "../../pages/8.png";
 import Footer from "../../component/Footer/Footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

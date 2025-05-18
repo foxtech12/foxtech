@@ -11,7 +11,7 @@ import "aos/dist/aos.css";
 import "swiper/swiper-bundle.css";
 import "./social.css";
 import ContactFoot from "../../component/ContactFooter/ContactFoot";
-import eventBg from "../images/eventbg.png";
+import eventBg from "../../pages/5.png";
 import img1 from "../img1.avif";
 import img2 from "../img2.avif";
 import img3 from "../img3.avif";

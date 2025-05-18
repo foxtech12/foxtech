@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Navbar from "../../component/Navbar/Navbar";
 import Footer from "../../component/Footer/Footer";
-import eventBg from "../images/eventbg.png";
+import eventBg from "../../pages/3.png";
 import { useEffect, useState } from "react";
 import ContactForm from "../../component/contactPageFor/contactPageForm";
 import "./contact.css";

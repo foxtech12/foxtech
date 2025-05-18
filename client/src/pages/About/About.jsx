@@ -3,7 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import Navbar from "../../component/Navbar/Navbar";
 import ContactFoot from "../../component/ContactFooter/ContactFoot";
 import Footer from "../../component/Footer/Footer";
-import eventBg from "../images/eventbg.png";
+import eventBg from "../../pages/1.png";
 import "./about.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
